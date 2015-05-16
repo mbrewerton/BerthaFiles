@@ -1,0 +1,59 @@
+﻿@using SquishIt.Framework;
+@using bundle = SquishIt.Framework.Bundle;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+@if (MvcApplication.Environment == "Dev")
+{
+    <div style="width: 100%; height: 25px; background-color: red; color: white; text-align: center;">
+        WARNING: Enviroment - Development
+    </div>
+}
+@Html.Encode(Guid.NewGuid())
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Application name", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+</div>
+    <script src="~/Scripts/j/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/j/angular.min.js"></script>
+    <script src="~/Scripts/j/angular-route.min.js"></script>
+    <script src="~/Scripts/j/angular-resource.min.js"></script>
+    <script src="~/Scripts/j/angular-animate.min.js"></script>
+    <script src="~/Scripts/j/toastr.min.js"></script>
+    <script src="~/Scripts/j/underscore-min.js"></script>
+<script>
+    console.log($);
+</script>
+</body>
+
+</html>
