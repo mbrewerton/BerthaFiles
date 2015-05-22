@@ -15,17 +15,18 @@ namespace BerthaSounds.Controllers.Areas.Admin
     public class AdminController : ApiController
     {
         private readonly ISoundService _soundService;
+        private readonly ICouponService _couponService;
 
-        public AdminController(ISoundService soundService)
+        public AdminController(ISoundService soundService, ICouponService couponService)
         {
             _soundService = soundService;
+            _couponService = couponService;
         }
 
         [HttpGet]
         [GET("GetAllSounds")]
         public HttpResponseMessage GetAllSounds()
         {
-            //var service = new SoundService();
             var sounds = _soundService.GetAllSounds();
             return Request.CreateResponse(HttpStatusCode.OK, sounds);
         }
@@ -34,30 +35,20 @@ namespace BerthaSounds.Controllers.Areas.Admin
         [GET("GetAllCoupons")]
         public HttpResponseMessage GetAllCoupons()
         {
-            var service = new CouponService();
-            return Request.CreateResponse(HttpStatusCode.OK, service.GetAllCoupons());
+            return Request.CreateResponse(HttpStatusCode.OK, _couponService.GetAllCoupons());
         }
 
         [HttpPost]
         [POST("SaveCoupon")]
         public HttpResponseMessage SaveCoupon(Coupon couponDto)
         {
-            var service = new CouponService();
-            service.SaveCoupon(couponDto);
+            _couponService.SaveCoupon(couponDto);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpPost]
         [POST("UploadSound")]
         public HttpResponseMessage UploadSound(HttpPostedFileBase soundFile)
-        {
-            //var service = new SoundService();
-
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
-
-        [HttpPost]
-        public HttpResponseMessage Post()
         {
             return Request.CreateResponse(HttpStatusCode.OK);
         }

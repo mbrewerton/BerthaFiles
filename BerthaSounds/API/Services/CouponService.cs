@@ -8,7 +8,7 @@ using API.Models.DbContexts;
 
 namespace API.Services
 {
-    public class CouponService
+    public class CouponService : ICouponService
     {
         public IEnumerable<Coupon> GetAllCoupons()
         {

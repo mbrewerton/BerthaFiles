@@ -1,5 +1,7 @@
 using System.Web.Http;
 using API;
+using API.Repositories;
+using API.Services;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BerthaSounds.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(BerthaSounds.App_Start.NinjectWebCommon), "Stop")]
@@ -66,11 +68,10 @@ namespace BerthaSounds.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(x => x.FromThisAssembly().SelectAllClasses().BindDefaultInterfaces());
-            kernel.Bind(x => x.FromThisAssembly()
+            kernel.Bind(x => x.FromAssemblyContaining<IUnitOfWork>()
                 .SelectAllClasses()
-                .EndingWith("Service")
-                .BindDefaultInterfaces());
+                .Excluding<IUnitOfWork>()
+                .BindDefaultInterface());
 
             kernel.Load(new CustomServiceRegistrationModule());
         }        

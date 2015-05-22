@@ -142,9 +142,13 @@
     <Compile Include="Models\Coupon.cs" />
     <Compile Include="Models\Sound.cs" />
     <Compile Include="Models\SoundPack.cs" />
+    <Compile Include="Repositories\IObjectContext.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\SoundRepository.cs" />
-    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\CouponService.cs" />
+    <Compile Include="Repositories\IUnitOfWork.cs" />
+    <Compile Include="Services\ICouponService.cs" />
     <Compile Include="Services\ISoundService.cs" />
     <Compile Include="Services\SoundService.cs" />
     <Compile Include="Services\UserService.cs" />

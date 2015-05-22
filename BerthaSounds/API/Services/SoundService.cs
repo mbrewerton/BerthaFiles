@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using API.Models;
 using API.Models.DbContexts;
 using API.Models.Dtos;
+using API.Repositories;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -14,10 +15,7 @@ namespace API.Services
 {
     public class SoundService : ISoundService
     {
-        public SoundService()
-        {
-        }
-
+        private readonly IRepository<Sound> _soundRepository; 
         public IEnumerable<Sound> GetAllSounds()
         {
             var sounds = new List<Sound>();
