@@ -99,6 +99,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomServiceRegistrationModule.cs" />
     <Compile Include="Migrations\201505180758407_InitialSetup.cs" />
     <Compile Include="Migrations\201505180758407_InitialSetup.Designer.cs">
       <DependentUpon>201505180758407_InitialSetup.cs</DependentUpon>
