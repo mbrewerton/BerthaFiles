@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace API.Services
 {
-    public class SoundService
+    public class SoundService : ISoundService
     {
         public SoundService()
         {

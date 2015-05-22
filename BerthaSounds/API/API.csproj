@@ -144,6 +144,7 @@
     <Compile Include="Repositories\SoundRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Services\CouponService.cs" />
+    <Compile Include="Services\ISoundService.cs" />
     <Compile Include="Services\SoundService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\RolesService.cs" />

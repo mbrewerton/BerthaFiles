@@ -14,13 +14,9 @@ namespace BerthaSounds.Controllers.Areas.Admin
     [RoutePrefix("api/Admin")]
     public class AdminController : ApiController
     {
-        private readonly SoundService _soundService;
+        private readonly ISoundService _soundService;
 
-        public AdminController()
-        {
-        }
-
-        public AdminController(SoundService soundService)
+        public AdminController(ISoundService soundService)
         {
             _soundService = soundService;
         }
@@ -29,8 +25,8 @@ namespace BerthaSounds.Controllers.Areas.Admin
         [GET("GetAllSounds")]
         public HttpResponseMessage GetAllSounds()
         {
-            var service = new SoundService();
-            var sounds = service.GetAllSounds();
+            //var service = new SoundService();
+            var sounds = _soundService.GetAllSounds();
             return Request.CreateResponse(HttpStatusCode.OK, sounds);
         }
 
@@ -55,7 +51,7 @@ namespace BerthaSounds.Controllers.Areas.Admin
         [POST("UploadSound")]
         public HttpResponseMessage UploadSound(HttpPostedFileBase soundFile)
         {
-            var service = new SoundService();
+            //var service = new SoundService();
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
