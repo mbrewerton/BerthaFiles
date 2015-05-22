@@ -21,7 +21,7 @@ namespace BerthaSounds.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("BerthaContext", throwIfV1Schema: false)
         {
         }
 

@@ -8,12 +8,14 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Configuration;
+using System.Data.Entity;
 
 namespace BerthaSounds
 {
     public class MvcApplication : System.Web.HttpApplication
     {
         public static string Environment = ConfigurationManager.AppSettings["Environment"];
+        public static string ApplicationName = ConfigurationManager.AppSettings["ApplicationName"];
 
         protected void Application_Start()
         {

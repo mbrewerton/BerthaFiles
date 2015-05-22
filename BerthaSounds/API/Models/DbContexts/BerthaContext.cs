@@ -11,5 +11,8 @@ namespace API.Models.DbContexts
     public class BerthaContext : DbContext
     {
         public DbSet<Sound> Sound { get; set; }
+        public DbSet<SoundPack> SoundPack { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Coupon> Coupon { get; set; }
     }
 }

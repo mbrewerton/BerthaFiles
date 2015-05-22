@@ -1,5 +1,5 @@
 ﻿@using SquishIt.Framework;
-@using bundle = SquishIt.Framework.Bundle;
+@using Bundle = SquishIt.Framework.Bundle;
 
 <!DOCTYPE html>
 <html>
@@ -8,42 +8,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/c/toastr.min.css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/scripts")
 
 </head>
 <body>
-@if (MvcApplication.Environment == "Dev")
-{
-    <div style="width: 100%; height: 25px; background-color: red; color: white; text-align: center;">
-        WARNING: Enviroment - Development
-    </div>
-}
-@Html.Encode(Guid.NewGuid())
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("Application name", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+    @if (MvcApplication.Environment != "Live")
+    {
+        <div style="width: 100%; height: 25px; background-color: red; color: white; text-align: center;">
+            @Html.Encode("WARNING: Environment - " + MvcApplication.Environment)
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-            </ul>
-            @Html.Partial("_LoginPartial")
+    }
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(MvcApplication.ApplicationName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
     </div>
-</div>
-<div class="container body-content">
-    @RenderBody()
-    <hr/>
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
-</div>
+    <div ng-app="bertha" ng-controller="pageController" class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
     <script src="~/Scripts/j/jquery-1.10.2.js"></script>
     <script src="~/Scripts/j/angular.min.js"></script>
     <script src="~/Scripts/j/angular-route.min.js"></script>
@@ -51,9 +52,28 @@
     <script src="~/Scripts/j/angular-animate.min.js"></script>
     <script src="~/Scripts/j/toastr.min.js"></script>
     <script src="~/Scripts/j/underscore-min.js"></script>
-<script>
-    console.log($);
-</script>
+
+    @*<script src="~/Content/bertha.js"></script>
+        <script src="~/Content/bertha.underscore.js"></script>
+        <script src="~/Content/Areas/Admin/Controllers/adminController.js"></script>*@
+
+    @Html.Raw(Bundle.JavaScript()
+    .Add("~/Content/bertha.js")
+    .Add("~/Content/bertha.toastr.js")
+    .Add("~/Content/bertha.underscore.js")
+    .AddDirectory("~/Content")
+    .AddDirectory("~/Content/directives")
+            .AddDirectory("~/Content/Areas/Admin/Controllers")
+            .AddDirectory("~/Content/Areas/Admin/Resources")
+            .Render("~/Content/min/js_#.js")
+    )
+    <script>
+        console.log($);
+    </script>
 </body>
+
+
+
+
 
 </html>

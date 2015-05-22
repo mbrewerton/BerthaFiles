@@ -198,7 +198,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Areas\Admin\AdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -211,8 +213,18 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Areas\Admin\Controllers\couponManagementController.js" />
+    <Content Include="Content\Areas\Admin\Controllers\soundManagementController.js" />
+    <Content Include="Content\Areas\Admin\Controllers\adminController.js" />
+    <Content Include="Content\Areas\Admin\Resources\adminResource.js" />
+    <Content Include="Content\Areas\Admin\Templates\couponManagement.html" />
+    <Content Include="Content\Areas\Admin\Templates\soundManagement.html" />
+    <Content Include="Content\bertha.js" />
+    <Content Include="Content\bertha.toastr.js" />
+    <Content Include="Content\bertha.underscore.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\c\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -223,7 +235,9 @@
     <Content Include="Scripts\j\angular-animate.min.js" />
     <Content Include="Scripts\j\angular-resource.min.js" />
     <Content Include="Scripts\j\angular-route.min.js" />
+    <Content Include="Scripts\j\angular-upload.js" />
     <Content Include="Scripts\j\angular.min.js" />
+    <Content Include="Content\directives\bth.fileUpload.js" />
     <Content Include="Scripts\j\jquery-1.10.2.js" />
     <Content Include="Scripts\j\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -237,7 +251,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -271,9 +287,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Reporting.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Areas\Home\" />
     <Folder Include="Scripts\j\jquery\" />
     <Folder Include="Scripts\j\min\" />
   </ItemGroup>
@@ -283,6 +301,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API\API.csproj">
+      <Project>{9f048bcc-b6f0-42bb-9b7c-7080870922be}</Project>
+      <Name>API</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
