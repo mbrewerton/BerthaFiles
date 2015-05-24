@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using API.Models.DbContexts;
 using Ninject.Modules;
+using API.Repositories;
+using Ninject.Web.Common;
 
 namespace API
 {
@@ -13,7 +15,9 @@ namespace API
     {
         public override void Load()
         {
-            Bind<DbContext>().ToConstructor(x => new BerthaContext());
+            Bind<DbContext>().ToConstructor(x => new BerthaContext()).InRequestScope();
+            Bind<IObjectContext>().To<ObjectContext>().InRequestScope();
+            Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace BerthaSounds.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Extensions.Conventions;
+    using Ninject.Activation.Strategies;
 
     public static class NinjectWebCommon 
     {
@@ -48,6 +49,7 @@ namespace BerthaSounds.App_Start
             var kernel = new StandardKernel();
             try
             {
+                kernel.Components.Add<IActivationStrategy, CustomActivationStrategy>();
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
@@ -70,7 +72,12 @@ namespace BerthaSounds.App_Start
         {
             kernel.Bind(x => x.FromAssemblyContaining<IUnitOfWork>()
                 .SelectAllClasses()
-                .Excluding<IUnitOfWork>()
+                .EndingWith("Repository")
+                .BindDefaultInterfaces());
+
+            kernel.Bind(x => x.FromAssemblyContaining<IUnitOfWork>()
+                .SelectAllClasses()
+                .EndingWith("Service")
                 .BindDefaultInterface());
 
             kernel.Load(new CustomServiceRegistrationModule());

@@ -144,13 +144,14 @@
     <Compile Include="Models\SoundPack.cs" />
     <Compile Include="Repositories\IObjectContext.cs" />
     <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Repositories\UnitOfWork.cs" />
-    <Compile Include="Repositories\SoundRepository.cs" />
-    <Compile Include="Services\CouponService.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Services\CouponService.cs" />
     <Compile Include="Services\ICouponService.cs" />
     <Compile Include="Services\ISoundService.cs" />
+    <Compile Include="Services\ITestService.cs" />
     <Compile Include="Services\SoundService.cs" />
+    <Compile Include="Services\TestService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\RolesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

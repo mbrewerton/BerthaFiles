@@ -11,6 +11,7 @@ namespace API.Repositories
     {
         private readonly IObjectContext _context;
 
+        [Inject]
         public UnitOfWork(IObjectContext context)
         {
             _context = context;

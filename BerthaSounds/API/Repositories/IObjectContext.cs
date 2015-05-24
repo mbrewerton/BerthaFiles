@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections;
 using System.Data.Entity;
 
@@ -14,6 +15,12 @@ namespace API.Repositories
     public class ObjectContext : IObjectContext
     {
         readonly DbContext _context;
+
+        [Inject]
+        public ObjectContext(DbContext context)
+        {
+            _context = context;
+        }
 
         public IDbSet<T> CreateObjectSet<T>() where T : class
         {

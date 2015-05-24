@@ -16,18 +16,30 @@ namespace API.Services
     public class SoundService : ISoundService
     {
         private readonly IRepository<Sound> _soundRepository; 
+        private readonly IUnitOfWork _unitOfWork;
+
+        public SoundService(IRepository<Sound> soundRepository, IUnitOfWork unitOfWork)
+        {
+            _soundRepository = soundRepository;
+            _unitOfWork = unitOfWork;
+        }
+
         public IEnumerable<Sound> GetAllSounds()
         {
-            var sounds = new List<Sound>();
-            using (var db = new BerthaContext())
-            {
-                if (db.Sound.Any())
-                {
-                    sounds = db.Sound.ToList();
-                }
-            }
+            if (_soundRepository.GetAll().Any())
+                return _soundRepository.GetAll();
+            else
+                return null;
+            //var sounds = new List<Sound>();
+            //using (var db = new BerthaContext())
+            //{
+            //    if (db.Sound.Any())
+            //    {
+            //        sounds = db.Sound.ToList();
+            //    }
+            //}
 
-            return sounds;
+            //return sounds;
         }
 
         public void UploadSound(List<SoundDto> sound)
