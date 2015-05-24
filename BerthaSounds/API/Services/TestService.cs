@@ -11,12 +11,15 @@ namespace API.Services
 {
     public class TestService : API.Services.ITestService
     {
-        private readonly IRepository<Sound> _repo;
+        /* Test service runs perfectly fine without using a Repository.
+         * When a repository is added to the service, the AdminController
+         * no longer gets as far as the TestService. */
+        //private readonly IRepository<Sound> _repo;
 
-        public TestService(IRepository<Sound> repo)
-        {
-            _repo = repo;
-        }
+        //public TestService(IRepository<Sound> repo)
+        //{
+        //    _repo = repo;
+        //}
         public void Log()
         {
             Debug.WriteLine(">> Hit service");

@@ -21,14 +21,14 @@ namespace BerthaSounds.Controllers.Areas.Admin
         public AdminController(ITestService test)
         {
             _test = test;
-            Log();
+
+            // Calls the Log() method in the TestService to write into the Debugger to check
+            // it's being hit.
+            _test.Log();
+
+
             //_soundService = soundService;
             //_couponService = couponService;
-        }
-
-        public void Log()
-        {
-            _test.Log();
         }
 
         //[HttpGet]

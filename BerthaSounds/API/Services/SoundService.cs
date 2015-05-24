@@ -30,6 +30,8 @@ namespace API.Services
                 return _soundRepository.GetAll();
             else
                 return null;
+
+            // Old DB access code, remove when Repositories are implemented.
             //var sounds = new List<Sound>();
             //using (var db = new BerthaContext())
             //{
