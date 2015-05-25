@@ -36,7 +36,7 @@ namespace BerthaSounds
         {
             Bundle.Css()
                 .AddDirectory("~/Content/c")
-                .AsCached("styles", "~/assets/c/style");
+                .AsCached("styles", "~/assets/css/style");
             
             Bundle.JavaScript()
                 .Add("~/Content/j/common/jquery-1.10.2.min.js")
@@ -52,7 +52,7 @@ namespace BerthaSounds
                 // Add each area individually
                 .AddDirectory("~/Content/Areas/Admin/Controllers")
                 .AddDirectory("~/Content/Areas/Admin/Resources")
-                .AsCached("jslibs", "~/assets/j/jslibs");
+                .AsCached("jslibs", "~/assets/js/jslibs");
         }
     }
 }

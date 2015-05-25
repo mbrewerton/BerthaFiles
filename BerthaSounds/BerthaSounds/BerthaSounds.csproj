@@ -248,6 +248,7 @@
     <Content Include="Content\c\bootstrap.css" />
     <Content Include="Content\c\bootstrap.min.css" />
     <Content Include="Content\c\toastr.min.css" />
+    <Content Include="Content\j\angular\pageController.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
