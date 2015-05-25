@@ -61,7 +61,7 @@ namespace BerthaSounds
             {
                 Bundle.JavaScript()
                     .AddRemote("~/Content/j/common", "https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js")
-                    .AddRemote("~/Content/j/common", "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.jss")
+                    .AddRemote("~/Content/j/common", "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js")
                     .AddRemote("~/Content/j/common", "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.min.js")
                     .AddRemote("~/Content/j/common", "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-resource.min.js")
                     .AddRemote("~/Content/j/common", "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js")
