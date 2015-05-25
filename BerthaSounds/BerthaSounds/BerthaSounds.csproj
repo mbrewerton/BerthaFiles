@@ -80,6 +80,9 @@
     <Reference Include="SquishIt.Framework">
       <HintPath>..\packages\SquishIt.0.9.7\lib\SquishIt.Framework.dll</HintPath>
     </Reference>
+    <Reference Include="SquishIt.Mvc">
+      <HintPath>..\packages\SquishIt.Mvc.0.9.7\lib\SquishIt.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -220,6 +223,7 @@
     <Compile Include="Controllers\Areas\Admin\AdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AssetsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,38 +242,38 @@
     <Content Include="Content\Areas\Admin\Resources\adminResource.js" />
     <Content Include="Content\Areas\Admin\Templates\couponManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\soundManagement.html" />
-    <Content Include="Content\bertha.js" />
-    <Content Include="Content\bertha.toastr.js" />
-    <Content Include="Content\bertha.underscore.js" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\j\angular\bertha.js" />
+    <Content Include="Content\j\angular\bertha.toastr.js" />
+    <Content Include="Content\j\angular\bertha.underscore.js" />
+    <Content Include="Content\c\bootstrap.css" />
+    <Content Include="Content\c\bootstrap.min.css" />
     <Content Include="Content\c\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\j\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\j\angular-animate.min.js" />
-    <Content Include="Scripts\j\angular-resource.min.js" />
-    <Content Include="Scripts\j\angular-route.min.js" />
-    <Content Include="Scripts\j\angular-upload.js" />
-    <Content Include="Scripts\j\angular.min.js" />
-    <Content Include="Content\directives\bth.fileUpload.js" />
-    <Content Include="Scripts\j\jquery-1.10.2.js" />
-    <Content Include="Scripts\j\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\j\toastr.min.js" />
-    <Content Include="Scripts\j\underscore-min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="Content\c\Site.css" />
+    <Content Include="Content\j\common\bootstrap.js" />
+    <Content Include="Content\j\common\bootstrap.min.js" />
+    <None Include="Content\j\common\jquery-1.10.2.intellisense.js" />
+    <Content Include="Content\j\common\angular-animate.min.js" />
+    <Content Include="Content\j\common\angular-resource.min.js" />
+    <Content Include="Content\j\common\angular-route.min.js" />
+    <Content Include="Content\j\common\angular-upload.js" />
+    <Content Include="Content\j\common\angular.min.js" />
+    <Content Include="Content\j\directives\bth.fileUpload.js" />
+    <Content Include="Content\j\common\jquery-1.10.2.js" />
+    <Content Include="Content\j\common\jquery-1.10.2.min.js" />
+    <None Include="Content\j\common\jquery.validate-vsdoc.js" />
+    <Content Include="Content\j\common\jquery.validate.js" />
+    <Content Include="Content\j\common\jquery.validate.min.js" />
+    <Content Include="Content\j\common\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\j\common\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\j\custom\toastr.min.js" />
+    <Content Include="Content\j\custom\underscore-min.js" />
+    <Content Include="Content\j\common\modernizr-2.6.2.js" />
+    <Content Include="Content\j\common\respond.js" />
+    <Content Include="Content\j\common\respond.min.js" />
+    <Content Include="Content\j\common\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -283,7 +287,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\j\jquery-1.10.2.min.map" />
+    <Content Include="Content\j\common\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -311,8 +315,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Areas\Home\" />
-    <Folder Include="Scripts\j\jquery\" />
-    <Folder Include="Scripts\j\min\" />
+    <Folder Include="Views\Assets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

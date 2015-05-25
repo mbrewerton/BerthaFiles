@@ -9,6 +9,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Configuration;
 using System.Data.Entity;
+using SquishIt.Framework;
+using Bundle = SquishIt.Framework.Bundle;
 
 namespace BerthaSounds
 {
@@ -23,7 +25,34 @@ namespace BerthaSounds
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            /* Replaced with SquishIt in-memory bundling */
+            //BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Application_Bundle();
+        }
+
+        protected void Application_Bundle()
+        {
+            Bundle.Css()
+                .AddDirectory("~/Content/c")
+                .AsCached("styles", "~/assets/c/style");
+            
+            Bundle.JavaScript()
+                .Add("~/Content/j/common/jquery-1.10.2.min.js")
+                .Add("~/Content/j/common/angular.min.js")
+                .Add("~/Content/j/common/angular-route.min.js")
+                .Add("~/Content/j/common/angular-resource.min.js")
+                .Add("~/Content/j/common/angular-animate.min.js")
+                .Add("~/Content/j/common/bootstrap.min.js")
+                .Add("~/Content/j/common/jquery.validate.min.js")
+                .AddDirectory("~/Content/j/custom")
+                .AddDirectory("~/Content/j/angular")
+                .AddDirectory("~/Content/j/directives")
+                // Add each area individually
+                .AddDirectory("~/Content/Areas/Admin/Controllers")
+                .AddDirectory("~/Content/Areas/Admin/Resources")
+                .AsCached("jslibs", "~/assets/j/jslibs");
         }
     }
 }

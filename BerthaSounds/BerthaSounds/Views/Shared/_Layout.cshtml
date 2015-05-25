@@ -1,4 +1,5 @@
 ﻿@using SquishIt.Framework;
+@using SquishIt.Mvc;
 @using Bundle = SquishIt.Framework.Bundle;
 
 <!DOCTYPE html>
@@ -7,10 +8,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/css")
     @Styles.Render("~/Content/c/toastr.min.css")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/scripts")
+    @Scripts.Render("~/bundles/scripts")*@
 
 </head>
 <body>
@@ -45,19 +46,19 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-    <script src="~/Scripts/j/jquery-1.10.2.js"></script>
+    @*<script src="~/Scripts/j/jquery-1.10.2.js"></script>
     <script src="~/Scripts/j/angular.min.js"></script>
     <script src="~/Scripts/j/angular-route.min.js"></script>
     <script src="~/Scripts/j/angular-resource.min.js"></script>
     <script src="~/Scripts/j/angular-animate.min.js"></script>
     <script src="~/Scripts/j/toastr.min.js"></script>
-    <script src="~/Scripts/j/underscore-min.js"></script>
+    <script src="~/Scripts/j/underscore-min.js"></script>*@
 
     @*<script src="~/Content/bertha.js"></script>
         <script src="~/Content/bertha.underscore.js"></script>
         <script src="~/Content/Areas/Admin/Controllers/adminController.js"></script>*@
 
-    @Html.Raw(Bundle.JavaScript()
+    @*@Html.Raw(Bundle.JavaScript()
     .Add("~/Content/bertha.js")
     .Add("~/Content/bertha.toastr.js")
     .Add("~/Content/bertha.underscore.js")
@@ -66,7 +67,11 @@
             .AddDirectory("~/Content/Areas/Admin/Controllers")
             .AddDirectory("~/Content/Areas/Admin/Resources")
             .Render("~/Content/min/js_#.js")
-    )
+    )*@
+
+    @Bundle.Css().MvcRenderCachedAssetTag("styles")
+    @Bundle.JavaScript().MvcRenderCachedAssetTag("jslibs")
+
     <script>
         console.log($);
     </script>
