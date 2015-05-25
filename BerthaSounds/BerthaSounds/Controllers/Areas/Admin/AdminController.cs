@@ -8,6 +8,9 @@ using System.Web.Http;
 using API.Models;
 using AttributeRouting.Web.Http;
 using API.Services;
+using API.Models.DbContexts;
+using API.Repositories;
+using System.Diagnostics;
 
 namespace BerthaSounds.Controllers.Areas.Admin
 {
@@ -16,49 +19,41 @@ namespace BerthaSounds.Controllers.Areas.Admin
     {
         private readonly ISoundService _soundService;
         private readonly ICouponService _couponService;
-        private readonly ITestService _test;
 
-        public AdminController(ITestService test)
+        public AdminController(ISoundService soundService, ICouponService couponService)
         {
-            _test = test;
-
-            // Calls the Log() method in the TestService to write into the Debugger to check
-            // it's being hit.
-            _test.Log();
-
-
-            //_soundService = soundService;
-            //_couponService = couponService;
+            _soundService = soundService;
+            _couponService = couponService;
         }
 
-        //[HttpGet]
-        //[GET("GetAllSounds")]
-        //public HttpResponseMessage GetAllSounds()
-        //{
-        //    var sounds = _soundService.GetAllSounds();
-        //    return Request.CreateResponse(HttpStatusCode.OK, sounds);
-        //}
+        [HttpGet]
+        [GET("GetAllSounds")]
+        public HttpResponseMessage GetAllSounds()
+        {
+            var sounds = _soundService.GetAllSounds();
+            return Request.CreateResponse(HttpStatusCode.OK, sounds);
+        }
 
-        //[HttpGet]
-        //[GET("GetAllCoupons")]
-        //public HttpResponseMessage GetAllCoupons()
-        //{
-        //    return Request.CreateResponse(HttpStatusCode.OK, _couponService.GetAllCoupons());
-        //}
+        [HttpGet]
+        [GET("GetAllCoupons")]
+        public HttpResponseMessage GetAllCoupons()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, _couponService.GetAllCoupons());
+        }
 
-        //[HttpPost]
-        //[POST("SaveCoupon")]
-        //public HttpResponseMessage SaveCoupon(Coupon couponDto)
-        //{
-        //    _couponService.SaveCoupon(couponDto);
-        //    return Request.CreateResponse(HttpStatusCode.OK);
-        //}
+        [HttpPost]
+        [POST("SaveCoupon")]
+        public HttpResponseMessage SaveCoupon(Coupon couponDto)
+        {
+            _couponService.SaveCoupon(couponDto);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
 
-        //[HttpPost]
-        //[POST("UploadSound")]
-        //public HttpResponseMessage UploadSound(HttpPostedFileBase soundFile)
-        //{
-        //    return Request.CreateResponse(HttpStatusCode.OK);
-        //}
+        [HttpPost]
+        [POST("UploadSound")]
+        public HttpResponseMessage UploadSound(HttpPostedFileBase soundFile)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
     }
 }

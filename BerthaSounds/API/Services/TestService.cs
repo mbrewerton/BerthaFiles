@@ -23,7 +23,7 @@ namespace API.Services
         public void Log()
         {
             Debug.WriteLine(">> Hit service");
-            Debug.WriteLine(_repo.ToString());
+            //Debug.WriteLine(_repo.ToString());
         }
     }
 }

@@ -145,6 +145,8 @@
     <Compile Include="Repositories\IObjectContext.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\Repositories.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Services\CouponService.cs" />
     <Compile Include="Services\ICouponService.cs" />
