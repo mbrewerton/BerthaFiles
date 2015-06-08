@@ -42,22 +42,6 @@
     <Reference Include="AjaxMin">
       <HintPath>..\packages\AjaxMin.4.48.4489.28432\lib\net20\AjaxMin.dll</HintPath>
     </Reference>
-    <Reference Include="AttributeRouting, Version=3.5.6.0, Culture=neutral, PublicKeyToken=c10f85d521a011a9, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AttributeRouting.Core.3.5.6\lib\net40\AttributeRouting.dll</HintPath>
-    </Reference>
-    <Reference Include="AttributeRouting.Web, Version=3.5.6.0, Culture=neutral, PublicKeyToken=c10f85d521a011a9, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AttributeRouting.Core.Web.3.5.6\lib\net40\AttributeRouting.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="AttributeRouting.Web.Http, Version=3.5.6.0, Culture=neutral, PublicKeyToken=c10f85d521a011a9, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AttributeRouting.Core.Http.3.5.6\lib\net40\AttributeRouting.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="AttributeRouting.Web.Http.WebHost, Version=3.5.6.0, Culture=neutral, PublicKeyToken=c10f85d521a011a9, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AttributeRouting.WebApi.3.5.6\lib\net40\AttributeRouting.Web.Http.WebHost.dll</HintPath>
-    </Reference>
     <Reference Include="EcmaScript.NET">
       <HintPath>..\packages\YUICompressor.NET.2.0.0.0\lib\NET20\EcmaScript.NET.dll</HintPath>
     </Reference>
@@ -220,6 +204,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\Areas\About\AboutController.cs" />
     <Compile Include="Controllers\Areas\Admin\AdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -236,25 +222,77 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Areas\About\Controllers\adminController.js" />
+    <Content Include="Content\Areas\About\Controllers\couponManagementController.js" />
+    <Content Include="Content\Areas\About\Controllers\soundManagementController.js" />
+    <Content Include="Content\Areas\About\Templates\couponManagement.html" />
+    <Content Include="Content\Areas\About\Templates\soundManagement.html" />
     <Content Include="Content\Areas\Admin\Controllers\couponManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\soundManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\adminController.js" />
     <Content Include="Content\Areas\Admin\Resources\adminResource.js" />
     <Content Include="Content\Areas\Admin\Templates\couponManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\soundManagement.html" />
+    <Content Include="Content\c\Config.css">
+      <DependentUpon>Config.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Config.min.css">
+      <DependentUpon>Config.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Header.css">
+      <DependentUpon>Header.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Header.min.css">
+      <DependentUpon>Header.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Main.css">
+      <DependentUpon>Main.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Main.min.css">
+      <DependentUpon>Main.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Reset.css">
+      <DependentUpon>Reset.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Reset.min.css">
+      <DependentUpon>Reset.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Styles.css">
+      <DependentUpon>Styles.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Styles.min.css">
+      <DependentUpon>Styles.css</DependentUpon>
+    </Content>
     <Content Include="Content\j\angular\bertha.js" />
     <Content Include="Content\j\angular\bertha.toastr.js" />
     <Content Include="Content\j\angular\bertha.underscore.js" />
-    <Content Include="Content\c\bootstrap.css" />
-    <Content Include="Content\c\bootstrap.min.css" />
     <Content Include="Content\c\toastr.min.css" />
     <Content Include="Content\j\angular\pageController.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\c\Site.css" />
     <Content Include="Content\j\common\bootstrap.js" />
     <Content Include="Content\j\common\bootstrap.min.js" />
+    <Content Include="Content\c\Styles.scss" />
+    <Content Include="Content\c\Reset.scss" />
+    <Content Include="Content\c\Config.scss" />
+    <Content Include="Content\c\Main.scss" />
+    <Content Include="Content\c\Header.scss" />
+    <Content Include="Content\c\Styles.css.map">
+      <DependentUpon>Styles.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Reset.css.map">
+      <DependentUpon>Reset.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Main.css.map">
+      <DependentUpon>Main.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Header.css.map">
+      <DependentUpon>Header.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Config.css.map">
+      <DependentUpon>Config.css</DependentUpon>
+    </Content>
     <None Include="Content\j\common\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\j\common\angular-animate.min.js" />
     <Content Include="Content\j\common\angular-resource.min.js" />
@@ -312,9 +350,12 @@
     <Content Include="Views\Reporting.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Shared\_NavPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Areas\About\Resources\" />
     <Folder Include="Content\Areas\Home\" />
     <Folder Include="Views\Assets\" />
   </ItemGroup>

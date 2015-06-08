@@ -14,5 +14,8 @@ namespace API.Models.DbContexts
         public DbSet<SoundPack> SoundPack { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Coupon> Coupon { get; set; }
+        public DbSet<Tag> Tag { get; set; }
+
+        public DbSet<UserProfileInfo> UserProfileInfo { get; set; }
     }
 }

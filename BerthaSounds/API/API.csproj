@@ -100,6 +100,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomServiceRegistrationModule.cs" />
+    <Compile Include="Helpers\MigrationHelpers.cs" />
+    <Compile Include="Mapping\AutoMapperConfig.cs" />
+    <Compile Include="Mapping\DtoToModel\SoundDtoToSoundProfile.cs" />
+    <Compile Include="Mapping\ModelToDto\SoundToSoundDtoProfile.cs" />
     <Compile Include="Migrations\201505180758407_InitialSetup.cs" />
     <Compile Include="Migrations\201505180758407_InitialSetup.Designer.cs">
       <DependentUpon>201505180758407_InitialSetup.cs</DependentUpon>
@@ -132,16 +136,33 @@
     <Compile Include="Migrations\201505191701137_NullableEndDateOnCoupons.Designer.cs">
       <DependentUpon>201505191701137_NullableEndDateOnCoupons.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505261655436_AddFileNameToSound.cs" />
+    <Compile Include="Migrations\201505261655436_AddFileNameToSound.Designer.cs">
+      <DependentUpon>201505261655436_AddFileNameToSound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505261722002_AddCategoriesToSounds.cs" />
+    <Compile Include="Migrations\201505261722002_AddCategoriesToSounds.Designer.cs">
+      <DependentUpon>201505261722002_AddCategoriesToSounds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505271650328_AddRolesToDb.cs" />
+    <Compile Include="Migrations\201505271650328_AddRolesToDb.Designer.cs">
+      <DependentUpon>201505271650328_AddRolesToDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DbContexts\BerthaContext.cs" />
     <Compile Include="Models\Dtos\CouponDto.cs" />
     <Compile Include="Models\Dtos\SoundDto.cs" />
     <Compile Include="Models\Dtos\SoundPackDto.cs" />
+    <Compile Include="Models\IDbObject.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Coupon.cs" />
     <Compile Include="Models\Sound.cs" />
     <Compile Include="Models\SoundPack.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\UserProfile.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Repositories\IObjectContext.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
@@ -150,10 +171,10 @@
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Services\CouponService.cs" />
     <Compile Include="Services\ICouponService.cs" />
+    <Compile Include="Services\IRolesService.cs" />
     <Compile Include="Services\ISoundService.cs" />
-    <Compile Include="Services\ITestService.cs" />
+    <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\SoundService.cs" />
-    <Compile Include="Services\TestService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\RolesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,6 +207,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505191701137_NullableEndDateOnCoupons.resx">
       <DependentUpon>201505191701137_NullableEndDateOnCoupons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505261655436_AddFileNameToSound.resx">
+      <DependentUpon>201505261655436_AddFileNameToSound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505261722002_AddCategoriesToSounds.resx">
+      <DependentUpon>201505261722002_AddCategoriesToSounds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505271650328_AddRolesToDb.resx">
+      <DependentUpon>201505271650328_AddRolesToDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

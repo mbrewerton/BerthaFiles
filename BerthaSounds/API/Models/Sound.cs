@@ -22,6 +22,12 @@ namespace API.Models
 
         public string Description { get; set; }
 
+        public string FileName { get; set; }
+
+        public ICollection<Category> Categories { get; set; }
+
+        public ICollection<Tag> Tags { get; set; } 
+
         //public virtual ICollection<Category> Categories
         //{
         //    get { return _categories ?? (_categories = new Collection<Category>()); }

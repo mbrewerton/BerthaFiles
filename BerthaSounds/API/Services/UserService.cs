@@ -11,13 +11,14 @@ using Microsoft.Owin.Security;
 
 namespace API.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
-        private BerthaContext _context;
+        private readonly BerthaContext _context;
         public UserService(BerthaContext context)
         {
             _context = context;
         }
+
         public IdentityUser GetUserByUserName(string userName)
         {
             var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
@@ -49,10 +50,8 @@ namespace API.Services
             {
                 return userManager.Users.ToList();
             }
-            else
-            {
-                return new List<IdentityUser>();
-            }
+
+            throw new NullReferenceException("No users were found.");
         }
     }
 }

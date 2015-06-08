@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using API.Models;
-using AttributeRouting.Web.Http;
 using API.Services;
 using API.Models.DbContexts;
 using API.Repositories;
@@ -27,7 +26,7 @@ namespace BerthaSounds.Controllers.Areas.Admin
         }
 
         [HttpGet]
-        [GET("GetAllSounds")]
+        [Route("GetAllSounds")]
         public HttpResponseMessage GetAllSounds()
         {
             var sounds = _soundService.GetAllSounds();
@@ -35,14 +34,14 @@ namespace BerthaSounds.Controllers.Areas.Admin
         }
 
         [HttpGet]
-        [GET("GetAllCoupons")]
+        [Route("GetAllCoupons")]
         public HttpResponseMessage GetAllCoupons()
         {
             return Request.CreateResponse(HttpStatusCode.OK, _couponService.GetAllCoupons());
         }
 
         [HttpPost]
-        [POST("SaveCoupon")]
+        [Route("SaveCoupon")]
         public HttpResponseMessage SaveCoupon(Coupon couponDto)
         {
             _couponService.SaveCoupon(couponDto);
@@ -50,7 +49,7 @@ namespace BerthaSounds.Controllers.Areas.Admin
         }
 
         [HttpPost]
-        [POST("UploadSound")]
+        [Route("UploadSound")]
         public HttpResponseMessage UploadSound(HttpPostedFileBase soundFile)
         {
             return Request.CreateResponse(HttpStatusCode.OK);

@@ -9,7 +9,7 @@ namespace BerthaSounds.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
-        //[Authorize(Roles="Op")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();

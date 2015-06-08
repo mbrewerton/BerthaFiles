@@ -6,7 +6,7 @@ namespace API.Services
 {
     public interface ISoundService
     {
-        IEnumerable<Sound> GetAllSounds();
+        IEnumerable<SoundDto> GetAllSounds();
         void UploadSound(List<SoundDto> sound);
     }
 }

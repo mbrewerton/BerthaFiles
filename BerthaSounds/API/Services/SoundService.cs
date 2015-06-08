@@ -8,6 +8,7 @@ using API.Models;
 using API.Models.DbContexts;
 using API.Models.Dtos;
 using API.Repositories;
+using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -17,19 +18,24 @@ namespace API.Services
     {
         private readonly IRepository<Sound> _soundRepository; 
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMappingEngine _mapper;
 
-        public SoundService(IRepository<Sound> soundRepository, IUnitOfWork unitOfWork)
+        public SoundService(IRepository<Sound> soundRepository, IUnitOfWork unitOfWork, IMappingEngine mapper)
         {
             _soundRepository = soundRepository;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public IEnumerable<Sound> GetAllSounds()
+        public IEnumerable<SoundDto> GetAllSounds()
         {
             if (_soundRepository.GetAll().Any())
-                return _soundRepository.GetAll();
-            else
-                return null;
+            {
+                return _mapper.Map<List<Sound>, List<SoundDto>>(_soundRepository.GetAll().ToList());
+            }
+            
+
+            return null;
         }
 
         public void UploadSound(List<SoundDto> sound)

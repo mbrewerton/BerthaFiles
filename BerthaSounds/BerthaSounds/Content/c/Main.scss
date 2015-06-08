@@ -1,0 +1,15 @@
+﻿@import 'Config.scss';
+
+html, body {
+    font-family: 'Open Sans';
+}
+
+.body-content {
+    margin: $height-navbar auto 0;
+    background: $color-lightest-grey;
+    width: 90%;
+}
+
+.container {
+    padding: $padding-container;
+}

@@ -5,18 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using API.Models.DbContexts;
+using API.Repositories;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace API.Services
 {
-    public class RolesService
+    public class RolesService : IRolesService
     {
 
-        private BerthaContext _context;
-        public RolesService(BerthaContext context)
+        private readonly BerthaContext _context;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly UserService _userService;
+        public RolesService(BerthaContext context, IUnitOfWork unitOfWork, UserService userService)
         {
             _context = context;
+            _unitOfWork = unitOfWork;
+            _userService = userService;
         }
         public void CreateRole(IdentityRole role)
         {
@@ -32,10 +37,11 @@ namespace API.Services
             }
         }
 
-        public void AddUserToRole(IdentityUser user, IdentityRole role)
+        public void AddUserToRole(string userName, string roleName)
         {
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
             var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
+            var user = _userService.GetUserByUserName(userName);
+            var role = GetRoleByName(roleName);
 
             userManager.AddToRole(user.Id, role.Name);
         }
@@ -48,10 +54,9 @@ namespace API.Services
             {
                 return roleManager.FindByName(roleName);
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
+            
         }
 
         public IEnumerable<IdentityRole> GetAllRoles()
