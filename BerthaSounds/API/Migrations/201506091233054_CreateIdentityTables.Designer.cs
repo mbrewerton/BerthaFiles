@@ -7,18 +7,18 @@ namespace API.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddRolesToDb : IMigrationMetadata
+    public sealed partial class CreateIdentityTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddRolesToDb));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateIdentityTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201505271650328_AddRolesToDb"; }
+            get { return "201506091233054_CreateIdentityTables"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using API.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace API.Models.DbContexts
 {
@@ -15,7 +16,5 @@ namespace API.Models.DbContexts
         public DbSet<Category> Category { get; set; }
         public DbSet<Coupon> Coupon { get; set; }
         public DbSet<Tag> Tag { get; set; }
-
-        public DbSet<UserProfileInfo> UserProfileInfo { get; set; }
     }
 }

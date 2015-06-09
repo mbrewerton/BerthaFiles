@@ -9,6 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Configuration;
 using System.Data.Entity;
+using API.Models.DbContexts;
 using SquishIt.Framework;
 using Bundle = SquishIt.Framework.Bundle;
 
@@ -21,10 +22,14 @@ namespace BerthaSounds
 
         protected void Application_Start()
         {
+            Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
+            var db = new BerthaContext();
+            db.Database.Initialize(true);
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
 
             /* Replaced with SquishIt in-memory bundling */
             //BundleConfig.RegisterBundles(BundleTable.Bundles);
