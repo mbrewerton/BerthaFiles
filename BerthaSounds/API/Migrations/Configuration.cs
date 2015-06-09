@@ -21,6 +21,11 @@ namespace API.Migrations
 
         protected override void Seed(API.Models.DbContexts.BerthaContext context)
         {
+            var rs = new RoleStore<IdentityRole>(context);
+            var rm = new RoleManager<IdentityRole>(rs);
+            var r = new IdentityRole("Admin");
+            rm.Create(r);
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

@@ -144,9 +144,9 @@
     <Compile Include="Migrations\201505261722002_AddCategoriesToSounds.Designer.cs">
       <DependentUpon>201505261722002_AddCategoriesToSounds.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201506091233054_CreateIdentityTables.cs" />
-    <Compile Include="Migrations\201506091233054_CreateIdentityTables.Designer.cs">
-      <DependentUpon>201506091233054_CreateIdentityTables.cs</DependentUpon>
+    <Compile Include="Migrations\201505171233054_CreateIdentityTables.cs" />
+    <Compile Include="Migrations\201505171233054_CreateIdentityTables.Designer.cs">
+      <DependentUpon>201505171233054_CreateIdentityTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -214,8 +214,8 @@
     <EmbeddedResource Include="Migrations\201505261722002_AddCategoriesToSounds.resx">
       <DependentUpon>201505261722002_AddCategoriesToSounds.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506091233054_CreateIdentityTables.resx">
-      <DependentUpon>201506091233054_CreateIdentityTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505171233054_CreateIdentityTables.resx">
+      <DependentUpon>201505171233054_CreateIdentityTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
