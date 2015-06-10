@@ -205,10 +205,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
-    <Compile Include="Controllers\Areas\About\AboutController.cs" />
-    <Compile Include="Controllers\Areas\Admin\AdminController.cs" />
+    <Compile Include="API\Areas\About\AboutController.cs" />
+    <Compile Include="API\Areas\Admin\AdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="API\Areas\Profile\ProfileController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -357,6 +358,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Areas\About\Resources\" />
     <Folder Include="Content\Areas\Home\" />
+    <Folder Include="Content\Areas\Profile\" />
     <Folder Include="Views\Assets\" />
   </ItemGroup>
   <ItemGroup>

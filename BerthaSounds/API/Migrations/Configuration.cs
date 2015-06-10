@@ -21,10 +21,18 @@ namespace API.Migrations
 
         protected override void Seed(API.Models.DbContexts.BerthaContext context)
         {
+            
+            context.Database.Connection.Close();
+            Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
+            var db = new BerthaContext();
+            db.Database.Initialize(true);
+
             var rs = new RoleStore<IdentityRole>(context);
             var rm = new RoleManager<IdentityRole>(rs);
             var r = new IdentityRole("Admin");
             rm.Create(r);
+
+            //um.Create(u, "password");
 
             //  This method will be called after migrating to the latest version.
 
