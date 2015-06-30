@@ -1,7 +1,15 @@
 using System.Web.Http;
 using API;
+using API.Models.DbContexts;
 using API.Repositories;
 using API.Services;
+using AutoMapper;
+using BerthaSounds.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+using Ninject.Activation;
+using ApplicationDbContext = API.Models.ApplicationDbContext;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BerthaSounds.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(BerthaSounds.App_Start.NinjectWebCommon), "Stop")]
@@ -79,8 +87,28 @@ namespace BerthaSounds.App_Start
                 .SelectAllClasses()
                 .EndingWith("Service")
                 .BindDefaultInterface());
-
             kernel.Load(new CustomServiceRegistrationModule());
+
+            kernel.Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>();
+            kernel.Bind<UserManager<ApplicationUser>>().ToSelf();
+            kernel.Bind<IRoleStore<IdentityRole, string>>().To<RoleStore<IdentityRole, string, IdentityUserRole>>();
+            kernel.Bind<RoleManager<IdentityRole>>().ToSelf();
+
+            //kernel.Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>()
+            //    .WithConstructorArgument("context", context => kernel.Get<ApplicationDbContext>());
+            //kernel.Bind<ApplicationUserManager>().ToSelf().InRequestScope();
+            //kernel.Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>()
+            //            .InRequestScope()
+            //            .WithConstructorArgument("context", kernel.Get<ApplicationDbContext>());
+            //kernel.Bind<UserManager<ApplicationUser>>().ToSelf()
+            //            .InRequestScope();
+
+            //kernel.Bind<RoleManager<IdentityRole, string>>().ToSelf().InRequestScope();
+            //kernel.Bind<UserManager<IdentityUser, string>>().ToSelf().InRequestScope();
+            kernel.Bind<IAuthenticationManager>()
+                .ToMethod(context => HttpContext.Current.GetOwinContext().Authentication);
+
+            kernel.Rebind<IMappingEngine>().ToMethod(context => Mapper.Engine);
         }        
     }
 }

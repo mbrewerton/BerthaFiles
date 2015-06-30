@@ -148,12 +148,17 @@
     <Compile Include="Migrations\201505171233054_CreateIdentityTables.Designer.cs">
       <DependentUpon>201505171233054_CreateIdentityTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506171656006_AddInitialUserRoles.cs" />
+    <Compile Include="Migrations\201506171656006_AddInitialUserRoles.Designer.cs">
+      <DependentUpon>201506171656006_AddInitialUserRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DbContexts\BerthaContext.cs" />
     <Compile Include="Models\Dtos\CouponDto.cs" />
     <Compile Include="Models\Dtos\SoundDto.cs" />
     <Compile Include="Models\Dtos\SoundPackDto.cs" />
+    <Compile Include="Models\Dtos\UserProfileDto.cs" />
     <Compile Include="Models\IDbObject.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Coupon.cs" />
@@ -171,16 +176,29 @@
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Services\CouponService.cs" />
     <Compile Include="Services\ICouponService.cs" />
-    <Compile Include="Services\IRolesService.cs" />
+    <Compile Include="Services\IdentityService.cs" />
+    <Compile Include="Services\IRolesService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Services\ISoundService.cs" />
+    <Compile Include="Services\IUserProfileService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\RolesService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Services\SoundService.cs" />
-    <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\RolesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UserProfileService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505171233054_CreateIdentityTables.resx">
       <DependentUpon>201505171233054_CreateIdentityTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506171656006_AddInitialUserRoles.resx">
+      <DependentUpon>201506171656006_AddInitialUserRoles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

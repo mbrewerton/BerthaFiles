@@ -22,14 +22,13 @@ namespace BerthaSounds
 
         protected void Application_Start()
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
-            var db = new BerthaContext();
-            db.Database.Initialize(true);
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
+            Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
+            var db = new BerthaContext();
+            db.Database.Initialize(true);
 
             /* Replaced with SquishIt in-memory bundling */
             //BundleConfig.RegisterBundles(BundleTable.Bundles);

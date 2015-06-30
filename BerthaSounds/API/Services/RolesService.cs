@@ -16,12 +16,13 @@ namespace API.Services
 
         private readonly BerthaContext _context;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly UserService _userService;
-        public RolesService(BerthaContext context, IUnitOfWork unitOfWork, UserService userService)
+        //private readonly UserService _userService;
+        public RolesService(BerthaContext context, IUnitOfWork unitOfWork)
+            //UserService userService)
         {
             _context = context;
             _unitOfWork = unitOfWork;
-            _userService = userService;
+            //_userService = userService;
         }
         public void CreateRole(IdentityRole role)
         {
@@ -39,11 +40,11 @@ namespace API.Services
 
         public void AddUserToRole(string userName, string roleName)
         {
-            var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
-            var user = _userService.GetUserByUserName(userName);
-            var role = GetRoleByName(roleName);
+            //var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
+            //var user = _userService.GetUserByUserName(userName);
+            //var role = GetRoleByName(roleName);
 
-            userManager.AddToRole(user.Id, role.Name);
+            //userManager.AddToRole(user.Id, role.Name);
         }
 
         public IdentityRole GetRoleByName(string roleName)

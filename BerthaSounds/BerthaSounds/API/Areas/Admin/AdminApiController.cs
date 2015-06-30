@@ -8,12 +8,12 @@ using API.Services;
 namespace BerthaSounds.API.Areas.Admin
 {
     [RoutePrefix("api/Admin")]
-    public class AdminController : ApiController
+    public class AdminApiController : ApiController
     {
         private readonly ISoundService _soundService;
         private readonly ICouponService _couponService;
 
-        public AdminController(ISoundService soundService, ICouponService couponService)
+        public AdminApiController(ISoundService soundService, ICouponService couponService)
         {
             _soundService = soundService;
             _couponService = couponService;

@@ -5,11 +5,16 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using API.Models;
+using API.Models.DbContexts;
+using API.Repositories;
 using API.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BerthaSounds.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ApplicationUser = BerthaSounds.Models.ApplicationUser;
 
 namespace BerthaSounds.Controllers
 {
@@ -18,17 +23,14 @@ namespace BerthaSounds.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private  IRolesService _rolesService;
+        private readonly IUserProfileService _userProfileService;
 
-        public AccountController()
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager,
+            IUserProfileService userProfileService)
         {
-        }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IRolesService rolesService)
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
-            _rolesService = rolesService;
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _userProfileService = userProfileService;
         }
 
         public ApplicationSignInManager SignInManager
@@ -156,9 +158,10 @@ namespace BerthaSounds.Controllers
             {
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email};
                 var result = await UserManager.CreateAsync(user, model.Password);
-                //_rolesService.AddUserToRole(user.UserName, "Admin");
+
                 if (result.Succeeded)
                 {
+                    _userProfileService.CreateNewUserProfile(user.Id);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

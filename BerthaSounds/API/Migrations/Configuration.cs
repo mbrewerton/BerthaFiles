@@ -17,6 +17,7 @@ namespace API.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
         }
 
         protected override void Seed(API.Models.DbContexts.BerthaContext context)

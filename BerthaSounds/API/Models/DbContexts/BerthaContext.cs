@@ -9,8 +9,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace API.Models.DbContexts
 {
-    public class BerthaContext : DbContext
+    public class BerthaContext : IdentityDbContext
     {
+        public BerthaContext() : base("BerthaContext"){}
+
         public DbSet<Sound> Sound { get; set; }
         public DbSet<SoundPack> SoundPack { get; set; }
         public DbSet<Category> Category { get; set; }
