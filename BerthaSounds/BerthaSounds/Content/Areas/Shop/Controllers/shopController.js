@@ -5,8 +5,6 @@ angular.module('bertha')
         function ($scope, $location, _, soundFactory) {
         	console.log(">> Shop Controller");
 
-        	$scope.sounds = [];
-
 	        soundFactory.getAllSounds().$promise.then(function(sounds) {
 	        	$scope.sounds = sounds;
 	        });

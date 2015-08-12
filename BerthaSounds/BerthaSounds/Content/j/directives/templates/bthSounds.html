@@ -1,6 +1,8 @@
-﻿<div ng-repeat="sound in sounds">
+﻿<div ng-show="sounds" ng-repeat="sound in sounds">
 	<div class="sound-block">
 		<p>{{sound.name}} ({{sound.id}}) - <span ng-show="sound.price > 0">£{{sound.price}}</span><span ng-show="sound.price === 0">FREE</span></p>
 		<p>{{sound.description}}</p>
 	</div>
 </div>
+
+<p ng-show="!sounds || sounds.length === 0">Sorry, there are currently no sounds to display.</p>
