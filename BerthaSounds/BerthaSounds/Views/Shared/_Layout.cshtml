@@ -13,7 +13,7 @@
 <body>
     @if (MvcApplication.Environment != "Live")
 	{
-		<div style="width: 100%; padding: 8px; background-color: red; color: white; text-align: center;">
+		<div style="position: fixed; width: 100%; padding: 8px; background-color: red; color: white; text-align: center;">
 			@Html.Encode("WARNING: Environment - " + MvcApplication.Environment)
 		</div>
 
