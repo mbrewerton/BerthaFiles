@@ -323,6 +323,7 @@
     <Content Include="Content\j\angular\pageController.js" />
     <Content Include="Content\j\custom\angular-file-upload-all.min.js" />
     <Content Include="Content\j\custom\angular-file-upload-shim.min.js" />
+    <Content Include="Content\j\services\dudService.js" />
     <Content Include="Content\Offline\c\Fontawesome\font-awesome.css">
       <DependentUpon>font-awesome.scss</DependentUpon>
     </Content>
@@ -448,7 +449,6 @@
     <Folder Include="Content\Areas\Home\" />
     <Folder Include="Content\Areas\Profile\" />
     <Folder Include="Content\Areas\Shop\Resources\" />
-    <Folder Include="Content\j\services\" />
     <Folder Include="Views\Assets\" />
   </ItemGroup>
   <ItemGroup>
