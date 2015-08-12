@@ -261,6 +261,14 @@
     <Content Include="Content\Areas\Admin\Controllers\couponManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\soundManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\adminController.js" />
+    <Content Include="Content\c\Footer.css">
+      <DependentUpon>Footer.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Footer.min.css">
+      <DependentUpon>Footer.css</DependentUpon>
+    </Content>
+    <Content Include="Content\j\directives\controllers\bthSoundsController.js" />
+    <Content Include="Content\j\directives\templates\bthSounds.html" />
     <Content Include="Content\j\resources\sounds\soundResource.js" />
     <Content Include="Content\Areas\Admin\Templates\couponManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\soundManagement.html" />
@@ -368,6 +376,10 @@
     <Content Include="Content\Offline\c\Fontawesome\_rotated-flipped.scss" />
     <Content Include="Content\Offline\c\Fontawesome\_stacked.scss" />
     <Content Include="Content\Offline\c\Fontawesome\_variables.scss" />
+    <Content Include="Content\c\Footer.scss" />
+    <Content Include="Content\c\Footer.css.map">
+      <DependentUpon>Footer.css</DependentUpon>
+    </Content>
     <None Include="Content\j\common\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\j\common\angular-animate.min.js" />
     <Content Include="Content\j\common\angular-resource.min.js" />
@@ -436,7 +448,6 @@
     <Folder Include="Content\Areas\Home\" />
     <Folder Include="Content\Areas\Profile\" />
     <Folder Include="Content\Areas\Shop\Resources\" />
-    <Folder Include="Content\j\directives\" />
     <Folder Include="Content\j\services\" />
     <Folder Include="Views\Assets\" />
   </ItemGroup>
