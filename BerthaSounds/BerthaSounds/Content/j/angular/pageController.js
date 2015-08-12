@@ -1,8 +1,7 @@
 ﻿'use strict';
 
 angular.module('bertha')
-    .controller('pageController', ['$scope', '$location', '_', 'adminFactory',
-        function ($scope, $location, _, adminFactory) {
+    .controller('pageController', ['$scope', '$location', '_',
+        function ($scope, $location, _) {
             console.log('>> Page Controller');
-
         }]);

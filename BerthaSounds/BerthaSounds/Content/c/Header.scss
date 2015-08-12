@@ -1,9 +1,10 @@
 ﻿@import 'Config.scss';
 
 nav {
-width: 100%;
+	width: 100%;
     background-color: $color-dark-blue;
     position: fixed;
+	top: 0;
 }
 
 .navbar {

@@ -22,9 +22,11 @@ namespace API.Models
 
         public string Description { get; set; }
 
-        public string FileName { get; set; }
+        public string AzureLocation { get; set; }
 
         public ICollection<Category> Categories { get; set; }
+
+		public decimal Price { get; set; }
 
         public ICollection<Tag> Tags { get; set; }
 
@@ -33,5 +35,8 @@ namespace API.Models
         //    get { return _categories ?? (_categories = new Collection<Category>()); }
         //    set { _categories = value; }
         //} 
+
+		// Wil be removed when azure is implemented.
+		public string FileName { get; set; }
     }
 }

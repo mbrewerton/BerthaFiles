@@ -1,0 +1,14 @@
+﻿<h1>Shop</h1>
+
+<div class="col-sm-2">
+	Filters:
+
+</div>
+<div class="col-sm-10">
+	<div ng-repeat="sound in sounds" >
+		<div class="sound-block">
+			<p>{{sound.name}} ({{sound.id}}) - <span ng-show="sound.price > 0">£{{sound.price}}</span><span ng-show="sound.price === 0">FREE</span></p>
+			<p>{{sound.description}}</p>
+		</div>
+	</div>
+</div>

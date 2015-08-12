@@ -1,1 +1,1 @@
-﻿{"version":3,"file":"Main.css","sources":["Main.scss","Config.scss"],"sourcesContent":[],"mappings":";AAEA,MAAM;EACF,aAAa;;AAGjB;EACI,QAAQ;EACR,YCJkB;EDKlB,OAAO;EACP,gBCOgB;;ADJpB;EACI,SCGgB","names":[]}
+﻿{"version":3,"file":"Main.css","sources":["Main.scss","Config.scss"],"sourcesContent":[],"mappings":";;;;;;;;;;;;AAGA,GAAG,SAAS,GAAG;EAEb,SAAS;EACT,SAAS;;AAGX,GAAG;EACD,OAAO;;;;AAKT,MAAM;EACF,aAAa;;AAGjB;EACI,QAAQ;EACR,YChBkB;EDiBlB,OAAO;EACP,gBCCgB;;ADEpB;EACI,SCHgB;;;;ADQpB;EACC,gBCIqB","names":[]}

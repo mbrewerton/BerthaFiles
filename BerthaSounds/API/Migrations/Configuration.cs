@@ -16,22 +16,21 @@ namespace API.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
         }
 
         protected override void Seed(API.Models.DbContexts.BerthaContext context)
         {
             
-            context.Database.Connection.Close();
-            Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
-            var db = new BerthaContext();
-            db.Database.Initialize(true);
+            //context.Database.Connection.Close();
+            //Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
+            //var db = new BerthaContext();
+            //db.Database.Initialize(true);
 
-            var rs = new RoleStore<IdentityRole>(context);
-            var rm = new RoleManager<IdentityRole>(rs);
-            var r = new IdentityRole("Admin");
-            rm.Create(r);
+            //var rs = new RoleStore<IdentityRole>(context);
+            //var rm = new RoleManager<IdentityRole>(rs);
+            //var r = new IdentityRole("Admin");
+            //rm.Create(r);
 
             //um.Create(u, "password");
 

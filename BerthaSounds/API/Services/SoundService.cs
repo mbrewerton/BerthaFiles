@@ -33,7 +33,6 @@ namespace API.Services
             {
                 return _mapper.Map<List<Sound>, List<SoundDto>>(_soundRepository.GetAll().ToList());
             }
-            
 
             return null;
         }

@@ -52,7 +52,30 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\YUICompressor.NET.2.0.0.0\lib\NET20\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\packages\WindowsAzure.Storage.5.0.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -74,6 +97,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -140,9 +167,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -201,8 +225,10 @@
   <ItemGroup>
     <Compile Include="API\Areas\About\AboutApiController.cs" />
     <Compile Include="API\Areas\Account\AccountApiController.cs" />
+    <Compile Include="API\Areas\Admin\AdminFileApiController.cs" />
     <Compile Include="API\Areas\Admin\AdminApiController.cs" />
     <Compile Include="API\Areas\Profile\ProfileApiController.cs" />
+    <Compile Include="API\Sounds\SoundsApiController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -216,11 +242,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -229,16 +257,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Areas\About\Controllers\adminController.js" />
-    <Content Include="Content\Areas\About\Controllers\couponManagementController.js" />
-    <Content Include="Content\Areas\About\Controllers\soundManagementController.js" />
-    <Content Include="Content\Areas\About\Templates\couponManagement.html" />
-    <Content Include="Content\Areas\About\Templates\soundManagement.html" />
+    <Content Include="Content\Areas\Shop\Controllers\shopController.js" />
     <Content Include="Content\Areas\Admin\Controllers\couponManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\soundManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\adminController.js" />
-    <Content Include="Content\Areas\Admin\Resources\adminResource.js" />
+    <Content Include="Content\j\resources\sounds\soundResource.js" />
     <Content Include="Content\Areas\Admin\Templates\couponManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\soundManagement.html" />
+    <Content Include="Content\Areas\Shop\Templates\shopIndex.html" />
+    <Content Include="Content\c\bootstrap.css" />
     <Content Include="Content\c\Config.css">
       <DependentUpon>Config.scss</DependentUpon>
     </Content>
@@ -269,11 +296,32 @@
     <Content Include="Content\c\Styles.min.css">
       <DependentUpon>Styles.css</DependentUpon>
     </Content>
+    <Content Include="Content\c\BootstrapOverrides.css">
+      <DependentUpon>BootstrapOverrides.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\BootstrapOverrides.min.css">
+      <DependentUpon>BootstrapOverrides.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Text.css">
+      <DependentUpon>Text.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Text.min.css">
+      <DependentUpon>Text.css</DependentUpon>
+    </Content>
     <Content Include="Content\j\angular\bertha.js" />
     <Content Include="Content\j\angular\bertha.toastr.js" />
     <Content Include="Content\j\angular\bertha.underscore.js" />
     <Content Include="Content\c\toastr.min.css" />
     <Content Include="Content\j\angular\pageController.js" />
+    <Content Include="Content\j\custom\angular-file-upload-all.min.js" />
+    <Content Include="Content\j\custom\angular-file-upload-shim.min.js" />
+    <Content Include="Content\Offline\c\Fontawesome\font-awesome.css">
+      <DependentUpon>font-awesome.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Offline\c\Fontawesome\font-awesome.min.css">
+      <DependentUpon>font-awesome.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Offline\f\Fontawesome\fontawesome-webfont.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -299,13 +347,33 @@
     <Content Include="Content\c\Config.css.map">
       <DependentUpon>Config.css</DependentUpon>
     </Content>
+    <Content Include="Content\c\Text.scss" />
+    <Content Include="Content\c\Text.css.map">
+      <DependentUpon>Text.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\BootstrapOverrides.scss" />
+    <Content Include="Content\c\BootstrapOverrides.css.map">
+      <DependentUpon>BootstrapOverrides.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Offline\c\Fontawesome\font-awesome.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_animated.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_bordered-pulled.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_core.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_fixed-width.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_icons.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_larger.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_list.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_mixins.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_path.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_rotated-flipped.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_stacked.scss" />
+    <Content Include="Content\Offline\c\Fontawesome\_variables.scss" />
     <None Include="Content\j\common\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\j\common\angular-animate.min.js" />
     <Content Include="Content\j\common\angular-resource.min.js" />
     <Content Include="Content\j\common\angular-route.min.js" />
     <Content Include="Content\j\common\angular-upload.js" />
     <Content Include="Content\j\common\angular.min.js" />
-    <Content Include="Content\j\directives\bth.fileUpload.js" />
     <Content Include="Content\j\common\jquery-1.10.2.js" />
     <Content Include="Content\j\common\jquery-1.10.2.min.js" />
     <None Include="Content\j\common\jquery.validate-vsdoc.js" />
@@ -358,12 +426,18 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Shared\_NavPartial.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Areas\About\Resources\" />
+    <Folder Include="Content\Areas\About\Templates\" />
+    <Folder Include="Content\Areas\Admin\Resources\" />
     <Folder Include="Content\Areas\Home\" />
     <Folder Include="Content\Areas\Profile\" />
+    <Folder Include="Content\Areas\Shop\Resources\" />
+    <Folder Include="Content\j\directives\" />
+    <Folder Include="Content\j\services\" />
     <Folder Include="Views\Assets\" />
   </ItemGroup>
   <ItemGroup>
@@ -371,6 +445,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+    <Content Include="Content\Offline\f\Fontawesome\fontawesome-webfont.eot" />
+    <Content Include="Content\Offline\f\Fontawesome\fontawesome-webfont.ttf" />
+    <Content Include="Content\Offline\f\Fontawesome\fontawesome-webfont.woff" />
+    <Content Include="Content\Offline\f\Fontawesome\fontawesome-webfont.woff2" />
+    <Content Include="Content\Offline\f\Fontawesome\FontAwesome.otf" />
+    <Content Include="Content\Offline\c\Fontawesome\font-awesome.css.map">
+      <DependentUpon>font-awesome.css</DependentUpon>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

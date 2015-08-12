@@ -17,7 +17,7 @@ namespace API.Mapping
 
         private static void AddProfiles(IConfiguration configuration)
         {
-            var profiles = typeof (Profile).Assembly.GetTypes().Where(x => typeof (Profile).IsAssignableFrom(x));
+            var profiles = typeof (CouponDtoToCouponProfile).Assembly.GetTypes().Where(x => typeof (Profile).IsAssignableFrom(x));
             foreach (var profile in profiles)
             {
                 configuration.AddProfile(Activator.CreateInstance(profile) as Profile);

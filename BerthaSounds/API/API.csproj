@@ -65,6 +65,9 @@
     <Reference Include="Microsoft.Owin.Security.OAuth">
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\BerthaSounds\bin\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -88,6 +91,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
@@ -102,6 +106,7 @@
     <Compile Include="CustomServiceRegistrationModule.cs" />
     <Compile Include="Helpers\MigrationHelpers.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />
+    <Compile Include="Mapping\DtoToModel\CouponDtoToCouponProfile.cs" />
     <Compile Include="Mapping\DtoToModel\SoundDtoToSoundProfile.cs" />
     <Compile Include="Mapping\ModelToDto\SoundToSoundDtoProfile.cs" />
     <Compile Include="Migrations\201505180758407_InitialSetup.cs" />
@@ -152,13 +157,29 @@
     <Compile Include="Migrations\201506171656006_AddInitialUserRoles.Designer.cs">
       <DependentUpon>201506171656006_AddInitialUserRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506301629346_AddDiscriminator.cs" />
+    <Compile Include="Migrations\201506301629346_AddDiscriminator.Designer.cs">
+      <DependentUpon>201506301629346_AddDiscriminator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506301656007_AddStartDateToCoupons.cs" />
+    <Compile Include="Migrations\201506301656007_AddStartDateToCoupons.Designer.cs">
+      <DependentUpon>201506301656007_AddStartDateToCoupons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508111239371_AddAzureLocationToSound.cs" />
+    <Compile Include="Migrations\201508111239371_AddAzureLocationToSound.Designer.cs">
+      <DependentUpon>201508111239371_AddAzureLocationToSound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508111257019_AddPriceToSound.cs" />
+    <Compile Include="Migrations\201508111257019_AddPriceToSound.Designer.cs">
+      <DependentUpon>201508111257019_AddPriceToSound.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DbContexts\BerthaContext.cs" />
-    <Compile Include="Models\Dtos\CouponDto.cs" />
-    <Compile Include="Models\Dtos\SoundDto.cs" />
-    <Compile Include="Models\Dtos\SoundPackDto.cs" />
-    <Compile Include="Models\Dtos\UserProfileDto.cs" />
+    <Compile Include="Dtos\CouponDto.cs" />
+    <Compile Include="Dtos\SoundDto.cs" />
+    <Compile Include="Dtos\SoundPackDto.cs" />
+    <Compile Include="Dtos\UserProfileDto.cs" />
     <Compile Include="Models\IDbObject.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Coupon.cs" />
@@ -190,6 +211,8 @@
     </Compile>
     <Compile Include="Services\SoundService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Storage\AzureStorageService.cs" />
+    <Compile Include="Services\Storage\StorageSettings.cs" />
     <Compile Include="Services\UserProfileService.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -237,6 +260,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506171656006_AddInitialUserRoles.resx">
       <DependentUpon>201506171656006_AddInitialUserRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506301629346_AddDiscriminator.resx">
+      <DependentUpon>201506301629346_AddDiscriminator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506301656007_AddStartDateToCoupons.resx">
+      <DependentUpon>201506301656007_AddStartDateToCoupons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508111239371_AddAzureLocationToSound.resx">
+      <DependentUpon>201508111239371_AddAzureLocationToSound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508111257019_AddPriceToSound.resx">
+      <DependentUpon>201508111257019_AddPriceToSound.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

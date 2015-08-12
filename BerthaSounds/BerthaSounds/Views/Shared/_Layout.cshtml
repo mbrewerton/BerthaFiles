@@ -12,33 +12,29 @@
 </head>
 <body>
     @if (MvcApplication.Environment != "Live")
-    {
-        <div style="width: 100%; padding: 8px; background-color: red; color: white; text-align: center;">
-            @Html.Encode("WARNING: Environment - " + MvcApplication.Environment)
-        </div>
-    }
+	{
+		<div style="width: 100%; padding: 8px; background-color: red; color: white; text-align: center;">
+			@Html.Encode("WARNING: Environment - " + MvcApplication.Environment)
+		</div>
+
+		<style>
+			nav {
+				top: 32px !important;
+			}
+		</style>
+	}
     @Html.Partial("_NavPartial")
     <div ng-app="bertha" ng-controller="pageController" class="body-content">
-        <div class="container">
+        <div class="main-container">
             @RenderBody()
         </div>
-        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - @MvcApplication.ApplicationName</p>
         </footer>
     </div>
 
     @Bundle.Css().MvcRenderCachedAssetTag("styles")
     @Bundle.JavaScript().MvcRenderCachedAssetTag("jslibs")
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,400' rel='stylesheet' type='text/css'>
-
-    <script>
-        console.log($);
-    </script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,400' rel='stylesheet' type='text/css'>
 </body>
-
-
-
-
-
 </html>

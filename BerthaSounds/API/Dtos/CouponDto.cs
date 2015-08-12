@@ -10,20 +10,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace API.Models.Dtos
 {
-    public class SoundDto
+    public class CouponDto
     {
-        //private ICollection<Category> _categories;
-        
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public string Description { get; set; }
+        public string Code { get; set; }
 
-        //public virtual ICollection<Category> Categories
-        //{
-        //    get { return _categories ?? (_categories = new Collection<Category>()); }
-        //    set { _categories = value; }
-        //} 
+        public DateTime StartDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
     }
 }

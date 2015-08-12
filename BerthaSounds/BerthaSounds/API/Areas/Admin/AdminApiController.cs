@@ -1,9 +1,17 @@
-﻿using System.Net;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using API.Models;
+using API.Models.Dtos;
 using API.Services;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace BerthaSounds.API.Areas.Admin
 {
@@ -36,17 +44,18 @@ namespace BerthaSounds.API.Areas.Admin
 
         [HttpPost]
         [Route("SaveCoupon")]
-        public HttpResponseMessage SaveCoupon(Coupon couponDto)
+        public HttpResponseMessage SaveCoupon(CouponDto couponDto)
         {
             _couponService.SaveCoupon(couponDto);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        [HttpPost]
-        [Route("UploadSound")]
-        public HttpResponseMessage UploadSound(HttpPostedFileBase soundFile)
-        {
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
+	    [HttpPost]
+	    [Route("UploadSound")]
+	    public Task<IEnumerable<object>> UploadSounds(HttpRequestMessage request)
+	    {
+
+		    return null;
+	    }
     }
 }

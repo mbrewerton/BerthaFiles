@@ -1,9 +1,14 @@
 ﻿/* Variables */
+/* #region Colours */
 $color-dark-blue: #77AEAB;
 $color-light-blue: #80B8B2;
 $color-header-link: white;
 $color-lightest-grey: #f9f9f9;
+$color-light-grey: #e5e5e5;
+$color-body: #383838;
+/* #endregion */
 
+/* #region Font Sizes */
 $font-size-header-link: 16px;
 $font-size-main: 14px;
 $font-size-h6: 16px;
@@ -12,7 +17,9 @@ $font-size-h4: 20px;
 $font-size-h3: 22px;
 $font-size-h2: 24px;
 $font-size-h1: 26px;
+/* #endregion */
 
+/* #region Header & Navigation */
 $padding-header: 14px;
 $padding-header-s: 14px;
 $padding-container: 18px;
@@ -22,3 +29,11 @@ $height-navbar: ($padding-header * 2) + $font-size-header-link;
 $margin-header-links: 5px;
 
 $sel-navbar: '.navbar-left, .navbar-right';
+/* #endregion */
+
+/* #region Main Body */
+/* #endregion */
+
+/* #region Sound Containers */
+$padding-sound-block: 15px;
+/* #endregion */

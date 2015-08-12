@@ -1,4 +1,24 @@
 ﻿/* Variables */
+/* #region Colours */
+/* #endregion */
+/* #region Font Sizes */
+/* #endregion */
+/* #region Header & Navigation */
+/* #endregion */
+/* #region Main Body */
+/* #endregion */
+/* #region Sound Containers */
+/* #endregion */
+/* #region Div Clearfix */
+div:before, div:after {
+  display: table;
+  content: " "; }
+
+div:after {
+  clear: both; }
+
+/* #endregion */
+/* #region Main Containers */
 html, body {
   font-family: 'Open Sans'; }
 
@@ -8,7 +28,13 @@ html, body {
   width: 90%;
   padding-bottom: 18px; }
 
-.container {
+.main-container {
   padding: 18px; }
 
+/* #endregion */
+/* #region Sound Containers */
+.sound-block {
+  padding-bottom: 15px; }
+
+/* #endregion */
 /*# sourceMappingURL=Main.css.map */

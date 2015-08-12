@@ -22,5 +22,8 @@ namespace API.Models
         public string Code { get; set; }
 
         public DateTime? EndDate { get; set; }
+
+        [Required]
+        public DateTime StartDate { get; set; }
     }
 }

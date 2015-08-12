@@ -25,11 +25,32 @@ table {
   border-spacing: 0; }
 
 /* Variables */
+/* #region Colours */
+/* #endregion */
+/* #region Font Sizes */
+/* #endregion */
+/* #region Header & Navigation */
+/* #endregion */
+/* #region Main Body */
+/* #endregion */
+/* #region Sound Containers */
+/* #endregion */
 /* Variables */
+/* #region Colours */
+/* #endregion */
+/* #region Font Sizes */
+/* #endregion */
+/* #region Header & Navigation */
+/* #endregion */
+/* #region Main Body */
+/* #endregion */
+/* #region Sound Containers */
+/* #endregion */
 nav {
   width: 100%;
   background-color: #77AEAB;
-  position: fixed; }
+  position: fixed;
+  top: 0; }
 
 .navbar {
   width: 90%;
@@ -56,6 +77,41 @@ nav {
         color: white; }
 
 /* Variables */
+/* #region Colours */
+/* #endregion */
+/* #region Font Sizes */
+/* #endregion */
+/* #region Header & Navigation */
+/* #endregion */
+/* #region Main Body */
+/* #endregion */
+/* #region Sound Containers */
+/* #endregion */
+footer {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 18px; }
+
+/* Variables */
+/* #region Colours */
+/* #endregion */
+/* #region Font Sizes */
+/* #endregion */
+/* #region Header & Navigation */
+/* #endregion */
+/* #region Main Body */
+/* #endregion */
+/* #region Sound Containers */
+/* #endregion */
+/* #region Div Clearfix */
+div:before, div:after {
+  display: table;
+  content: " "; }
+
+div:after {
+  clear: both; }
+
+/* #endregion */
+/* #region Main Containers */
 html, body {
   font-family: 'Open Sans'; }
 
@@ -65,7 +121,50 @@ html, body {
   width: 90%;
   padding-bottom: 18px; }
 
-.container {
+.main-container {
   padding: 18px; }
+
+/* #endregion */
+/* #region Sound Containers */
+.sound-block {
+  padding-bottom: 15px; }
+
+/* #endregion */
+h1 {
+  font-size: 2.2em; }
+
+h2 {
+  font-size: 2em; }
+
+h3 {
+  font-size: 1.8em; }
+
+h4 {
+  font-size: 1.6em; }
+
+h5 {
+  font-size: 1.4em; }
+
+h6 {
+  font-size: 1.2em; }
+
+h1 {
+  font-size: 2.2em; }
+
+h2 {
+  font-size: 2em; }
+
+h3 {
+  font-size: 1.8em; }
+
+h4 {
+  font-size: 1.6em; }
+
+h5 {
+  font-size: 1.4em; }
+
+h6 {
+  font-size: 1.2em; }
+
 
 /*# sourceMappingURL=Styles.css.map */

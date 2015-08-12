@@ -1,4 +1,4 @@
-/* NUGET: BEGIN LICENSE TEXT
+ /*NUGET: BEGIN LICENSE TEXT
  *
  * Microsoft grants you the right to use these script files for the sole
  * purpose of either: (i) interacting through your browser with the Microsoft
@@ -8,8 +8,8 @@
  * files not expressly granted by Microsoft, whether by implication, estoppel
  * or otherwise. The notices and licenses below are for informational purposes only.
  *
- * NUGET: END LICENSE TEXT */
-/*!
+ * NUGET: END LICENSE TEXT 
+!
  * Bootstrap v3.0.0
  *
  * Copyright 2013 Twitter, Inc
@@ -17,11 +17,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world by @mdo and @fat.
- */
+ 
 
-/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+! normalize.css v2.1.0 | MIT License | git.io/normalize*/ 
 
-/*article,
+article,
 aside,
 details,
 figcaption,
@@ -400,9 +400,9 @@ hr {
   border: 0;
 }
 
-p {
+/*p {
   margin: 0 0 10px;
-}
+}*/
 
 .lead {
   margin-bottom: 20px;
@@ -461,7 +461,7 @@ cite {
   text-align: center;
 }
 
-h1,
+/*h1,
 h2,
 h3,
 h4,
@@ -554,7 +554,7 @@ h3 small,
 h4 small,
 .h4 small {
   font-size: 14px;
-}
+}*/
 
 .page-header {
   padding-bottom: 9px;
@@ -858,8 +858,8 @@ pre code {
 .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  /*padding-right: 15px;
+  padding-left: 15px;*/
 }
 
 .col-xs-1,
@@ -4021,15 +4021,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-top-left-radius: 0;
 }
 
-.navbar {
-  position: relative;
-  z-index: 1000;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-}
-
-.navbar:before,
+/*.navbar:before,
 .navbar:after {
   display: table;
   content: " ";
@@ -4047,13 +4039,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar:after {
   clear: both;
-}
-
-@media (min-width: 768px) {
-  .navbar {
-    border-radius: 4px;
-  }
-}
+}	
 
 .navbar-header:before,
 .navbar-header:after {
@@ -4611,7 +4597,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse .navbar-link:hover {
   color: #ffffff;
-}
+}*/
 
 .breadcrumb {
   padding: 8px 15px;
@@ -6807,4 +6793,4 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
-}*/
+}

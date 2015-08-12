@@ -1,6 +1,10 @@
 ﻿//This defines the angular application, angular uses DI, if you need additional modules add them between the braces []
 //Make sure you have the correct additional angular JS files for any additional modules you use
-angular.module('bertha', ['ngRoute', 'ngResource']);
+angular.module('bertha', [
+    'ngRoute',
+    'ngResource',
+    'angularFileUpload'
+]);
 
 //Configure route provider for HTML5 mode
 angular.module('bertha')

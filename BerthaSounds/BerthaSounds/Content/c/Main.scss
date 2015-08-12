@@ -1,5 +1,18 @@
 ﻿@import 'Config.scss';
 
+/* #region Div Clearfix */
+div:before,
+div:after {
+  display: table;
+  content: " ";
+}
+
+div:after {
+  clear: both;
+}
+/* #endregion */
+
+/* #region Main Containers */
 html, body {
     font-family: 'Open Sans';
 }
@@ -11,6 +24,13 @@ html, body {
     padding-bottom: $padding-container;
 }
 
-.container {
+.main-container {
     padding: $padding-container;
 }
+/* #endregion */
+
+/* #region Sound Containers */
+.sound-block {
+	padding-bottom: $padding-sound-block;
+}
+/* #endregion */
