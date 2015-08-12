@@ -81,12 +81,11 @@ namespace BerthaSounds
                     .AddRemote("~/Content/j/common", "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js")
                     .AddDirectory("~/Content/j/custom")
                     .AddDirectory("~/Content/j/angular")
-					.AddDirectory("~/Content/j/directives")
-					.AddDirectory("~/Content/j/resources")
-					.AddDirectory("~/Content/j/services")
+                    .AddDirectory("~/Content/j/directives")
+                    .AddDirectory("~/Content/j/resources")
+                    .AddDirectory("~/Content/j/services")
                     // Add each area individually
-                    .AddDirectory("~/Content/Areas/Admin/Controllers")
-                    .AddDirectory("~/Content/Areas/Admin/Resources")
+                    .AddDirectory("~/Content/Areas")
                     .AsCached("jslibs", "~/assets/js/jslibs");
             }
         }
