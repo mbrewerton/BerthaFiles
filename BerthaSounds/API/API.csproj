@@ -104,10 +104,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomServiceRegistrationModule.cs" />
+    <Compile Include="Dtos\CategoryDto.cs" />
     <Compile Include="Helpers\MigrationHelpers.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />
+    <Compile Include="Mapping\DtoToModel\CategoryDtoToCategoryProfile.cs" />
     <Compile Include="Mapping\DtoToModel\CouponDtoToCouponProfile.cs" />
     <Compile Include="Mapping\DtoToModel\SoundDtoToSoundProfile.cs" />
+    <Compile Include="Mapping\ModelToDto\CategoryToCategoryDtoProfile.cs" />
     <Compile Include="Mapping\ModelToDto\SoundToSoundDtoProfile.cs" />
     <Compile Include="Migrations\201505180758407_InitialSetup.cs" />
     <Compile Include="Migrations\201505180758407_InitialSetup.Designer.cs">
@@ -207,7 +210,9 @@
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\Repositories.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\CouponService.cs" />
+    <Compile Include="Services\ICategoryService.cs" />
     <Compile Include="Services\ICouponService.cs" />
     <Compile Include="Services\IdentityService.cs" />
     <Compile Include="Services\IRolesService.cs">

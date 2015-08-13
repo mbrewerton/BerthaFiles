@@ -228,6 +228,7 @@
     <Compile Include="API\Areas\Admin\AdminFileApiController.cs" />
     <Compile Include="API\Areas\Admin\AdminApiController.cs" />
     <Compile Include="API\Areas\Profile\ProfileApiController.cs" />
+    <Compile Include="API\Categories\CategoryApiController.cs" />
     <Compile Include="API\Sounds\SoundsApiController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -257,6 +258,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Areas\About\Controllers\adminController.js" />
+    <Content Include="Content\Areas\Admin\Controllers\categoryManagement.js" />
+    <Content Include="Content\Areas\Admin\Spa\adminSpa.html" />
+    <Content Include="Content\Areas\Admin\Spa\adminSpaController.js" />
+    <Content Include="Content\Areas\Admin\Templates\categoryManagement.html" />
     <Content Include="Content\Areas\Shop\Controllers\shopController.js" />
     <Content Include="Content\Areas\Admin\Controllers\couponManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\soundManagementController.js" />

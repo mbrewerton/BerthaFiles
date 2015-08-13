@@ -30,4 +30,16 @@ namespace API.Repositories
     {
         public UserProfileRepository(IObjectContext objectContext) : base(objectContext) { }
     }
+    
+    public partial interface ICategoryRepository : IRepository<Category> { }
+    public partial class CategoryRepository : GenericRepository<Category>
+    {
+		public CategoryRepository(IObjectContext objectContext) : base(objectContext) { }
+    }
+    
+    public partial interface ITagRepository : IRepository<Tag> { }
+    public partial class TagRepository : GenericRepository<Tag>
+    {
+		public TagRepository(IObjectContext objectContext) : base(objectContext) { }
+    }
 }

@@ -59,15 +59,15 @@ namespace BerthaSounds
                     .AddDirectory("~/Content/Areas")
                     .AsCached("jslibs", "~/assets/js/jslibs");
 
-				Bundle.Css()
-					.AddDirectory("~/Content/c/")
-					.AddDirectory("~/Content/Offline")
-					.AsCached("styles", "~/assets/css/styles");
+	            Bundle.Css()
+		            .AddDirectory("~/Content/c")
+		            .AddDirectory("~/Content/Offline/c")
+		            .AsCached("styles", "~/assets/css/styles");
             }
             else
             {
 				Bundle.Css()
-					.AddDirectory("~/Content/c/")
+					.AddDirectory("~/Content/c")
 					.AddRemote("~/Content/c", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css")
 					.AsCached("styles", "~/assets/css/styles");
 
