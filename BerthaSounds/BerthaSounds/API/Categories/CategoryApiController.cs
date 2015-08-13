@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using API.Models;
+using API.Models.Dtos;
 using API.Repositories;
 using API.Services;
 
@@ -21,17 +22,18 @@ namespace BerthaSounds.API.Categories
 		}
 
 		[HttpGet]
-		public HttpResponseMessage Get()
+		[Route("GetCategories")]
+		public HttpResponseMessage GetCategories()
 		{
 			var categories = _categoryService.GetAllCategories();
 			return Request.CreateResponse(HttpStatusCode.OK, categories);
 		}
 
 		[HttpPost]
-		[Route("AddNewCategory")]
-		public HttpResponseMessage AddNewCategory(string name, string description)
+		[Route("AddCategory")]
+		public HttpResponseMessage AddCategory(CategoryDto dto)
 		{
-			var category = _categoryService.AddCategory(name, description);
+			var category = _categoryService.AddCategory(dto.Name, dto.Description);
 			return Request.CreateResponse(HttpStatusCode.OK, category);
 		}
 

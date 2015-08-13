@@ -9,7 +9,6 @@ angular.module('bertha')
 
             soundFactory.getAllSounds().$promise.then(
                 function (data) {
-                    console.log(">> data: ", data);
                     $scope.soundFiles = data;
                     $scope.isLoadingSounds = false;
                 });

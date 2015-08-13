@@ -1,12 +1,15 @@
 ﻿<div class="block-first">
 	<h2>Category Management</h2>
-	<button ng-click="addNewCategory()">+ Add a Category</button>
+	<input type="text" ng-model="newCategory.name"/>
+	<input type="text" ng-model="newCategory.description"/>
+	<button ng-click="addCategory(newCategory)">+ Add a Category</button>
 	<label>Search Categories:</label><input type="text" model="searchData.term"/>
 	<table>
 		<thead>
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
+			<th>Description</th>
 			<th>No. Sounds Assigned To</th>
 		</tr>
 		</thead>
@@ -14,9 +17,10 @@
 		<tr ng-show="categories.length === 0">
 			<td colspan="3">No categories could be found.</td>
 		</tr>
-		<tr ng-repeat="category in categories | filter: 'searchData.term'">
+		<tr ng-repeat="category in categories">
 			<td>{{category.id}}</td>
 			<td>{{category.name}}</td>
+			<td>{{category.description}}</td>
 		</tr>
 		</tbody>
 	</table>

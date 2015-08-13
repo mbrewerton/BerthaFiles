@@ -37,8 +37,12 @@ namespace API.Services
 		public CategoryDto AddCategory(string name, string description)
 		{
 			var found = _categoryRepository.GetSingleOrDefaultWhere(x => x.Name == name);
-			if (found == null)
-				throw new NullReferenceException("A category with that name already exists.");
+			if (found != null)
+			{
+				if (found.Name == name)
+					throw new NullReferenceException("A category with that name already exists.");
+			}
+				
 			var newCategory = new Category
 			{
 				Name = name,

@@ -274,6 +274,7 @@
     </Content>
     <Content Include="Content\j\directives\controllers\bthSoundsController.js" />
     <Content Include="Content\j\directives\templates\bthSounds.html" />
+    <Content Include="Content\j\resources\categories\categoryResource.js" />
     <Content Include="Content\j\resources\sounds\soundResource.js" />
     <Content Include="Content\Areas\Admin\Templates\couponManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\soundManagement.html" />
@@ -328,7 +329,9 @@
     <Content Include="Content\j\angular\pageController.js" />
     <Content Include="Content\j\custom\angular-file-upload-all.min.js" />
     <Content Include="Content\j\custom\angular-file-upload-shim.min.js" />
-    <Content Include="Content\j\services\dudService.js" />
+    <Content Include="Content\j\resources\tags\tagResource.js" />
+    <Content Include="Content\j\services\toastService.js" />
+    <Content Include="Content\j\services\categoryService.js" />
     <Content Include="Content\Offline\c\Fontawesome\font-awesome.css">
       <DependentUpon>font-awesome.scss</DependentUpon>
     </Content>
