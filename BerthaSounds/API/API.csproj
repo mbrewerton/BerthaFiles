@@ -177,6 +177,14 @@
     <Compile Include="Migrations\201508121700068_RemoveCategoriesFromSoundModel.Designer.cs">
       <DependentUpon>201508121700068_RemoveCategoriesFromSoundModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508131052114_AddTags.cs" />
+    <Compile Include="Migrations\201508131052114_AddTags.Designer.cs">
+      <DependentUpon>201508131052114_AddTags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508131107383_AddTagsAndCategoriesToSounds.cs" />
+    <Compile Include="Migrations\201508131107383_AddTagsAndCategoriesToSounds.Designer.cs">
+      <DependentUpon>201508131107383_AddTagsAndCategoriesToSounds.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DbContexts\BerthaContext.cs" />
@@ -279,6 +287,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508121700068_RemoveCategoriesFromSoundModel.resx">
       <DependentUpon>201508121700068_RemoveCategoriesFromSoundModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508131052114_AddTags.resx">
+      <DependentUpon>201508131052114_AddTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508131107383_AddTagsAndCategoriesToSounds.resx">
+      <DependentUpon>201508131107383_AddTagsAndCategoriesToSounds.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

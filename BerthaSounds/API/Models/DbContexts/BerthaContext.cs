@@ -18,5 +18,17 @@ namespace API.Models.DbContexts
         public DbSet<Category> Category { get; set; }
         public DbSet<Coupon> Coupon { get; set; }
         public DbSet<Tag> Tag { get; set; }
+
+	    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+	    {
+		    modelBuilder.Entity<Sound>()
+			    .HasMany(s => s.Tags)
+			    .WithMany();
+		    modelBuilder.Entity<Sound>()
+			    .HasMany(s => s.Categories)
+			    .WithMany();
+
+		    base.OnModelCreating(modelBuilder);
+	    }
     }
 }

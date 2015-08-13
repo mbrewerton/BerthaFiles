@@ -26,9 +26,21 @@ namespace API.Models
 
 		public decimal Price { get; set; }
 
-        public ICollection<Tag> Tags { get; set; }
+		private ICollection<Tag> _tags { get; set; }
+	    public virtual ICollection<Tag> Tags
+	    {
+		    get { return _tags ?? (_tags = new Collection<Tag>()); }
+		    set { _tags = value; }
+	    }
 
-		// Wil be removed when azure is implemented.
+		private ICollection<Category> _categories { get; set; }
+	    public virtual ICollection<Category> Categories
+	    {
+		    get { return _categories ?? (_categories = new Collection<Category>()); }
+		    set { _categories = value; }
+	    }
+
+	    // Wil be removed when azure is implemented.
 		public string FileName { get; set; }
     }
 }
