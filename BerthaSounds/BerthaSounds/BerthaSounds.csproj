@@ -250,7 +250,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -259,9 +258,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Areas\About\Controllers\adminController.js" />
+    <Content Include="Content\Areas\Admin\Controllers\tagManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\categoryManagement.js" />
     <Content Include="Content\Areas\Admin\Spa\adminSpa.html" />
     <Content Include="Content\Areas\Admin\Spa\adminSpaController.js" />
+    <Content Include="Content\Areas\Admin\Templates\tagManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\categoryManagement.html" />
     <Content Include="Content\Areas\Shop\Controllers\shopController.js" />
     <Content Include="Content\Areas\Admin\Controllers\couponManagementController.js" />
@@ -331,6 +332,7 @@
     <Content Include="Content\j\custom\angular-file-upload-all.min.js" />
     <Content Include="Content\j\custom\angular-file-upload-shim.min.js" />
     <Content Include="Content\j\resources\tags\tagResource.js" />
+    <Content Include="Content\j\services\tagService.js" />
     <Content Include="Content\j\services\toastService.js" />
     <Content Include="Content\j\services\categoryService.js" />
     <Content Include="Content\Offline\c\Fontawesome\font-awesome.css">
@@ -449,6 +451,7 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Shared\_NavPartial.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\bertha.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
