@@ -3,15 +3,15 @@
 angular.module('bertha')
     .factory('categoryFactory', [
         '$resource', function ($resource) {
-        	return $resource("api/Category", {}, {
+        	return $resource("api/Categories", {}, {
 				getCategories: {
 					method: "GET",
-					url: "api/Category/GetCategories",
+					url: "api/Categories/GetCategories",
 					isArray: true
 				},
         		addCategory: {
         			method: "POST",
-					url: "api/Category/AddCategory"
+        			url: "api/Categories/AddCategory"
 				}
             });
         }

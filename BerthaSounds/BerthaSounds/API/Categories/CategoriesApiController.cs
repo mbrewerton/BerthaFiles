@@ -11,12 +11,12 @@ using API.Services;
 
 namespace BerthaSounds.API.Categories
 {
-	[RoutePrefix("api/Category")]
-    public class CategoryApiController : ApiController
+	[RoutePrefix("api/Categories")]
+    public class CategoriesApiController : ApiController
     {
 		private readonly ICategoryService _categoryService;
 
-		public CategoryApiController(ICategoryService categoryService)
+		public CategoriesApiController(ICategoryService categoryService)
 		{
 			_categoryService = categoryService;
 		}
