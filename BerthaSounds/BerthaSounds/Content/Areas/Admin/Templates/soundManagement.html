@@ -10,6 +10,7 @@
 			<th>Name</th>
 			<th>Description</th>
 			<th>Categories</th>
+			<th>Tags</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -20,7 +21,8 @@
 			<td>{{file.id}}</td>
 			<td>{{file.name}}</td>
 			<td>{{file.description}}</td>
-			<td>{{file.categories}}</td>
+			<td>{{file.categories}}<span ng-hide="file.categories.length > 0">None</span></td>
+			<td>{{file.tags}}<span ng-hide="file.categories.length > 0">None</span></td>
 		</tr>
 		</tbody>
 	</table>

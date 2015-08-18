@@ -56,7 +56,7 @@ namespace API.Services
 		{
 			var tag = _tagRepository.GetSingleOrDefaultWhere(x => x.Name.ToLower() == name.ToLower());
 			if (tag == null)
-				throw new NullReferenceException("A Tag by that name name does not exist.");
+				throw new NullReferenceException("A Tag by that name does not exist.");
 
 			_tagRepository.Delete(tag);
 			_unitOfWork.Commit();

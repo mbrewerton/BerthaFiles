@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using API.Exceptions;
 using API.Models;
 using API.Models.DbContexts;
 using API.Models.Dtos;
@@ -24,40 +25,38 @@ namespace API.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<Coupon> GetAllCoupons()
+        public List<CouponDto> GetAllCoupons()
         {
-            return _couponRepository.GetAll();
-            //using (var db = new BerthaContext())
-            //{
-            //    return db.Coupon.ToList();
-            //}
+	        var coupons = _couponRepository.GetAll()
+				.ToList();
+	        return Mapper.Map<List<Coupon>, List<CouponDto>>(coupons);
         }
 
-        public void SaveCoupon(CouponDto couponDto)
+        public CouponDto AddCoupon(CouponDto couponDto)
         {
-
             if (couponDto.EndDate != null)
                 couponDto.EndDate = (DateTime)couponDto.EndDate;
+
             if (couponDto.Code.Length > 10)
             {
-                throw new Exception("Coupon code is too long.");
+                throw new InvalidActionException("Coupon code is too long.");
             }
+
+			if (couponDto.StartDate == null)
+				throw new InvalidActionException("Please enter a start date.");
+
+	        var coupons = GetAllCoupons();
+	        if (coupons.Any(x => x.Name.ToUpper() == couponDto.Name.ToUpper()))
+		        throw new InvalidActionException("A coupon with that name already exists.");
+
+	        if (coupons.Any(x => x.Code.ToUpper() == couponDto.Code.ToUpper()))
+		        throw new InvalidActionException("A coupon with that code already exists.");
 
             var coupon = _mapper.Map<CouponDto, Coupon>(couponDto);
             _couponRepository.Add(coupon);
             _unitOfWork.Commit();
-            
-            //using (var db = new BerthaContext())
-            //{
-            //    if (coupon.Id == 0)
-            //    {
-            //        db.Coupon.Add(coupon);
-            //    }
-            //    else
-            //    {
-            //    }
-            //    db.SaveChanges();
-            //}
+
+	        return Mapper.Map<Coupon, CouponDto>(coupon);
         }
     }
 }

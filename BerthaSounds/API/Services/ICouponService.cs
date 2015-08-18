@@ -6,7 +6,7 @@ namespace API.Services
 {
     public interface ICouponService
     {
-        IEnumerable<Coupon> GetAllCoupons();
-        void SaveCoupon(CouponDto coupon);
+        List<CouponDto> GetAllCoupons();
+        CouponDto AddCoupon(CouponDto coupon);
     }
 }

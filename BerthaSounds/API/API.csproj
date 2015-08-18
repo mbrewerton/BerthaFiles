@@ -106,12 +106,14 @@
     <Compile Include="CustomServiceRegistrationModule.cs" />
     <Compile Include="Dtos\TagDto.cs" />
     <Compile Include="Dtos\CategoryDto.cs" />
+    <Compile Include="Exceptions\BerthaException.cs" />
     <Compile Include="Helpers\MigrationHelpers.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />
     <Compile Include="Mapping\DtoToModel\TagDtoToTagProfile.cs" />
     <Compile Include="Mapping\DtoToModel\CategoryDtoToCategoryProfile.cs" />
     <Compile Include="Mapping\DtoToModel\CouponDtoToCouponProfile.cs" />
     <Compile Include="Mapping\DtoToModel\SoundDtoToSoundProfile.cs" />
+    <Compile Include="Mapping\ModelToDto\CouponToCouponDtoProfile.cs" />
     <Compile Include="Mapping\ModelToDto\TagToTagDtoProfile.cs" />
     <Compile Include="Mapping\ModelToDto\CategoryToCategoryDtoProfile.cs" />
     <Compile Include="Mapping\ModelToDto\SoundToSoundDtoProfile.cs" />

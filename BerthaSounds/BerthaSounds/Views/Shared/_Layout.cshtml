@@ -5,10 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+	<meta charset="utf-8"/>
+	<base href="/"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-
+	@if (MvcApplication.Environment != "Live")
+	{
+		<link href="~/Content/Offline/c/Fontawesome/font-awesome.css" rel="stylesheet" />
+	}
 </head>
 <body>
     @if (MvcApplication.Environment != "Live")

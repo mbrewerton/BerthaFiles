@@ -9,6 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Configuration;
 using System.Data.Entity;
+using Migs = API.Migrations;
 using API.Mapping;
 using API.Models.DbContexts;
 using SquishIt.Framework;
@@ -28,6 +29,7 @@ namespace BerthaSounds
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             AutoMapperConfig.Configure();
+
             //Database.SetInitializer(new DropCreateDatabaseAlways<BerthaContext>());
             //var db = new BerthaContext();
             //db.Database.Initialize(true);
@@ -50,11 +52,13 @@ namespace BerthaSounds
                     .Add("~/Content/j/common/angular-animate.min.js")
                     .Add("~/Content/j/common/bootstrap.min.js")
                     .Add("~/Content/j/common/jquery.validate.min.js")
+					.AddDirectory("~/Content/Offline/j")
                     .AddDirectory("~/Content/j/custom")
                     .AddDirectory("~/Content/j/angular")
                     .AddDirectory("~/Content/j/directives")
                     .AddDirectory("~/Content/j/resources")
                     .AddDirectory("~/Content/j/services")
+					.AddDirectory("~/Content/j/filters")
                     // Add each area individually
                     .AddDirectory("~/Content/Areas")
                     .AsCached("jslibs", "~/assets/js/jslibs");
@@ -79,11 +83,13 @@ namespace BerthaSounds
                     .AddRemote("~/Content/j/common", "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js")
                     .AddRemote("~/Content/j/common", "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js")
                     .AddRemote("~/Content/j/common", "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js")
+					.AddRemote("~/Content/j/common", "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js")
                     .AddDirectory("~/Content/j/custom")
                     .AddDirectory("~/Content/j/angular")
                     .AddDirectory("~/Content/j/directives")
                     .AddDirectory("~/Content/j/resources")
                     .AddDirectory("~/Content/j/services")
+					.AddDirectory("~/Content/j/filters")
                     // Add each area individually
                     .AddDirectory("~/Content/Areas")
                     .AsCached("jslibs", "~/assets/js/jslibs");

@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <ApplicationInsightsResourceId>/subscriptions/cbcabb7e-ec8c-4422-a851-e20f46a3a002/resourcegroups/Default-Web-WestEurope/providers/microsoft.insights/components/bertha</ApplicationInsightsResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +52,27 @@
     </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\YUICompressor.NET.2.0.0.0\lib\NET20\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.KeyVault.Core">
       <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
@@ -228,6 +250,7 @@
     <Compile Include="API\Areas\Admin\AdminFileApiController.cs" />
     <Compile Include="API\Areas\Admin\AdminApiController.cs" />
     <Compile Include="API\Areas\Profile\ProfileApiController.cs" />
+    <Compile Include="API\Coupons\CouponsController.cs" />
     <Compile Include="API\Tags\TagsApiController.cs" />
     <Compile Include="API\Categories\CategoriesApiController.cs" />
     <Compile Include="API\Sounds\SoundsApiController.cs" />
@@ -276,8 +299,10 @@
     </Content>
     <Content Include="Content\j\directives\controllers\bthSoundsController.js" />
     <Content Include="Content\j\directives\templates\bthSounds.html" />
-    <Content Include="Content\j\resources\categories\categoryResource.js" />
-    <Content Include="Content\j\resources\sounds\soundResource.js" />
+    <Content Include="Content\j\filters\moment.js" />
+    <Content Include="Content\j\resources\couponResource.js" />
+    <Content Include="Content\j\resources\categoryResource.js" />
+    <Content Include="Content\j\resources\soundResource.js" />
     <Content Include="Content\Areas\Admin\Templates\couponManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\soundManagement.html" />
     <Content Include="Content\Areas\Shop\Templates\shopIndex.html" />
@@ -331,7 +356,8 @@
     <Content Include="Content\j\angular\pageController.js" />
     <Content Include="Content\j\custom\angular-file-upload-all.min.js" />
     <Content Include="Content\j\custom\angular-file-upload-shim.min.js" />
-    <Content Include="Content\j\resources\tags\tagResource.js" />
+    <Content Include="Content\j\resources\tagResource.js" />
+    <Content Include="Content\j\services\couponService.js" />
     <Content Include="Content\j\services\tagService.js" />
     <Content Include="Content\j\services\toastService.js" />
     <Content Include="Content\j\services\categoryService.js" />
@@ -342,6 +368,7 @@
       <DependentUpon>font-awesome.css</DependentUpon>
     </Content>
     <Content Include="Content\Offline\f\Fontawesome\fontawesome-webfont.svg" />
+    <Content Include="Content\Offline\j\moment.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -392,6 +419,9 @@
     <Content Include="Content\c\Footer.css.map">
       <DependentUpon>Footer.css</DependentUpon>
     </Content>
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Content\j\common\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\j\common\angular-animate.min.js" />
     <Content Include="Content\j\common\angular-resource.min.js" />
@@ -411,6 +441,8 @@
     <Content Include="Content\j\common\respond.js" />
     <Content Include="Content\j\common\respond.min.js" />
     <Content Include="Content\j\common\_references.js" />
+    <Content Include="scripts\ai.0.15.0-build41087.js" />
+    <Content Include="scripts\ai.0.15.0-build41087.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

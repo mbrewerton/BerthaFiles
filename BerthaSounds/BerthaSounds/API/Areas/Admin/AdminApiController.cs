@@ -19,12 +19,10 @@ namespace BerthaSounds.API.Areas.Admin
     public class AdminApiController : ApiController
     {
         private readonly ISoundService _soundService;
-        private readonly ICouponService _couponService;
 
-        public AdminApiController(ISoundService soundService, ICouponService couponService)
+        public AdminApiController(ISoundService soundService)
         {
             _soundService = soundService;
-            _couponService = couponService;
         }
 
         [HttpGet]
@@ -33,21 +31,6 @@ namespace BerthaSounds.API.Areas.Admin
         {
             var sounds = _soundService.GetAllSounds();
             return Request.CreateResponse(HttpStatusCode.OK, sounds);
-        }
-
-        [HttpGet]
-        [Route("GetAllCoupons")]
-        public HttpResponseMessage GetAllCoupons()
-        {
-            return Request.CreateResponse(HttpStatusCode.OK, _couponService.GetAllCoupons());
-        }
-
-        [HttpPost]
-        [Route("SaveCoupon")]
-        public HttpResponseMessage SaveCoupon(CouponDto couponDto)
-        {
-            _couponService.SaveCoupon(couponDto);
-            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
 	    [HttpPost]
