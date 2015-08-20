@@ -33,5 +33,13 @@ namespace BerthaSounds.API.Coupons
 			_couponService.AddCoupon(couponDto);
 			return Request.CreateResponse(HttpStatusCode.OK);
 		}
+
+		[HttpDelete]
+		[Route("DeleteCoupon")]
+		public HttpResponseMessage DeleteCoupon(int id)
+		{
+			_couponService.DeleteCoupon(id);
+			return Request.CreateResponse(HttpStatusCode.OK);
+		}
     }
 }

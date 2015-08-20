@@ -8,5 +8,7 @@ namespace API.Services
     {
         List<CouponDto> GetAllCoupons();
         CouponDto AddCoupon(CouponDto coupon);
+	    void DeleteCoupon(string name);
+	    void DeleteCoupon(int id);
     }
 }

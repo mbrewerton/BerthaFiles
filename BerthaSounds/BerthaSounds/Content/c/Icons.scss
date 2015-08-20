@@ -1,0 +1,17 @@
+﻿@import 'Config.scss';
+
+.fa-trash, .fa-close, .fa-check {
+	cursor: pointer;
+
+	&:hover {
+		opacity: $opacity-button-hover;
+	}
+}
+
+.fa-trash, .fa-close {
+	color: $color-red;
+}
+
+.fa-check {
+	color: $color-green;
+}

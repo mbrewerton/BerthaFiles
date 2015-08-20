@@ -12,6 +12,10 @@ angular.module('bertha')
         		addCategory: {
         			method: "POST",
         			url: "api/Categories/AddCategory"
+        		},
+				deleteCategory: {
+					method: "DELETE",
+					url: "api/Categories/DeleteCategory"
 				}
             });
         }

@@ -1,0 +1,15 @@
+﻿@import 'Config.scss';
+
+table {
+	td, th {
+		padding: $padding-table-td $padding-table-sides;
+	}
+
+	th {
+		text-align: center;
+	}
+
+	td {		
+		border: 1px solid $color-light-grey;
+	}
+}

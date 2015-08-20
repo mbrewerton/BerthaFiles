@@ -12,6 +12,10 @@ angular.module('bertha')
         		addTag: {
         			method: "POST",
         			url: "api/Tags/AddTag"
+        		},
+        		deleteTag: {
+        			method: "DELETE",
+        			url: "api/Tags/DeleteTag"
         		}
             });
         }

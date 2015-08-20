@@ -61,5 +61,10 @@ namespace API.Services
 			_tagRepository.Delete(tag);
 			_unitOfWork.Commit();
 		}
+
+		public void DeleteTag(int id)
+		{
+			
+		}
 	}
 }

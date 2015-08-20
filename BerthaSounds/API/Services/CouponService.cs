@@ -58,5 +58,25 @@ namespace API.Services
 
 	        return Mapper.Map<Coupon, CouponDto>(coupon);
         }
+
+		public void DeleteCoupon(string name)
+		{
+			var coupon = _couponRepository.GetSingleOrDefaultWhere(x => x.Name.ToLower() == name.ToLower());
+			if (coupon == null)
+				throw new NullReferenceException("A Coupon by that name does not exist.");
+
+			_couponRepository.Delete(coupon);
+			_unitOfWork.Commit();
+		}
+
+	    public void DeleteCoupon(int id)
+	    {
+		    var coupon = _couponRepository.GetById(id);
+			if (coupon == null)
+				throw new NullReferenceException(string.Format("A coupon with id '{0}' does not exist", id));
+
+			_couponRepository.Delete(coupon);
+			_unitOfWork.Commit();
+	    }
     }
 }

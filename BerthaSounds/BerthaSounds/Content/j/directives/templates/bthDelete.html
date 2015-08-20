@@ -1,0 +1,11 @@
+﻿<span ng-if="!small">
+	<button ng-show="!confirmMode" ng-click="toggleConfirmMode()">{{buttonTitle}}</button>
+	<button ng-show="confirmMode" ng-click="delConfirmAction(); toggleConfirmMode()">Yes</button>
+	<button ng-show="confirmMode" ng-click="toggleConfirmMode()">No</button>
+</span>
+
+<span ng-if="small">
+	<i ng-show="!confirmMode" class="fa fa-trash" ng-click="toggleConfirmMode()"></i>
+	<i ng-show="confirmMode" class="fa fa-check" ng-click="delConfirmAction(); toggleConfirmMode()"></i>
+	<i ng-show="confirmMode" class="fa fa-close" ng-click="toggleConfirmMode()"></i>
+</span>

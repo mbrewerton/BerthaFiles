@@ -1,5 +1,4 @@
 ﻿<div class="block-first">
-	<h2>Sound Management</h2>
 	<!--<input type="file" accept="audio/*" fileread="soundUpload.file"/>-->
 	<button ng-file-select ng-file-change="upload($files)" ng-multiple="true" accept="audio/*">Select File</button>
 
@@ -15,7 +14,7 @@
 		</thead>
 		<tbody>
 		<tr ng-if="soundFiles.length === 0">
-			<td><i ng-if="isLoadingSounds" class="fa fa-spinner fa-spin"></i><span ng-if="!isLoadingSounds">No sound files were found.</span></td>
+			<td colspan="5"><i ng-if="isLoadingSounds" class="fa fa-spinner fa-spin"></i><span ng-if="!isLoadingSounds">No sound files were found.</span></td>
 		</tr>
 		<tr ng-repeat="file in soundFiles">
 			<td>{{file.id}}</td>
@@ -26,8 +25,4 @@
 		</tr>
 		</tbody>
 	</table>
-</div>
-
-<div class="block">
-    <h3>Manage Sound Packs</h3>
 </div>

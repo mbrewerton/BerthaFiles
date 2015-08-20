@@ -9,6 +9,9 @@ angular.module("bertha")
 				},
 				addCoupon: function(coupon, callback) {
 					return couponFactory.addCoupon(coupon).$promise.then(callback);
+				},
+				deleteCoupon: function(coupon, callback) {
+					return couponFactory.deleteCoupon({ id: coupon.id }).$promise.then(callback);
 				}
 			};
 

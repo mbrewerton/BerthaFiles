@@ -15,8 +15,11 @@
 /* #endregion */
 /* #region Tables */
 /* #endregion */
-footer {
-  border-top: 1px solid #e5e5e5;
-  padding-top: 18px; }
+table td, table th {
+  padding: 5px 10px; }
+table th {
+  text-align: center; }
+table td {
+  border: 1px solid #e5e5e5; }
 
-/*# sourceMappingURL=Footer.css.map */
+/*# sourceMappingURL=Tables.css.map */

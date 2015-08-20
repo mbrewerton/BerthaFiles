@@ -11,17 +11,21 @@ angular.module('bertha')
                 code: ''
             };
 
+	        $scope.searchData = {
+		        term: ""
+	        };
+
             $scope.getAllCoupons = function() {
 	            couponService.getCoupons(function(data) {
 		            $scope.coupons = data;
 	            });
             };
 
-            $scope.generateCoupon = function () {
-                $scope.coupon.code =  "TESTCOUPON";
-            }
+	        $scope.generateCoupon = function() {
+		        $scope.coupon.code = "TESTCOUPON";
+	        };
 
-            $scope.saveCoupon = function(coupon) {
+	        $scope.saveCoupon = function(coupon) {
 		        coupon.code = coupon.code.toUpperCase();
 
 		        if (coupon.name.length === 0) {
@@ -30,35 +34,40 @@ angular.module('bertha')
 		        }
 
 		        if (coupon.code.length === 0) {
-		        	toastService.error("Please enter a coupon code.");
+			        toastService.error("Please enter a coupon code.");
 			        return;
 		        }
 
-				if (!coupon.startDate) {
-					toastService.error("Please enter a start date.");
-					return;
-				}
-
-		        if (_.find($scope.coupons, function(cpn) {
-						return cpn.name.toLowerCase() === coupon.name.toLowerCase();
-					}))
-		        {
-		        	toastService.throwDuplicateItemToast("add coupon with name", coupon.name);
+		        if (!coupon.startDate) {
+			        toastService.error("Please enter a start date.");
 			        return;
 		        }
 
 		        if (_.find($scope.coupons, function(cpn) {
-						return cpn.code.toLowerCase() === coupon.code.toLowerCase();
-					}))
-		        {
-		        	toastService.throwDuplicateItemToast("add coupon with code", coupon.code);
+			        return cpn.name.toLowerCase() === coupon.name.toLowerCase();
+		        })) {
+			        toastService.throwDuplicateItemToast("add coupon with name", coupon.name);
 			        return;
 		        }
 
-	            couponService.addCoupon(coupon, function(data) {
-		            $scope.getAllCoupons();
-	            });
-            }
+		        if (_.find($scope.coupons, function(cpn) {
+			        return cpn.code.toLowerCase() === coupon.code.toLowerCase();
+		        })) {
+			        toastService.throwDuplicateItemToast("add coupon with code", coupon.code);
+			        return;
+		        }
+
+		        couponService.addCoupon(coupon, function(data) {
+			        $scope.getAllCoupons();
+		        });
+	        };
+
+	        $scope.deleteCoupon = function (coupon) {
+		        couponService.deleteCoupon(coupon, function() {
+		        	toastService.throwDeleteSuccessToast(coupon.name);
+			        $scope.coupons = _.without($scope.coupons, coupon);
+		        });
+	        };
 
 	        $scope.init = function() {
 		        $scope.getAllCoupons();

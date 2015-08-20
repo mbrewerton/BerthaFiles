@@ -15,8 +15,15 @@
 /* #endregion */
 /* #region Tables */
 /* #endregion */
-footer {
-  border-top: 1px solid #e5e5e5;
-  padding-top: 18px; }
+.fa-trash, .fa-close, .fa-check {
+  cursor: pointer; }
+  .fa-trash:hover, .fa-close:hover, .fa-check:hover {
+    opacity: 0.85; }
 
-/*# sourceMappingURL=Footer.css.map */
+.fa-trash, .fa-close {
+  color: #e31313; }
+
+.fa-check {
+  color: #14c327; }
+
+/*# sourceMappingURL=Icons.css.map */

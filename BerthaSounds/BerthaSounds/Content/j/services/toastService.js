@@ -8,35 +8,29 @@ angular.module("bertha")
 					var msg = item + " " + func + " successfully!";
 					var msgTitle = title ? title : "Success!";
 
-					toastr.success(msg, msgTitle);
-
-					if (callback)
-						callback();
+					toastr.success(msg, msgTitle, callback);
 				},
-			error: function(message, callback) {
-				toastr.error(message, callback);
+			error: function (message, title, callback) {
+				var msgTitle = title ? title : "Error";
+				toastr.error(message, msgTitle, callback);
 			},
-			warning: function(message, callback) {
-				toastr.warning(message, callback);
+			warning: function(message, title, callback) {
+				var msgTitle = title ? title : "Warning";
+				toastr.warning(message, msgTitle, callback);
 			},
-			throwSuccessfulToast: function (func, callback) {
+			throwSuccessfulToast: function (func, title, callback) {
 				var msg = func + " was successful.";
-				toastr.success(msg);
-
-				if (callback)
-					callback();
+				service.success(msg, title, callback);
 			},
-			throwDuplicateItemToast: function(func, item, callback) {
+			throwDuplicateItemToast: function(func, item, title, callback) {
 				var msg = "Cannot " + func + " ";
 				if (item)
 					msg += item + " ";
 				msg += "as it already exists.";
-				toastr.error(msg);
 
-				if (callback)
-					callback();
+				service.error(msg, title, callback);
 			},
-			throwItemInUseToast: function (func, item, inUseOn, callback) {
+			throwItemInUseToast: function (func, item, inUseOn, title, callback) {
 				var msg = "Cannot " + func + " " + item + " as it is currently in use";
 
 				if (inUseOn)
@@ -44,35 +38,29 @@ angular.module("bertha")
 				else
 					msg += ".";
 
-				toastr.error(msg);	
-
-				if (callback)
-					callback();
+				service.error(msg, title, callback);
 			},
-			throwDeleteSuccessToast: function(item, callback) {
-				var msg = item + " was deleted successfully.";
-				toastr.success(msg);
-
-				if (callback)
-					callback();
+			throwDeleteSuccessToast: function (item, title, callback) {
+				var func = "delete";
+				service.success(item, func, title, callback);
 			},
 			throwUnexpectedErrorToast: function(rejection) {
-				toastr.error("Sorry, there was an unexpected error carrying out that action.");
+				service.error("Sorry, there was an unexpected error carrying out that action.");
 				console.log("Rejected: ", rejection);
 			},
 			throwInsufficientPermissionsToast: function(rejection) {
-				toastr.error("Sorry, You do not have permission to carry out that action.");
+				service.error("Sorry, You do not have permission to carry out that action.");
 				console.log("Rejected: ", rejection);
 			},
 			throwBadRequestToast: function(rejection) {
-				toastr.error(rejection.data);
+				service.error(rejection.data);
 				console.log("Rejected: ", rejection);
 			},
 			throwNotImplementedToast: function(item) {
 				var defaultMsg = "Not Yet Implemented.";
 				var msg = item ? item + " " + defaultMsg : defaultMsg;
 
-				toastr.warning(msg, defaultMsg);
+				service.warning(msg, defaultMsg);
 			}
 			};
 

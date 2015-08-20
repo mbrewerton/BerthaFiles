@@ -9,6 +9,9 @@ angular.module("bertha")
 				},
 				addCategory: function(name, description, callback) {
 					return categoryFactory.addCategory({name: name, description: description}).$promise.then(callback);
+				},
+				deleteCategory: function(category, callback) {
+					return categoryFactory.deleteCategory({ id: category.id }).$promise.then(callback);
 				}
 			};
 

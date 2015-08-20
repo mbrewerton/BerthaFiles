@@ -9,6 +9,9 @@ angular.module("bertha")
 				},
 				addTag: function(name, callback) {
 					return tagFactory.addTag({name: name}).$promise.then(callback);
+				},
+				deleteTag: function(tag, callback) {
+					return tagFactory.deleteTag({ id: tag.id }).$promise.then(callback);
 				}
 			};
 

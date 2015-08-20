@@ -9,5 +9,6 @@ namespace API.Services
 		TagDto GetTag(int id);
 		TagDto AddTag(string name);
 		void DeleteTag(string name);
+		void DeleteTag(int id);
 	}
 }

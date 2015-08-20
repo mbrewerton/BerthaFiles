@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('bertha')
-    .controller('adminSpaController', ['$scope', '$location', '_', 'soundFactory',
-        function ($scope, $location, _, soundFactory) {
+    .controller('adminSpaController', ['$scope', '$location',
+        function ($scope, $location) {
         	console.log('>> Admin Spa Controller');
         }]);

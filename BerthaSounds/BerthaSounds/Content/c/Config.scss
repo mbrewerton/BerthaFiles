@@ -1,11 +1,25 @@
 ﻿/* Variables */
 /* #region Colours */
+$color-white: white;
 $color-dark-blue: #77AEAB;
 $color-light-blue: #80B8B2;
-$color-header-link: white;
+$color-header-link: $color-white;
 $color-lightest-grey: #f9f9f9;
 $color-light-grey: #e5e5e5;
+$color-grey: #A9A9A9;
 $color-body: #383838;
+$color-red: #e31313;
+$color-green: #14c327;
+
+$opacity-button-hover: 0.85;
+/* #endregion */
+
+/* #region Misc */
+$border-radius: 5px;
+/* #endregion */
+
+/* #region Selectors */
+$sel-input-boxes: 'input[type=text]';
 /* #endregion */
 
 /* #region Font Sizes */
@@ -31,9 +45,17 @@ $margin-header-links: 5px;
 $sel-navbar: '.navbar-left, .navbar-right';
 /* #endregion */
 
-/* #region Main Body */
+/* #region Main Body & Containers */
+
+$margin-block: 20px;
+
 /* #endregion */
 
 /* #region Sound Containers */
 $padding-sound-block: 15px;
+/* #endregion */
+
+/* #region Tables */
+$padding-table-td: 5px;
+$padding-table-sides: $padding-table-td * 2;
 /* #endregion */

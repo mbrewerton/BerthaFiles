@@ -9,5 +9,6 @@ namespace API.Services
 		CategoryDto GetCategory(int id);
 		CategoryDto AddCategory(string name, string description);
 		void DeleteCategory(string name);
+		void DeleteCategory(int id);
 	}
 }

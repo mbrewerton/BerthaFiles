@@ -12,7 +12,11 @@ angular.module('bertha')
         		addCoupon: {
         			method: "POST",
         			url: "api/Coupons/AddCoupon"
-				}
+        		},
+        		deleteCoupon: {
+        			method: "DELETE",
+        			url: "api/Coupons/DeleteCoupon"
+        		}
             });
         }
     ]);

@@ -37,11 +37,11 @@ namespace BerthaSounds.API.Tags
 			return Request.CreateResponse(HttpStatusCode.OK, tag);
 		}
 
-		[HttpPost]
+		[HttpDelete]
 		[Route("DeleteTag")]
-		public HttpResponseMessage DeleteTag(string name)
+		public HttpResponseMessage DeleteTag(int id)
 		{
-			_tagService.DeleteTag(name);
+			_tagService.DeleteTag(id);
 			return Request.CreateResponse(HttpStatusCode.OK);
 		}
     }

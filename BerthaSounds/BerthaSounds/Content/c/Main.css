@@ -1,13 +1,36 @@
 ﻿/* Variables */
 /* #region Colours */
 /* #endregion */
+/* #region Misc */
+/* #endregion */
+/* #region Selectors */
+/* #endregion */
 /* #region Font Sizes */
 /* #endregion */
 /* #region Header & Navigation */
 /* #endregion */
-/* #region Main Body */
+/* #region Main Body & Containers */
 /* #endregion */
 /* #region Sound Containers */
+/* #endregion */
+/* #region Tables */
+/* #endregion */
+/* #region Misc Settings */
+.pointer {
+  cursor: pointer; }
+
+/* #endregion */
+/* #region Buttons & Links */
+button {
+  background-color: #77AEAB;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer; }
+  button:hover {
+    opacity: 0.85; }
+
 /* #endregion */
 /* #region Div Clearfix */
 div:before, div:after {
@@ -30,6 +53,9 @@ html, body {
 
 .main-container {
   padding: 18px; }
+
+.block-first, .block {
+  margin: 20px 0; }
 
 /* #endregion */
 /* #region Sound Containers */

@@ -1,5 +1,4 @@
 ﻿<div class="block-first">
-	<h2>Category Management</h2>
 	<input type="text" ng-model="newCategory.name"/>
 	<input type="text" ng-model="newCategory.description"/>
 	<button ng-click="addCategory(newCategory)">+ Add a Category</button>
@@ -15,12 +14,14 @@
 		</thead>
 		<tbody>
 		<tr ng-show="categories.length === 0">
-			<td colspan="3">No categories could be found.</td>
+			<td colspan="4">No categories could be found.</td>
 		</tr>
 		<tr ng-repeat="category in categories">
 			<td>{{category.id}}</td>
 			<td>{{category.name}}</td>
 			<td>{{category.description}}</td>
+			<td></td>
+			<td><bth-delete del-confirm-action="deleteCategory(category)" del-small="true"></bth-delete></td>
 		</tr>
 		</tbody>
 	</table>

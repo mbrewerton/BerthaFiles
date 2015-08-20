@@ -63,5 +63,10 @@ namespace API.Services
 			_categoryRepository.Delete(category);
 			_unitOfWork.Commit();
 		}
+
+		public void DeleteCategory(int id)
+		{
+			
+		}
 	}
 }

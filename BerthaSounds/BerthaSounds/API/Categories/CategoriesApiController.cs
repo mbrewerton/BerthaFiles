@@ -37,11 +37,11 @@ namespace BerthaSounds.API.Categories
 			return Request.CreateResponse(HttpStatusCode.OK, category);
 		}
 
-		[HttpPost]
+		[HttpDelete]
 		[Route("DeleteCategory")]
-		public HttpResponseMessage DeleteCategory(string name)
+		public HttpResponseMessage DeleteCategory(int id)
 		{
-			 _categoryService.DeleteCategory(name);
+			 _categoryService.DeleteCategory(id);
 			return Request.CreateResponse(HttpStatusCode.OK);
 		}
     }

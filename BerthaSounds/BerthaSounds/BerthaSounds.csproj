@@ -297,7 +297,31 @@
     <Content Include="Content\c\Footer.min.css">
       <DependentUpon>Footer.css</DependentUpon>
     </Content>
+    <Content Include="Content\c\Icons.css">
+      <DependentUpon>Icons.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Icons.min.css">
+      <DependentUpon>Icons.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Input.css">
+      <DependentUpon>Input.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Input.min.css">
+      <DependentUpon>Input.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Tables.css">
+      <DependentUpon>Tables.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Tables.min.css">
+      <DependentUpon>Tables.css</DependentUpon>
+    </Content>
+    <Content Include="Content\j\directives\controllers\bthToggleHeader.js" />
+    <Content Include="Content\j\directives\controllers\bthSearch.js" />
+    <Content Include="Content\j\directives\controllers\bthDeleteController.js" />
     <Content Include="Content\j\directives\controllers\bthSoundsController.js" />
+    <Content Include="Content\j\directives\templates\bthToggleHeader.html" />
+    <Content Include="Content\j\directives\templates\bthSearch.html" />
+    <Content Include="Content\j\directives\templates\bthDelete.html" />
     <Content Include="Content\j\directives\templates\bthSounds.html" />
     <Content Include="Content\j\filters\moment.js" />
     <Content Include="Content\j\resources\couponResource.js" />
@@ -421,6 +445,18 @@
     </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\c\Icons.scss" />
+    <Content Include="Content\c\Icons.css.map">
+      <DependentUpon>Icons.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Tables.scss" />
+    <Content Include="Content\c\Tables.css.map">
+      <DependentUpon>Tables.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Input.scss" />
+    <Content Include="Content\c\Input.css.map">
+      <DependentUpon>Input.css</DependentUpon>
     </Content>
     <None Include="Content\j\common\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\j\common\angular-animate.min.js" />
