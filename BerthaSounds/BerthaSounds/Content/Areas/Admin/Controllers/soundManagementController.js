@@ -1,21 +1,37 @@
 ﻿'use strict';
 
 angular.module('bertha')
-    .controller('soundManagementController', ['$scope', '$rootScope', '$location', '$upload', '_', 'soundFactory',
-        function ($scope, $rootScope, $location, $upload, _, soundFactory) {
-            console.log("$upload ", $upload);
-
+    .controller('soundManagementController', ['$scope', '$rootScope', '$location', '$upload', '_', 'soundService', 'toastService', 'categoryService',
+        function ($scope, $rootScope, $location, $upload, _, soundService, toastService, categoryService) {
             console.log('>> Sound Management Controller');
 
-            soundFactory.getAllSounds().$promise.then(
-                function (data) {
+        	/* #region Init */
+			
+            soundService.getSounds(
+				function (data) {
+	                console.log(data);
                     $scope.soundFiles = data;
                     $scope.isLoadingSounds = false;
                 });
 
+            categoryService.getCategories(function (categories) {
+	            $scope.categories = categories;
+		        console.log("Categories: ", $scope.categories);
+            });
+			/* #endregion */
+
             $scope.uploadSound = function() {
-                soundFactory.uploadSound({ soundFile: $scope.soundUpload.file });
+                soundService.uploadSound({ soundFile: $scope.soundUpload.file });
             };
+
+	        $scope.addCategoryToSound = function(file) {
+	        	file.categories.push(file.newCategory);
+	        	file.newCategory = "";
+	        };
+
+	        $scope.deleteCategoryFromSound = function(category) {
+		        toastService.throwNotImplementedToast("Delete Category");
+	        };
 
             $scope.upload = function (files) {
                 console.log("upload");

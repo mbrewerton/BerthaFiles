@@ -64,7 +64,12 @@ namespace API.Services
 
 		public void DeleteTag(int id)
 		{
-			
+			var tag = _tagRepository.GetById(id);
+			if (tag == null)
+				throw new NullReferenceException(string.Format("A tag with id '{0}' does not exist.", id));
+
+			_tagRepository.Delete(tag);
+			_unitOfWork.Commit();
 		}
 	}
 }

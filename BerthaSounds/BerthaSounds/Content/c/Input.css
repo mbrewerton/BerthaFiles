@@ -5,6 +5,8 @@
 /* #endregion */
 /* #region Selectors */
 /* #endregion */
+/* #region Buttons and Inputs */
+/* #endregion */
 /* #region Font Sizes */
 /* #endregion */
 /* #region Header & Navigation */
@@ -15,8 +17,25 @@
 /* #endregion */
 /* #region Tables */
 /* #endregion */
+input[type=text], button {
+  padding: 0 10px;
+  height: 30px;
+  box-sizing: border-box; }
+
 input[type=text] {
   border: 1px solid #A9A9A9;
-  border-radius: 5px; }
+  border-radius: 5px;
+  /*box-sizing: border-box;*/
+  /*padding: $padding-inputs $padding-inputs-sides;*/ }
+
+button {
+  background-color: #77AEAB;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  /*padding: $padding-inputs $padding-inputs-sides;*/
+  cursor: pointer; }
+  button:hover {
+    opacity: 0.85; }
 
 /*# sourceMappingURL=Input.css.map */

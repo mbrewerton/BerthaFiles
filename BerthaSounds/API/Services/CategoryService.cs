@@ -66,7 +66,12 @@ namespace API.Services
 
 		public void DeleteCategory(int id)
 		{
-			
+			var category = _categoryRepository.GetById(id);
+			if (category == null)
+				throw new NullReferenceException(string.Format("A Category with id '{0}' does not exist.", id));
+
+			_categoryRepository.Delete(category);
+			_unitOfWork.Commit();
 		}
 	}
 }

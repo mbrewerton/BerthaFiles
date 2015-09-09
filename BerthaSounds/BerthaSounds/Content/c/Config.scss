@@ -22,6 +22,13 @@ $border-radius: 5px;
 $sel-input-boxes: 'input[type=text]';
 /* #endregion */
 
+/* #region Buttons and Inputs */
+$padding-inputs: 5px;
+$padding-inputs-sides: $padding-inputs * 2;
+
+$height-inputs: 30px;
+/* #endregion */
+
 /* #region Font Sizes */
 $font-size-header-link: 16px;
 $font-size-main: 14px;

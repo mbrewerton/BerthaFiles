@@ -1,7 +1,8 @@
 ﻿//This defines the angular application, angular uses DI, if you need additional modules add them between the braces []
 //Make sure you have the correct additional angular JS files for any additional modules you use
 var appName = 'bertha';
-angular.module(appName, [
+angular.module(appName, [,
+	'ui.bootstrap',
     'ngRoute',
     'ngResource',
     'angularFileUpload'

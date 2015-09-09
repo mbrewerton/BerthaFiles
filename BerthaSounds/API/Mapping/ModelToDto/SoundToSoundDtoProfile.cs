@@ -13,7 +13,7 @@ namespace API.Mapping
     {
         protected override void Configure()
         {
-            Mapper.CreateMap<Sound, SoundDto>();
+	        Mapper.CreateMap<Sound, SoundDto>();
         }
     }
 }

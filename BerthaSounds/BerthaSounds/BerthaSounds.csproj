@@ -315,10 +315,13 @@
     <Content Include="Content\c\Tables.min.css">
       <DependentUpon>Tables.css</DependentUpon>
     </Content>
+    <Content Include="Content\j\common\ui-bootstrap-tpls-0.12.1.min.js" />
+    <Content Include="Content\j\directives\controllers\bthTypeahead.js" />
     <Content Include="Content\j\directives\controllers\bthToggleHeader.js" />
     <Content Include="Content\j\directives\controllers\bthSearch.js" />
-    <Content Include="Content\j\directives\controllers\bthDeleteController.js" />
-    <Content Include="Content\j\directives\controllers\bthSoundsController.js" />
+    <Content Include="Content\j\directives\controllers\bthDelete.js" />
+    <Content Include="Content\j\directives\controllers\bthSounds.js" />
+    <Content Include="Content\j\directives\templates\bthTypeahead.html" />
     <Content Include="Content\j\directives\templates\bthToggleHeader.html" />
     <Content Include="Content\j\directives\templates\bthSearch.html" />
     <Content Include="Content\j\directives\templates\bthDelete.html" />
@@ -381,6 +384,7 @@
     <Content Include="Content\j\custom\angular-file-upload-all.min.js" />
     <Content Include="Content\j\custom\angular-file-upload-shim.min.js" />
     <Content Include="Content\j\resources\tagResource.js" />
+    <Content Include="Content\j\services\soundService.js" />
     <Content Include="Content\j\services\couponService.js" />
     <Content Include="Content\j\services\tagService.js" />
     <Content Include="Content\j\services\toastService.js" />

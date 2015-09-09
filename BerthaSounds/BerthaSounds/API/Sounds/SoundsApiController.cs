@@ -36,6 +36,13 @@ namespace BerthaSounds.API.Areas.Admin
 	    }
 
 	    [HttpPost]
+	    [Route("AddCategoryToSound")]
+	    public HttpResponseMessage AddCategoryToSound()
+	    {
+		    return Request.CreateResponse(HttpStatusCode.OK);
+	    }
+
+	    [HttpPost]
 	    [Route("UploadSound")]
 	    public Task<IEnumerable<object>> UploadSounds(HttpRequestMessage request)
 	    {

@@ -24,6 +24,8 @@ namespace API.Models.Dtos
 
 		public string FileName { get; set; }
 
+		public List<CategoryDto> Categories { get; set; } 
+
         //public virtual ICollection<Category> Categories
         //{
         //    get { return _categories ?? (_categories = new Collection<Category>()); }
