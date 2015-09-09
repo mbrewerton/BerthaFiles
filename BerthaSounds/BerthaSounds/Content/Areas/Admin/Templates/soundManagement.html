@@ -20,7 +20,7 @@
 			<td>{{file.id}}</td>
 			<td>{{file.name}}</td>
 			<td>{{file.description}}</td>
-			<td><span ng-hide="file.categories.length > 0">None</span><span ng-show="file.categories.length > 0" ng-repeat="category in file.categories">{{category.name}} <bth-delete del-confirm-action="deleteCategoryFromSound(category)" del-small="true"></bth-delete></span><input type="text" typeahead="cat as cat.name for cat in categories" ng-model="file.newCategory" typeahead-on-select="addCategoryToSound(file)"/></td>
+			<td><span ng-hide="file.categories.length > 0">None</span><span ng-show="file.categories.length > 0" ng-repeat="category in file.categories">{{category.name}} <bth-delete del-confirm-action="deleteCategoryFromSound(file, category)" del-small="true"></bth-delete></span><input type="text" typeahead="cat as cat.name for cat in categories" ng-model="file.newCategory" typeahead-on-select="addCategoryToSound(file, file.newCategory)"/></td>
 			<td><span ng-hide="file.tags.length > 0">None</span><span ng-show="file.tags.length > 0"></span></td>
 		</tr>
 		</tbody>

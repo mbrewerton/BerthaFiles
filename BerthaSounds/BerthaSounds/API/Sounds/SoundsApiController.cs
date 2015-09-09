@@ -37,8 +37,17 @@ namespace BerthaSounds.API.Areas.Admin
 
 	    [HttpPost]
 	    [Route("AddCategoryToSound")]
-	    public HttpResponseMessage AddCategoryToSound()
+	    public HttpResponseMessage AddCategoryToSound(int soundId, int categoryId)
 	    {
+			_soundService.AddCategoryToSound(soundId, categoryId);
+		    return Request.CreateResponse(HttpStatusCode.OK);
+	    }
+
+	    [HttpDelete]
+	    [Route("RemoveCategoryFromSound")]
+	    public HttpResponseMessage RemoveCategoryFromSound(int soundId, int categoryId)
+	    {
+		    _soundService.RemoveCategoryFromSound(soundId, categoryId);
 		    return Request.CreateResponse(HttpStatusCode.OK);
 	    }
 

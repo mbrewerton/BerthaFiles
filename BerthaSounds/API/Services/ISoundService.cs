@@ -8,6 +8,7 @@ namespace API.Services
     {
         IEnumerable<SoundDto> GetAllSounds();
         void UploadSound(List<SoundDto> sound);
-	    void AddCategoryToSound(SoundDto soundDto, CategoryDto categoryDto);
+	    void AddCategoryToSound(int soundId, int categoryId);
+	    void RemoveCategoryFromSound(int soundId, int categoryId);
     }
 }

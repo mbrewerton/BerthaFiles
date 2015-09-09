@@ -44,21 +44,35 @@ namespace API.Services
             return null;
         }
 
-	    public void AddCategoryToSound(SoundDto soundDto, CategoryDto categoryDto)
+	    public void AddCategoryToSound(int soundId, int categoryId)
 	    {
-		    var sound = _soundRepository.GetById(soundDto.Id);
+		    var sound = _soundRepository.GetById(soundId);
 		    if (sound == null)
-			    throw new NullReferenceException(string.Format("Cannot find a Category with the id: {0}", soundDto.Id));
+			    throw new NullReferenceException(string.Format("Cannot find a Sound with the id: {0}", soundId));
 
-		    var category = _categoryRepository.GetById(categoryDto.Id);
+		    var category = _categoryRepository.GetById(categoryId);
+		    if (category == null)
+			    throw new NullReferenceException(string.Format("Cannot find a Category with the id: {0}", categoryId));
+
+		    sound.Categories.Add(category);
+		    _unitOfWork.Commit();
+	    }
+
+	    public void RemoveCategoryFromSound(int soundId, int categoryId)
+	    {
+			var sound = _soundRepository.GetById(soundId);
+			if (sound == null)
+				throw new NullReferenceException(string.Format("Cannot find a Sound with the id: {0}", soundId));
+
+			var category = _categoryRepository.GetById(categoryId);
 			if (category == null)
-				throw new NullReferenceException(string.Format("Cannot find a Category with the id: {0}", categoryDto.Id));
+				throw new NullReferenceException(string.Format("Cannot find a Category with the id: {0}", categoryId));
 
-			sound.Categories.Add(category);
+			sound.Categories.Remove(category);
 			_unitOfWork.Commit();
 	    }
 
-        public void UploadSound(List<SoundDto> sound)
+	    public void UploadSound(List<SoundDto> sound)
         {
             
         }

@@ -24,14 +24,15 @@ angular.module('bertha')
                 soundService.uploadSound({ soundFile: $scope.soundUpload.file });
             };
 
-	        $scope.addCategoryToSound = function(file) {
-	        	file.categories.push(file.newCategory);
-	        	file.newCategory = "";
+            $scope.addCategoryToSound = function (sound, category) {
+	            soundService.addCategoryToSound(sound.id, category.id);
+	        	sound.categories.push(sound.newCategory);
+	        	sound.newCategory = "";
 	        };
 
-	        $scope.deleteCategoryFromSound = function(category) {
-		        toastService.throwNotImplementedToast("Delete Category");
-	        };
+            $scope.deleteCategoryFromSound = function (sound, category) {
+	            soundService.removeCategoryFromSound(sound.id, category.id);
+            };
 
             $scope.upload = function (files) {
                 console.log("upload");

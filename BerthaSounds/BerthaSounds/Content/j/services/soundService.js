@@ -9,6 +9,12 @@ angular.module("bertha")
 				},
 				uploadSound: function(sound, callback) {
 					return soundFactory.uploadSound(sound).$promise.then(callback);
+				},
+				addCategoryToSound: function(soundId, categoryId, callback) {
+					return soundFactory.addCategoryToSound({ soundId: soundId, categoryId: categoryId }).$promise.then(callback);
+				},
+				removeCategoryFromSound: function(soundId, categoryId, callback) {
+					return soundFactory.removeCategoryFromSound({ soundId: soundId, categoryId: categoryId }).$promise.then(callback);
 				}
 			};
 
