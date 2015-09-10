@@ -5,11 +5,11 @@
 	<table>
 		<thead>
 		<tr>
-			<th ng-click="setSortField('Id')">Id</th>
-			<th ng-click="setSortField('Name')">Name <i class="fa" ng-class="{ 'fa-caret-up': sortReverse , 'fa-caret-down': !sortReverse  }"></i></th>
-			<th>Description</th>
-			<th>Categories</th>
-			<th>Tags</th>
+			<th bth-sortable text="Id" ng-click="setSortField('id')"></th>
+			<th bth-sortable text="Name" ng-click="setSortField('name')"></th>
+			<th bth-sortable text="Description" ng-click="setSortField('description')"></th>
+			<th bth-sortable text="Categories" ng-click="setSortField('categories')"></th>
+			<th bth-sortable text="Tags" ng-click="setSortField('tags')"></th>
 		</tr>
 		</thead>
 		<tbody>

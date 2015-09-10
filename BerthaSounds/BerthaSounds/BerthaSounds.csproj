@@ -316,13 +316,13 @@
       <DependentUpon>Tables.css</DependentUpon>
     </Content>
     <Content Include="Content\j\common\ui-bootstrap-tpls-0.12.1.min.js" />
-    <Content Include="Content\j\directives\controllers\bthSort.js" />
+    <Content Include="Content\j\directives\controllers\bthSortable.js" />
     <Content Include="Content\j\directives\controllers\bthTypeahead.js" />
     <Content Include="Content\j\directives\controllers\bthToggleHeader.js" />
     <Content Include="Content\j\directives\controllers\bthSearch.js" />
     <Content Include="Content\j\directives\controllers\bthDelete.js" />
     <Content Include="Content\j\directives\controllers\bthSounds.js" />
-    <Content Include="Content\j\directives\templates\bthSort.html" />
+    <Content Include="Content\j\directives\templates\bthSortable.html" />
     <Content Include="Content\j\directives\templates\bthTypeahead.html" />
     <Content Include="Content\j\directives\templates\bthToggleHeader.html" />
     <Content Include="Content\j\directives\templates\bthSearch.html" />

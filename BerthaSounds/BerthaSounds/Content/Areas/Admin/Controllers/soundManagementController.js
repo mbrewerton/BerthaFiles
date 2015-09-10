@@ -36,8 +36,9 @@ angular.module('bertha')
         	/* #endregion */
 
 	        $scope.setSortField = function(sortField) {
-		        $scope.sortField = sortField;
-		        $scope.sortReverse = !$scope.sortReverse;
+	        	$scope.sortField = sortField;
+		        if ($scope.sortField !== sortField)
+					$scope.sortReverse = !$scope.sortReverse;
 		        console.log("Setting sort field to : '" + sortField + "'.");
 		        console.log("SortReverse: ", $scope.sortReverse);
 	        };

@@ -244,7 +244,8 @@ h6 {
 table td, table th {
   padding: 5px 10px; }
 table th {
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
 table td {
   border: 1px solid #e5e5e5; }
 
