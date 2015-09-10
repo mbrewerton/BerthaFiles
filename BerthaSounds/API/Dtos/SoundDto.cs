@@ -26,6 +26,8 @@ namespace API.Models.Dtos
 
 		public List<CategoryDto> Categories { get; set; } 
 
+		public List<TagDto> Tags { get; set; } 
+
         //public virtual ICollection<Category> Categories
         //{
         //    get { return _categories ?? (_categories = new Collection<Category>()); }

@@ -15,6 +15,12 @@ angular.module("bertha")
 				},
 				removeCategoryFromSound: function(soundId, categoryId, callback) {
 					return soundFactory.removeCategoryFromSound({ soundId: soundId, categoryId: categoryId }).$promise.then(callback);
+				},
+				addTagToSound: function(soundId, tagId, callback) {
+					return soundFactory.addTagToSound({ soundId: soundId, tagId: tagId }).$promise.then(callback);
+				},
+				removeTagFromSound: function (soundId, tagId, callback) {
+					return soundFactory.removeTagFromSound({ soundId: soundId, tagId: tagId }).$promise.then(callback);
 				}
 			};
 

@@ -19,4 +19,11 @@ namespace API.Exceptions
 		public InvalidActionException(string message) : base(message) {}
 		public InvalidActionException(string message, Exception inner) : base(message, inner) { }
 	}
+
+	public class DuplicateItemException : BerthaException
+	{
+		public DuplicateItemException(){}
+		public DuplicateItemException(string message) : base(message) {}
+		public DuplicateItemException(string message, Exception inner) : base(message, inner) {}
+	}
 }

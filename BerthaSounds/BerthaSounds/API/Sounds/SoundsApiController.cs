@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using API.Exceptions;
 using API.Models;
 using API.Models.Dtos;
 using API.Services;
@@ -38,9 +39,16 @@ namespace BerthaSounds.API.Areas.Admin
 	    [HttpPost]
 	    [Route("AddCategoryToSound")]
 	    public HttpResponseMessage AddCategoryToSound(int soundId, int categoryId)
-	    {
-			_soundService.AddCategoryToSound(soundId, categoryId);
-		    return Request.CreateResponse(HttpStatusCode.OK);
+		{
+		    try
+		    {
+				_soundService.AddCategoryToSound(soundId, categoryId);
+			    return Request.CreateResponse(HttpStatusCode.OK);
+		    }
+		    catch (DuplicateItemException)
+		    {
+			    return Request.CreateResponse(HttpStatusCode.Conflict);
+		    }
 	    }
 
 	    [HttpDelete]
@@ -49,7 +57,31 @@ namespace BerthaSounds.API.Areas.Admin
 	    {
 		    _soundService.RemoveCategoryFromSound(soundId, categoryId);
 		    return Request.CreateResponse(HttpStatusCode.OK);
-	    }
+		}
+
+		[HttpPost]
+		[Route("AddTagToSound")]
+		public HttpResponseMessage AddTagToSound(int soundId, int tagId)
+		{
+			try
+			{
+				_soundService.AddTagToSound(soundId, tagId);
+				return Request.CreateResponse(HttpStatusCode.OK);
+			}
+			catch (DuplicateItemException)
+			{
+				return Request.CreateResponse(HttpStatusCode.Conflict);
+			}
+			
+		}
+
+		[HttpDelete]
+		[Route("RemoveTagFromSound")]
+		public HttpResponseMessage RemoveTagFromSound(int soundId, int tagId)
+		{
+			_soundService.RemoveTagFromSound(soundId, tagId);
+			return Request.CreateResponse(HttpStatusCode.OK);
+		}
 
 	    [HttpPost]
 	    [Route("UploadSound")]

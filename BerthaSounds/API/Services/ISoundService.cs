@@ -10,5 +10,7 @@ namespace API.Services
         void UploadSound(List<SoundDto> sound);
 	    void AddCategoryToSound(int soundId, int categoryId);
 	    void RemoveCategoryFromSound(int soundId, int categoryId);
+	    void AddTagToSound(int soundId, int tagId);
+	    void RemoveTagFromSound(int soundId, int tagId);
     }
 }

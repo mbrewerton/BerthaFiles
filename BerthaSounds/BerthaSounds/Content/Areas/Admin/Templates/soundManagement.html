@@ -5,8 +5,8 @@
 	<table>
 		<thead>
 		<tr>
-			<th>Id</th>
-			<th>Name</th>
+			<th ng-click="setSortField('Id')">Id</th>
+			<th ng-click="setSortField('Name')">Name <i class="fa" ng-class="{ 'fa-caret-up': sortReverse , 'fa-caret-down': !sortRevers  }"></i></th>
 			<th>Description</th>
 			<th>Categories</th>
 			<th>Tags</th>
@@ -16,12 +16,12 @@
 		<tr ng-if="soundFiles.length === 0">
 			<td colspan="5"><i ng-if="isLoadingSounds" class="fa fa-spinner fa-spin"></i><span ng-if="!isLoadingSounds">No sound files were found.</span></td>
 		</tr>
-		<tr ng-repeat="file in soundFiles">
+		<tr ng-repeat="file in soundFiles | orderBy:sortField:sortReverse">
 			<td>{{file.id}}</td>
 			<td>{{file.name}}</td>
 			<td>{{file.description}}</td>
-			<td><span ng-hide="file.categories.length > 0">None</span><span ng-show="file.categories.length > 0" ng-repeat="category in file.categories">{{category.name}} <bth-delete del-confirm-action="deleteCategoryFromSound(file, category)" del-small="true"></bth-delete></span><input type="text" typeahead="cat as cat.name for cat in categories" ng-model="file.newCategory" typeahead-on-select="addCategoryToSound(file, file.newCategory)"/></td>
-			<td><span ng-hide="file.tags.length > 0">None</span><span ng-show="file.tags.length > 0"></span></td>
+			<td><span ng-hide="file.categories.length > 0">None</span><span ng-show="file.categories.length > 0" ng-repeat="category in file.categories">{{category.name}} <bth-delete del-confirm-action="deleteCategoryFromSound(file, category)" del-small="true"></bth-delete></span> <i class="fa fa-plus" ng-click="toggleAddNewCategory(file)"></i> <input ng-show="file.addNewCategory" type="text" typeahead="category as category.name for category in getCategories()" ng-model-options="{ debounce: 300 }" ng-model="file.newCategory" typeahead-on-select="addCategoryToSound(file, file.newCategory)"/></td>
+			<td><span ng-hide="file.tags.length > 0">None</span><span ng-show="file.tags.length > 0" ng-repeat="tag in file.tags">{{tag.name}} <bth-delete del-confirm-action="deleteTagFromSound(file, tag)" del-small="true"></bth-delete></span> <i class="fa fa-plus" ng-click="toggleAddNewTag(file)"></i> <input ng-show="file.addNewTag" type="text" typeahead="tag as tag.name for tag in getTags()" ng-model="file.newTag" typeahead-on-select="addTagToSound(file, file.newTag)" /></td>
 		</tr>
 		</tbody>
 	</table>

@@ -30,6 +30,10 @@ angular.module(appName)
 						if (status == 500) {
 							toastService.throwUnexpectedErrorToast(rejection);
 						}
+						if (status == 409) {
+							toastService.throwUnexpectedConflictToast(rejection);
+						}
+						console.log("Rejected: ", rejection);
 						return $q.reject(rejection);
 					}
 				};

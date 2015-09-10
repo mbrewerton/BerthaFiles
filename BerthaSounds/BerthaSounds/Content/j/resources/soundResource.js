@@ -23,6 +23,16 @@ angular.module('bertha')
 					method: "DELETE",
 					url: "/api/Sounds/RemoveCategoryFromSound",
 					params: { soundId: "@soundId", categoryId: "@categoryId" }
+				},
+				addTagToSound: {
+					method: "POST",
+					url: "/api/Sounds/AddTagToSound",
+					params: { soundId: "@soundId", tagId: "@tagId" }
+				},
+				removeTagFromSound: {
+					method: "DELETE",
+					url: "/api/Sounds/RemoveTagFromSound",
+					params: { soundId: "@soundId", tagId: "@tagId" }
 				}
             });
         }

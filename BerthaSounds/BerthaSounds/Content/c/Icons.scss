@@ -1,6 +1,6 @@
 ﻿@import 'Config.scss';
 
-.fa-trash, .fa-close, .fa-check {
+.fa-trash, .fa-close, .fa-check, .fa-plus {
 	cursor: pointer;
 
 	&:hover {
@@ -14,4 +14,8 @@
 
 .fa-check {
 	color: $color-green;
+}
+
+.fa-plus {
+	color: $color-blue;
 }

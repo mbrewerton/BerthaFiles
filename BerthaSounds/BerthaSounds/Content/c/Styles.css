@@ -208,9 +208,9 @@ h6 {
 /* #endregion */
 /* #region Tables */
 /* #endregion */
-.fa-trash, .fa-close, .fa-check {
+.fa-trash, .fa-close, .fa-check, .fa-plus {
   cursor: pointer; }
-  .fa-trash:hover, .fa-close:hover, .fa-check:hover {
+  .fa-trash:hover, .fa-close:hover, .fa-check:hover, .fa-plus:hover {
     opacity: 0.85; }
 
 .fa-trash, .fa-close {
@@ -218,6 +218,9 @@ h6 {
 
 .fa-check {
   color: #14c327; }
+
+.fa-plus {
+  color: #3ca1df; }
 
 /* Variables */
 /* #region Colours */
