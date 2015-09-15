@@ -10,23 +10,53 @@ angular.module('bertha')
                 name: '',
                 code: ''
             };
+	        $scope.search = {
+		        getExpired: false
+	        };
+
+            $scope.sortField = "Id";
+	        $scope.sortReverse = false;
+            $scope.setSortField = function (sortField) {
+            	$scope.sortField = sortField;
+            	$scope.sortReverse = !$scope.sortReverse;
+            };
 
 	        $scope.searchData = {
 		        term: ""
 	        };
 
-            $scope.getAllCoupons = function() {
-	            couponService.getCoupons(function(data) {
-		            $scope.coupons = data;
+	        $scope.getAllCoupons = function (getExpired) {
+		        console.log("scope.getExpired", $scope.search.getExpired);
+		        console.log("getExpired: ", getExpired);
+		        couponService.getCoupons(getExpired, function (data) {
+	            	$scope.coupons = data;
+		            console.log(data);
 	            });
             };
 
 	        $scope.generateCoupon = function() {
-		        $scope.coupon.code = "TESTCOUPON";
+	        	var text = "";
+	        	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+	        	for (var i = 0; i < 10; i++)
+	        		text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+		        $scope.coupon.newCode = text;
 	        };
 
-	        $scope.saveCoupon = function(coupon) {
-		        coupon.code = coupon.code.toUpperCase();
+	        $scope.toggleEditCoupon = function (coupon) {
+				coupon.newName = coupon.name;
+	        	coupon.newCode = coupon.code;
+	        	coupon.newStartDate = coupon.startDate;
+	        	coupon.newEndDate = coupon.endDate;
+		        coupon.isEditing = !coupon.isEditing;
+	        };
+
+	        $scope.saveCoupon = function (coupon) {
+	        	coupon.name = coupon.newName;
+	        	coupon.code = coupon.newCode.toUpperCase();
+	        	coupon.startDate = coupon.newStartDate;
+	        	coupon.endDate = coupon.newEndDate;
 
 		        if (coupon.name.length === 0) {
 			        toastService.error("Please enter a coupon name");
@@ -50,7 +80,7 @@ angular.module('bertha')
 			        return;
 		        }
 
-		        if (_.find($scope.coupons, function(cpn) {
+		        if (_.find($scope.coupons, function (cpn) {
 			        return cpn.code.toLowerCase() === coupon.code.toLowerCase();
 		        })) {
 			        toastService.throwDuplicateItemToast("add coupon with code", coupon.code);
@@ -58,7 +88,7 @@ angular.module('bertha')
 		        }
 
 		        couponService.addCoupon(coupon, function(data) {
-			        $scope.getAllCoupons();
+			        $scope.getAllCoupons($scope.search.getExpired);
 		        });
 	        };
 
@@ -70,6 +100,6 @@ angular.module('bertha')
 	        };
 
 	        $scope.init = function() {
-		        $scope.getAllCoupons();
+	        	$scope.getAllCoupons($scope.search.getExpired);
 	        }();
         }]);

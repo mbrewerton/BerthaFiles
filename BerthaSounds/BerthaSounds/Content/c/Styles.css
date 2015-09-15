@@ -171,6 +171,25 @@ html, body {
   padding-bottom: 15px; }
 
 /* #endregion */
+/* Variables */
+/* #region Colours */
+/* #endregion */
+/* #region Misc */
+/* #endregion */
+/* #region Selectors */
+/* #endregion */
+/* #region Buttons and Inputs */
+/* #endregion */
+/* #region Font Sizes */
+/* #endregion */
+/* #region Header & Navigation */
+/* #endregion */
+/* #region Main Body & Containers */
+/* #endregion */
+/* #region Sound Containers */
+/* #endregion */
+/* #region Tables */
+/* #endregion */
 h1 {
   font-size: 2.2em; }
 
@@ -188,6 +207,9 @@ h5 {
 
 h6 {
   font-size: 1.2em; }
+
+h1.red, h2.red, h3.red, h4.red, h5.red, h6.red, p.red, td.red, th.red, span.red {
+  color: #e31313; }
 
 /* Variables */
 /* #region Colours */
@@ -208,9 +230,9 @@ h6 {
 /* #endregion */
 /* #region Tables */
 /* #endregion */
-.fa-trash, .fa-close, .fa-check, .fa-plus {
+.fa-trash, .fa-close, .fa-check, .fa-plus, .fa-edit {
   cursor: pointer; }
-  .fa-trash:hover, .fa-close:hover, .fa-check:hover, .fa-plus:hover {
+  .fa-trash:hover, .fa-close:hover, .fa-check:hover, .fa-plus:hover, .fa-edit:hover {
     opacity: 0.85; }
 
 .fa-trash, .fa-close {
@@ -219,7 +241,7 @@ h6 {
 .fa-check {
   color: #14c327; }
 
-.fa-plus {
+.fa-plus, .fa-edit {
   color: #3ca1df; }
 
 /* Variables */
@@ -268,16 +290,19 @@ table td {
 /* #endregion */
 /* #region Tables */
 /* #endregion */
-input[type=text], button {
+input[type=text], input[type=coupon], input[type=date], button {
   padding: 0 10px;
   height: 30px;
   box-sizing: border-box; }
 
-input[type=text] {
+input[type=text], input[type=coupon], input[type=date] {
   border: 1px solid #A9A9A9;
   border-radius: 5px;
   /*box-sizing: border-box;*/
   /*padding: $padding-inputs $padding-inputs-sides;*/ }
+
+input[type=coupon] {
+  text-transform: uppercase; }
 
 button {
   background-color: #77AEAB;

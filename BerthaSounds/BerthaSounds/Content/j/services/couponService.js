@@ -4,8 +4,8 @@ angular.module("bertha")
 		"couponFactory",
 		function (couponFactory) {
 			var service = {
-				getCoupons: function(callback) {
-					return couponFactory.getCoupons().$promise.then(callback);
+				getCoupons: function(getExpired, callback) {
+					return couponFactory.getCoupons({ expired: getExpired }).$promise.then(callback);
 				},
 				addCoupon: function(coupon, callback) {
 					return couponFactory.addCoupon(coupon).$promise.then(callback);

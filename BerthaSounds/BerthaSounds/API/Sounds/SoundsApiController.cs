@@ -14,7 +14,7 @@ using API.Services;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 
-namespace BerthaSounds.API.Areas.Admin
+namespace BerthaSounds.API.Sounds
 {
     [RoutePrefix("api/Sounds")]
     public class SoundsApiController : ApiController
@@ -31,7 +31,7 @@ namespace BerthaSounds.API.Areas.Admin
 	    [HttpGet]
 	    [Route("GetAllSounds")]
 	    public HttpResponseMessage GetAllSounds()
-	    {
+			{
 		    var sounds = _soundService.GetAllSounds();
 		    return Request.CreateResponse(HttpStatusCode.OK, sounds);
 	    }
@@ -82,13 +82,5 @@ namespace BerthaSounds.API.Areas.Admin
 			_soundService.RemoveTagFromSound(soundId, tagId);
 			return Request.CreateResponse(HttpStatusCode.OK);
 		}
-
-	    [HttpPost]
-	    [Route("UploadSound")]
-	    public Task<IEnumerable<object>> UploadSounds(HttpRequestMessage request)
-	    {
-
-		    return null;
-	    }
     }
 }

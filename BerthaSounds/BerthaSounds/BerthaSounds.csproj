@@ -189,9 +189,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Http">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -247,10 +244,10 @@
   <ItemGroup>
     <Compile Include="API\Areas\About\AboutApiController.cs" />
     <Compile Include="API\Areas\Account\AccountApiController.cs" />
-    <Compile Include="API\Areas\Admin\AdminFileApiController.cs" />
     <Compile Include="API\Areas\Admin\AdminApiController.cs" />
     <Compile Include="API\Areas\Profile\ProfileApiController.cs" />
-    <Compile Include="API\Coupons\CouponsController.cs" />
+    <Compile Include="API\Coupons\CouponsApiController.cs" />
+    <Compile Include="API\FileUpload\FileApiController.cs" />
     <Compile Include="API\Tags\TagsApiController.cs" />
     <Compile Include="API\Categories\CategoriesApiController.cs" />
     <Compile Include="API\Sounds\SoundsApiController.cs" />
@@ -315,13 +312,16 @@
     <Content Include="Content\c\Tables.min.css">
       <DependentUpon>Tables.css</DependentUpon>
     </Content>
+    <Content Include="Content\j\common\moment.min.js" />
     <Content Include="Content\j\common\ui-bootstrap-tpls-0.12.1.min.js" />
+    <Content Include="Content\j\directives\controllers\bthEdit.js" />
     <Content Include="Content\j\directives\controllers\bthSortable.js" />
     <Content Include="Content\j\directives\controllers\bthTypeahead.js" />
     <Content Include="Content\j\directives\controllers\bthToggleHeader.js" />
     <Content Include="Content\j\directives\controllers\bthSearch.js" />
     <Content Include="Content\j\directives\controllers\bthDelete.js" />
     <Content Include="Content\j\directives\controllers\bthSounds.js" />
+    <Content Include="Content\j\directives\templates\bthEdit.html" />
     <Content Include="Content\j\directives\templates\bthSortable.html" />
     <Content Include="Content\j\directives\templates\bthTypeahead.html" />
     <Content Include="Content\j\directives\templates\bthToggleHeader.html" />
@@ -331,6 +331,7 @@
     <Content Include="Content\j\filters\moment.js" />
     <Content Include="Content\j\resources\couponResource.js" />
     <Content Include="Content\j\resources\categoryResource.js" />
+    <Content Include="Content\j\resources\fileResource.js" />
     <Content Include="Content\j\resources\soundResource.js" />
     <Content Include="Content\Areas\Admin\Templates\couponManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\soundManagement.html" />
@@ -386,6 +387,7 @@
     <Content Include="Content\j\custom\angular-file-upload-all.min.js" />
     <Content Include="Content\j\custom\angular-file-upload-shim.min.js" />
     <Content Include="Content\j\resources\tagResource.js" />
+    <Content Include="Content\j\services\fileService.js" />
     <Content Include="Content\j\services\soundService.js" />
     <Content Include="Content\j\services\couponService.js" />
     <Content Include="Content\j\services\tagService.js" />

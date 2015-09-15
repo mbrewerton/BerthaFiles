@@ -10,6 +10,7 @@ using API.Models;
 using API.Models.DbContexts;
 using API.Models.Dtos;
 using API.Repositories;
+using API.Services.Storage;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -24,7 +25,7 @@ namespace API.Services
 	    private readonly IUnitOfWork _unitOfWork;
         private readonly IMappingEngine _mapper;
 
-        public SoundService(IRepository<Sound> soundRepository, 
+	    public SoundService(IRepository<Sound> soundRepository, 
 							IRepository<Category> categoryRepository, 
 							IRepository<Tag> tagRepository,
 							IUnitOfWork unitOfWork, IMappingEngine mapper)
@@ -108,10 +109,5 @@ namespace API.Services
 			sound.Tags.Remove(tag);
 			_unitOfWork.Commit();
 	    }
-
-	    public void UploadSound(List<SoundDto> sound)
-        {
-            
-        }
     }
 }

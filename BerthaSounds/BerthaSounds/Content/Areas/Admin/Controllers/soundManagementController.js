@@ -7,9 +7,9 @@ angular.module('bertha')
 
         	/* #region Init */
 
-	        var _private = this;
+	        var self = this;
 	        
-	        _private.getSounds = function () {
+	        self.getSounds = function () {
 		        soundService.getSounds(
 			        function(data) {
 				        console.log(data);
@@ -37,14 +37,11 @@ angular.module('bertha')
 
 	        $scope.setSortField = function(sortField) {
 	        	$scope.sortField = sortField;
-		        if ($scope.sortField !== sortField)
-					$scope.sortReverse = !$scope.sortReverse;
-		        console.log("Setting sort field to : '" + sortField + "'.");
-		        console.log("SortReverse: ", $scope.sortReverse);
+		        $scope.sortReverse = !$scope.sortReverse;
 	        };
 
             $scope.uploadSound = function() {
-                soundService.uploadSound({ soundFile: $scope.soundUpload.file });
+                soundService.uploadSound($scope.soundUpload.file);
             };
 
             $scope.addCategoryToSound = function (sound, category) {
@@ -102,7 +99,7 @@ angular.module('bertha')
                     for (var i = 0; i < files.length; i++) {
                         var file = files[i];
                         $upload.upload({
-                            url: 'api/Sounds/UploadSound',
+                            url: 'api/File/UploadFile',
                             file: file
                         }).progress(function(evt) {
                             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
@@ -117,10 +114,10 @@ angular.module('bertha')
             };
 
             $scope.init = function () {
-	            _private.getSounds();
+	            self.getSounds();
 		        $scope.$watch("files", function () {
 					if ($scope.files.length > 0)
-			        $scope.uploadSound($scope.files);
+			        $scope.upload($scope.files);
 		        });
 	        }();
         }]);

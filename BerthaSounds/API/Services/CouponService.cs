@@ -25,11 +25,16 @@ namespace API.Services
             _mapper = mapper;
         }
 
-        public List<CouponDto> GetAllCoupons()
+        public List<CouponDto> GetAllCoupons(bool getExpired = false)
         {
 	        var coupons = _couponRepository.GetAll()
 				.ToList();
-	        return Mapper.Map<List<Coupon>, List<CouponDto>>(coupons);
+
+	        var mappedCoupons = Mapper.Map<List<Coupon>, List<CouponDto>>(coupons);
+	        if (!getExpired)
+		        mappedCoupons = mappedCoupons.Where(x => x.Expired == false).ToList();
+
+	        return mappedCoupons;
         }
 
         public CouponDto AddCoupon(CouponDto couponDto)

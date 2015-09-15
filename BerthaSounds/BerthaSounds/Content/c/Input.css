@@ -17,16 +17,19 @@
 /* #endregion */
 /* #region Tables */
 /* #endregion */
-input[type=text], button {
+input[type=text], input[type=coupon], input[type=date], button {
   padding: 0 10px;
   height: 30px;
   box-sizing: border-box; }
 
-input[type=text] {
+input[type=text], input[type=coupon], input[type=date] {
   border: 1px solid #A9A9A9;
   border-radius: 5px;
   /*box-sizing: border-box;*/
   /*padding: $padding-inputs $padding-inputs-sides;*/ }
+
+input[type=coupon] {
+  text-transform: uppercase; }
 
 button {
   background-color: #77AEAB;

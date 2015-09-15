@@ -4,9 +4,9 @@ angular.module('bertha')
     .controller('categoryManagementController', ['$scope', '$rootScope', '$location', '_', "toastService", "categoryService",
         function ($scope, $rootScope, $location, _, toastService, categoryService) {
         	console.log('>> Category Management Controller');
-        	var _private = this;
+        	var self = this;
 
-        	_private.getCategories = function () {
+        	self.getCategories = function () {
         		categoryService.getCategories(function (categories) {
         			$scope.categories = categories;
 			        console.log("Categories: ", $scope.categories);
@@ -40,7 +40,7 @@ angular.module('bertha')
 
 		        categoryService.addCategory(newCategory.name, newCategory.description, function(category) {
 			        toastService.success(category.name, "added", null);
-			        _private.getCategories();
+			        self.getCategories();
 		        });
 	        };
 
@@ -52,6 +52,6 @@ angular.module('bertha')
 			}
 
 	        $scope.init = function() {
-		        _private.getCategories();
+		        self.getCategories();
 	        }();
         }]);

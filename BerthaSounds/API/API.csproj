@@ -53,6 +53,21 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
@@ -66,10 +81,11 @@
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Storage">
-      <HintPath>..\BerthaSounds\bin\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <HintPath>..\packages\WindowsAzure.Storage.5.0.2\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
@@ -91,6 +107,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -104,9 +124,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomServiceRegistrationModule.cs" />
+    <Compile Include="Dtos\IAuditable.cs" />
+    <Compile Include="Dtos\UploadDto.cs" />
     <Compile Include="Dtos\TagDto.cs" />
     <Compile Include="Dtos\CategoryDto.cs" />
+    <Compile Include="Enums\AzureContainerEnum.cs" />
     <Compile Include="Exceptions\BerthaException.cs" />
+    <Compile Include="Extensions\AzureBlobMultipartFormDataStreamProvider.cs" />
     <Compile Include="Helpers\MigrationHelpers.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />
     <Compile Include="Mapping\DtoToModel\TagDtoToTagProfile.cs" />
@@ -117,6 +141,7 @@
     <Compile Include="Mapping\ModelToDto\TagToTagDtoProfile.cs" />
     <Compile Include="Mapping\ModelToDto\CategoryToCategoryDtoProfile.cs" />
     <Compile Include="Mapping\ModelToDto\SoundToSoundDtoProfile.cs" />
+    <Compile Include="Mapping\Resolvers\Coupons\SetExpiredResolver.cs" />
     <Compile Include="Migrations\201505180758407_InitialSetup.cs" />
     <Compile Include="Migrations\201505180758407_InitialSetup.Designer.cs">
       <DependentUpon>201505180758407_InitialSetup.cs</DependentUpon>
@@ -220,6 +245,7 @@
     <Compile Include="Repositories\Repositories.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Services\ITagService.cs" />
+    <Compile Include="Services\Storage\IAzureStorageService.cs" />
     <Compile Include="Services\TagService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\CouponService.cs" />

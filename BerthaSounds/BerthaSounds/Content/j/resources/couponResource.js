@@ -7,6 +7,7 @@ angular.module('bertha')
 				getCoupons: {
 					method: "GET",
 					url: "api/Coupons/GetCoupons",
+					params: { expired: "@expired" },
 					isArray: true
 				},
         		addCoupon: {

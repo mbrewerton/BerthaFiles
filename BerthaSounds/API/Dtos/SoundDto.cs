@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace API.Models.Dtos
 {
@@ -20,9 +21,9 @@ namespace API.Models.Dtos
 
         public string Description { get; set; }
 
-		public decimal Price { get; set; }
+	    public string Price { get; set; }
 
-		public string FileName { get; set; }
+	    public string FileName { get; set; }
 
 		public List<CategoryDto> Categories { get; set; } 
 

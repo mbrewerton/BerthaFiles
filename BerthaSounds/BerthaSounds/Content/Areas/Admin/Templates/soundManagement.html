@@ -8,6 +8,7 @@
 			<th bth-sortable text="Id" ng-click="setSortField('id')"></th>
 			<th bth-sortable text="Name" ng-click="setSortField('name')"></th>
 			<th bth-sortable text="Description" ng-click="setSortField('description')"></th>
+			<th bth-sortable text="Price" ng-click="setSortField('price')"></th>
 			<th bth-sortable text="Categories" ng-click="setSortField('categories')"></th>
 			<th bth-sortable text="Tags" ng-click="setSortField('tags')"></th>
 		</tr>
@@ -20,6 +21,7 @@
 			<td>{{file.id}}</td>
 			<td>{{file.name}}</td>
 			<td>{{file.description}}</td>
+			<td>£{{file.price}}</td>
 			<td><span ng-hide="file.categories.length > 0">None</span><span ng-show="file.categories.length > 0" ng-repeat="category in file.categories">{{category.name}} <bth-delete del-confirm-action="deleteCategoryFromSound(file, category)" del-small="true"></bth-delete></span> <i class="fa fa-plus" ng-click="toggleAddNewCategory(file)"></i> <input ng-show="file.addNewCategory" type="text" typeahead="category as category.name for category in getCategories()" ng-model-options="{ debounce: 300 }" ng-model="file.newCategory" typeahead-on-select="addCategoryToSound(file, file.newCategory)"/></td>
 			<td><span ng-hide="file.tags.length > 0">None</span><span ng-show="file.tags.length > 0" ng-repeat="tag in file.tags">{{tag.name}} <bth-delete del-confirm-action="deleteTagFromSound(file, tag)" del-small="true"></bth-delete></span> <i class="fa fa-plus" ng-click="toggleAddNewTag(file)"></i> <input ng-show="file.addNewTag" type="text" typeahead="tag as tag.name for tag in getTags()" ng-model="file.newTag" typeahead-on-select="addTagToSound(file, file.newTag)" /></td>
 		</tr>

@@ -13,6 +13,10 @@
 	/*padding: $padding-inputs $padding-inputs-sides;*/
 }
 
+input[type=coupon] {
+	text-transform: uppercase;
+}
+
 button {
 	background-color: $color-dark-blue;
 	border: none;

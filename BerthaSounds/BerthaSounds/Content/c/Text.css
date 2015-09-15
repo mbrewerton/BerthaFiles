@@ -1,4 +1,23 @@
-﻿h1 {
+﻿/* Variables */
+/* #region Colours */
+/* #endregion */
+/* #region Misc */
+/* #endregion */
+/* #region Selectors */
+/* #endregion */
+/* #region Buttons and Inputs */
+/* #endregion */
+/* #region Font Sizes */
+/* #endregion */
+/* #region Header & Navigation */
+/* #endregion */
+/* #region Main Body & Containers */
+/* #endregion */
+/* #region Sound Containers */
+/* #endregion */
+/* #region Tables */
+/* #endregion */
+h1 {
   font-size: 2.2em; }
 
 h2 {
@@ -16,5 +35,7 @@ h5 {
 h6 {
   font-size: 1.2em; }
 
+h1.red, h2.red, h3.red, h4.red, h5.red, h6.red, p.red, td.red, th.red, span.red {
+  color: #e31313; }
 
 /*# sourceMappingURL=Text.css.map */
