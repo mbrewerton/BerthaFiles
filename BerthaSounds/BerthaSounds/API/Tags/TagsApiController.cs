@@ -8,6 +8,7 @@ using API.Models;
 using API.Models.Dtos;
 using API.Repositories;
 using API.Services;
+using API.Services.Search;
 
 namespace BerthaSounds.API.Tags
 {
@@ -15,10 +16,12 @@ namespace BerthaSounds.API.Tags
     public class TagsApiController : ApiController
     {
 		private readonly ITagService _tagService;
+		private readonly ITagSearchService _searchService;
 
-		public TagsApiController(ITagService tagService)
+		public TagsApiController(ITagService tagService, ITagSearchService searchService)
 		{
 			_tagService = tagService;
+			_searchService = searchService;
 		}
 
 		[HttpGet]

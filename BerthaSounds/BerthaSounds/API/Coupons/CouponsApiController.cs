@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using API.Models.Dtos;
 using API.Services;
+using API.Services.Search;
 
 namespace BerthaSounds.API.Coupons
 {
@@ -13,17 +14,24 @@ namespace BerthaSounds.API.Coupons
     public class CouponsApiController : ApiController
     {
 		private readonly ICouponService _couponService;
+		private readonly ICouponSearchService _searchService;
 
-		public CouponsApiController(ICouponService couponService)
+		public CouponsApiController(ICouponService couponService, ICouponSearchService searchService)
 		{
 			_couponService = couponService;
+			_searchService = searchService;
 		}
 
 		[HttpGet]
-		[Route("GetCoupons")]
-		public HttpResponseMessage GetCoupons(bool expired = false	)
+		[Route("Search")]
+		public HttpResponseMessage Search(string term = "", bool expired = false)
 		{
-			return Request.CreateResponse(HttpStatusCode.OK, _couponService.GetAllCoupons(expired));
+			var coupons = term != null
+				? _searchService.Search(x => x.Code.ToLower().Contains(term.ToLower()) ||
+				                             x.Name.ToLower().Contains(term.ToLower()), expired)
+				: _searchService.GetAll(expired);
+
+			return Request.CreateResponse(HttpStatusCode.OK, coupons);
 		}
 
 		[HttpPost]

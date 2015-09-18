@@ -4,6 +4,9 @@ angular.module("bertha")
 		"categoryFactory",
 		function(categoryFactory) {
 			var service = {
+				search: function(term, callback) {
+					return categoryFactory.search({ term: term }).$promise.then(callback);
+				},
 				getCategories: function(callback) {
 					return categoryFactory.getCategories().$promise.then(callback);
 				},

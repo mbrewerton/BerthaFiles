@@ -11,6 +11,7 @@ using API.Exceptions;
 using API.Models;
 using API.Models.Dtos;
 using API.Services;
+using API.Services.Search;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -20,19 +21,22 @@ namespace BerthaSounds.API.Sounds
     public class SoundsApiController : ApiController
     {
         private readonly ISoundService _soundService;
-        private readonly ICouponService _couponService;
+	    private readonly ISoundSearchService _searchService;
 
-        public SoundsApiController(ISoundService soundService, ICouponService couponService)
-        {
-            _soundService = soundService;
-            _couponService = couponService;
-        }
+	    public SoundsApiController(ISoundService soundService, ISoundSearchService searchService)
+	    {
+		    _soundService = soundService;
+		    _searchService = searchService;
+	    }
 
 	    [HttpGet]
-	    [Route("GetAllSounds")]
-	    public HttpResponseMessage GetAllSounds()
-			{
-		    var sounds = _soundService.GetAllSounds();
+	    [Route("Search")]
+	    public HttpResponseMessage Search(string term = "")
+	    {
+		    var sounds = term != null
+			    ? _searchService.Search(x => x.Description.ToLower().Contains(term.ToLower()) ||
+											 x.Name.ToLower().Contains(term.ToLower())) :
+				_searchService.GetAll();
 		    return Request.CreateResponse(HttpStatusCode.OK, sounds);
 	    }
 

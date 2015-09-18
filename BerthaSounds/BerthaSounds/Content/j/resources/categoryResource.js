@@ -4,6 +4,11 @@ angular.module('bertha')
     .factory('categoryFactory', [
         '$resource', function ($resource) {
         	return $resource("api/Categories", {}, {
+				search: {
+					method: "GET",
+					url: "api/Categories/Search",
+					isArray: true
+				},
 				getCategories: {
 					method: "GET",
 					url: "api/Categories/GetCategories",

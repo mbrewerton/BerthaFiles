@@ -11,13 +11,14 @@ using API.Extensions;
 using API.Models.Dtos;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace API.Services.Storage
 {
 	public class AzureStorageService : IAzureStorageService
 	{
-		private readonly CloudStorageAccount _cloudStorageAccount = CloudStorageAccount.Parse("AzureConnectionString");
+		private readonly CloudStorageAccount _cloudStorageAccount = StorageSettings.StorageAccount();
 
 		public void GetOrCreatePrivateContainer(AzureContainerEnum containerName = AzureContainerEnum.Sounds)
 		{

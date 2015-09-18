@@ -6,17 +6,19 @@ angular.module('bertha')
         	console.log('>> Category Management Controller');
         	var self = this;
 
-        	self.getCategories = function () {
-        		categoryService.getCategories(function (categories) {
-        			$scope.categories = categories;
-			        console.log("Categories: ", $scope.categories);
-		        });
-        	};
-
         	$scope.categories = [];
 	        $scope.newCategory = {
 		        name: "",
 		        description: ""
+	        };
+			$scope.searchData = {
+				term: ""
+			}
+
+	        $scope.search = function(term) {
+		        categoryService.search(term, function(categories) {
+			        $scope.categories = categories;
+		        });
 	        };
 
 	        $scope.addCategory = function(newCategory) {
@@ -51,7 +53,7 @@ angular.module('bertha')
 		        });
 			}
 
-	        $scope.init = function() {
-		        self.getCategories();
+	        $scope.init = function () {
+		        $scope.search($scope.searchData.term);
 	        }();
         }]);

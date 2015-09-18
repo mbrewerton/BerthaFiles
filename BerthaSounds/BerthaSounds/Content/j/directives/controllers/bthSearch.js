@@ -4,7 +4,8 @@ angular.module("bertha")
 	.directive("bthSearch", function() {
 	var controller = [
 		"$scope", "_", function ($scope, _) {
-			$scope.searchData = function() {
+			$scope.search = function () {
+
 			};
 		}
 	];
@@ -12,9 +13,7 @@ angular.module("bertha")
 	return {
 		restrict: "E",
 		scope: {
-			schModel: "=",
-			schData: "=",
-			schField: "="
+			schModel: "="
 		},
 		templateUrl: "Content/j/directives/templates/bthSearch.html",
 		controller: controller

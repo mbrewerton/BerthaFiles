@@ -53,5 +53,13 @@ namespace API.Services
 
             throw new NullReferenceException("No users were found.");
         }
+
+	    public IdentityResult CreateUser(ApplicationUser user, string password)
+	    {
+            var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
+		    IdentityResult result = userManager.Create(user, password);
+
+		    return result;
+	    }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using API.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -11,5 +12,6 @@ namespace API.Services
         IdentityUser GetUserById(string id);
         IdentityUser GetUser(UserLoginInfo user);
         IEnumerable<IdentityUser> GetAllUsers();
+		IdentityResult CreateUser(ApplicationUser user, string password);
     }
 }

@@ -54,5 +54,10 @@ namespace API.Services
 
             throw new NullReferenceException("No users were found.");
         }
+
+	    public IdentityResult CreateUser(ApplicationUser user, string password)
+	    {
+		    throw new NotImplementedException();
+	    }
     }
 }
