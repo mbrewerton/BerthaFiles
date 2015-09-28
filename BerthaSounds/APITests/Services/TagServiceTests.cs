@@ -2,26 +2,23 @@
 using API.Models;
 using API.Repositories;
 using API.Services;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using Xunit;
 
 namespace APITests.Services
 {
-	[TestClass]
 	public class TagServiceTests
 	{
-		private readonly IRepository<Tag> _tagRepository;
-		private readonly IUnitOfWork uow;
-		public ITagService GetService()
+		private Mock<IRepository<Tag>> _fakeTagRepository;
+
+		public TagServiceTests()
 		{
-			return new TagService(_tagRepository, uow);
+			_fakeTagRepository = new Mock<IRepository<Tag>>();
 		}
 
-		[TestMethod]
-		public void GetAllTagsTests()
+		public Mock<ITagService> GetService()
 		{
-			var service = GetService();
-			var tags = service.GetAllTags();
-			Assert.IsNotNull(tags);
+			return new Mock<ITagService>();
 		}
 	}
 }
