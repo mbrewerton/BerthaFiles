@@ -4,8 +4,8 @@ angular.module("bertha")
 		"tagFactory",
 		function(tagFactory) {
 			var service = {
-				getTags: function(callback) {
-					return tagFactory.getTags().$promise.then(callback);
+				search: function(term, callback) {
+					return tagFactory.search({ term: term }).$promise.then(callback);
 				},
 				addTag: function(name, callback) {
 					return tagFactory.addTag({name: name}).$promise.then(callback);

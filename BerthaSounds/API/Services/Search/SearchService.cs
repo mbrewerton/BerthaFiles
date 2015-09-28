@@ -28,8 +28,6 @@ namespace API.Services.Search
 		public virtual List<T2> Search(Expression<Func<T, bool>> filter, bool paginate = false)
 		{
 			var entities = _repository.GetAllWhere(filter).ToList();
-			if (paginate)
-				entities = 
 			return Mapper.Map<List<T>, List<T2>>(entities);
 		}			
 

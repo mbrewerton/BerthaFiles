@@ -10,9 +10,15 @@ angular.module('bertha')
             	name: "",
             	description: ""
             };
+            $scope.searchData = {
+            	term: ""
+            }
 
-            $scope.getTags = function () {
-            	tagService.getTags(function (tags) {
+            $scope.search = function (params) {
+            	if (!params)
+            		params = $scope.searchData;
+
+            	tagService.search(params.term, function (tags) {
             		$scope.tags = tags;
             	});
             };
@@ -44,6 +50,6 @@ angular.module('bertha')
 	        };
 
             $scope.init = function () {
-            	$scope.getTags();
+            	$scope.search();
             }();
         }]);

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BerthaSounds", "BerthaSound
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{9F048BCC-B6F0-42BB-9B7C-7080870922BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{D7652A3A-36C7-400E-B78E-BE72F80CE3A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITests", "APITests\APITests.csproj", "{B3316965-E130-4CEB-9971-7AC9596C08E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{9F048BCC-B6F0-42BB-9B7C-7080870922BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F048BCC-B6F0-42BB-9B7C-7080870922BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F048BCC-B6F0-42BB-9B7C-7080870922BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7652A3A-36C7-400E-B78E-BE72F80CE3A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7652A3A-36C7-400E-B78E-BE72F80CE3A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7652A3A-36C7-400E-B78E-BE72F80CE3A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7652A3A-36C7-400E-B78E-BE72F80CE3A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3316965-E130-4CEB-9971-7AC9596C08E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3316965-E130-4CEB-9971-7AC9596C08E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3316965-E130-4CEB-9971-7AC9596C08E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3316965-E130-4CEB-9971-7AC9596C08E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

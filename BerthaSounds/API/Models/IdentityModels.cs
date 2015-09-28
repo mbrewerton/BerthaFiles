@@ -22,7 +22,7 @@ namespace API.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("BerthaContext")
+			: base("BerthaDbContext")
         {
         }
 

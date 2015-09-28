@@ -10,5 +10,6 @@ namespace API.Services
         CouponDto AddCoupon(CouponDto coupon);
 	    void DeleteCoupon(string name);
 	    void DeleteCoupon(int id);
+	    List<CouponTypeDto> GetCouponTypes();
     }
 }

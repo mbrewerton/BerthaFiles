@@ -1,7 +1,7 @@
 ﻿<div class="block-first">
 	<input type="text" placeholder="ex. Cute" ng-model="newTag.name"/>
 	<button ng-click="addTag(newTag)">+ Add a Tag</button>
-	<label>Search Tags:</label><input type="text" model="searchData.term"/>
+	<label>Search Tags:</label><input type="search" ng-model="searchData.term" ng-change="search()" ng-model-options="{ debounce: 300 }"/>
 	<table>
 		<thead>
 		<tr>

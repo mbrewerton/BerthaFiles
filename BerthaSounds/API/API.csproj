@@ -125,12 +125,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomServiceRegistrationModule.cs" />
-    <Compile Include="Dtos\IAuditable.cs" />
-    <Compile Include="Dtos\SearchDto.cs" />
-    <Compile Include="Dtos\UploadDto.cs" />
-    <Compile Include="Dtos\TagDto.cs" />
-    <Compile Include="Dtos\CategoryDto.cs" />
+    <Compile Include="Mapping\ModelToDto\CouponTypeToCouponTypeDtoProfile.cs" />
+    <Compile Include="Models\Dtos\CouponTypeDto.cs" />
+    <Compile Include="Models\Dtos\IAuditable.cs" />
+    <Compile Include="Models\Dtos\SearchDto.cs" />
+    <Compile Include="Models\Dtos\UploadDto.cs" />
+    <Compile Include="Models\Dtos\TagDto.cs" />
+    <Compile Include="Models\Dtos\CategoryDto.cs" />
     <Compile Include="Enums\AzureContainerEnum.cs" />
+    <Compile Include="Enums\CouponTypeEnum.cs" />
     <Compile Include="Exceptions\BerthaException.cs" />
     <Compile Include="Extensions\AzureBlobMultipartFormDataStreamProvider.cs" />
     <Compile Include="Helpers\MigrationHelpers.cs" />
@@ -224,19 +227,38 @@
     <Compile Include="Migrations\201508140735427_ChangeTagDescriptionToName.Designer.cs">
       <DependentUpon>201508140735427_ChangeTagDescriptionToName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509210731090_DropCustomUserProfile.cs" />
+    <Compile Include="Migrations\201509210731090_DropCustomUserProfile.Designer.cs">
+      <DependentUpon>201509210731090_DropCustomUserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509211653232_AddOldPriceToSounds.cs" />
+    <Compile Include="Migrations\201509211653232_AddOldPriceToSounds.Designer.cs">
+      <DependentUpon>201509211653232_AddOldPriceToSounds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509220732306_AddCouponTypes.cs" />
+    <Compile Include="Migrations\201509220732306_AddCouponTypes.Designer.cs">
+      <DependentUpon>201509220732306_AddCouponTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509220734279_ChangeIdsToLongs.cs" />
+    <Compile Include="Migrations\201509220734279_ChangeIdsToLongs.Designer.cs">
+      <DependentUpon>201509220734279_ChangeIdsToLongs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CouponType.cs" />
     <Compile Include="Models\DbContexts\BerthaContext.cs" />
-    <Compile Include="Dtos\CouponDto.cs" />
-    <Compile Include="Dtos\SoundDto.cs" />
-    <Compile Include="Dtos\SoundPackDto.cs" />
-    <Compile Include="Dtos\UserProfileDto.cs" />
+    <Compile Include="Models\Dtos\CouponDto.cs" />
+    <Compile Include="Models\Dtos\SoundDto.cs" />
+    <Compile Include="Models\Dtos\SoundPackDto.cs" />
+    <Compile Include="Models\Dtos\UserProfileDto.cs" />
     <Compile Include="Models\IDbObject.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Coupon.cs" />
+    <Compile Include="Models\IIdAndName.cs" />
     <Compile Include="Models\Sound.cs" />
     <Compile Include="Models\SoundPack.cs" />
     <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserProfile.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -342,6 +364,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508140735427_ChangeTagDescriptionToName.resx">
       <DependentUpon>201508140735427_ChangeTagDescriptionToName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509210731090_DropCustomUserProfile.resx">
+      <DependentUpon>201509210731090_DropCustomUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509211653232_AddOldPriceToSounds.resx">
+      <DependentUpon>201509211653232_AddOldPriceToSounds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509220732306_AddCouponTypes.resx">
+      <DependentUpon>201509220732306_AddCouponTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509220734279_ChangeIdsToLongs.resx">
+      <DependentUpon>201509220734279_ChangeIdsToLongs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

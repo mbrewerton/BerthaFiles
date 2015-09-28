@@ -15,7 +15,7 @@ namespace API.Models
         //private ICollection<Category> _categories;
             
         [Required]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -23,6 +23,8 @@ namespace API.Models
         public string Description { get; set; }
 
         public string AzureLocation { get; set; }
+
+		public decimal? OldPrice { get; set; }
 
 		public decimal Price { get; set; }
 

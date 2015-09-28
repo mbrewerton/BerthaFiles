@@ -4,9 +4,9 @@ angular.module('bertha')
     .factory('tagFactory', [
         '$resource', function ($resource) {
         	return $resource("api/Tags", {}, {
-        		getTags: {
+        		search: {
         			method: "GET",
-        			url: "api/Tags/GetTags",
+        			url: "api/Tags/Search",
         			isArray: true
         		},
         		addTag: {

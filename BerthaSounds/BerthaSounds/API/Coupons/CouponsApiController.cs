@@ -24,7 +24,7 @@ namespace BerthaSounds.API.Coupons
 
 		[HttpGet]
 		[Route("Search")]
-		public HttpResponseMessage Search(string term = "", bool expired = false)
+		public HttpResponseMessage Search(string term = null, bool expired = false)
 		{
 			var coupons = term != null
 				? _searchService.Search(x => x.Code.ToLower().Contains(term.ToLower()) ||
@@ -48,6 +48,14 @@ namespace BerthaSounds.API.Coupons
 		{
 			_couponService.DeleteCoupon(id);
 			return Request.CreateResponse(HttpStatusCode.OK);
+		}
+
+		[HttpGet]
+		[Route("GetCouponTypes")]
+		public HttpResponseMessage GetCouponTypes()
+		{
+			var couponTypes = _couponService.GetCouponTypes();
+			return Request.CreateResponse(HttpStatusCode.OK, couponTypes);
 		}
     }
 }

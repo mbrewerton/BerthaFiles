@@ -10,28 +10,26 @@ angular.module('bertha')
                 name: '',
                 code: ''
             };
-	        $scope.search = {
-		        getExpired: false
-	        };
+
+	        $scope.searchData = {
+		        term: "",
+		        expired: false
+			}
+
+            $scope.search = function (params) {
+            	if (!params)
+            		params = $scope.searchData;
+
+            	couponService.search(params.term, params.expired, function (coupons) {
+            		$scope.coupons = coupons;
+            	});
+            };
 
             $scope.sortField = "Id";
 	        $scope.sortReverse = false;
             $scope.setSortField = function (sortField) {
             	$scope.sortField = sortField;
             	$scope.sortReverse = !$scope.sortReverse;
-            };
-
-	        $scope.searchData = {
-		        term: ""
-	        };
-
-	        $scope.getAllCoupons = function (getExpired) {
-		        console.log("scope.getExpired", $scope.search.getExpired);
-		        console.log("getExpired: ", getExpired);
-		        couponService.getCoupons(getExpired, function (data) {
-	            	$scope.coupons = data;
-		            console.log(data);
-	            });
             };
 
 	        $scope.generateCoupon = function() {
@@ -88,7 +86,7 @@ angular.module('bertha')
 		        }
 
 		        couponService.addCoupon(coupon, function(data) {
-			        $scope.getAllCoupons($scope.search.getExpired);
+			        $scope.search();
 		        });
 	        };
 
@@ -100,6 +98,6 @@ angular.module('bertha')
 	        };
 
 	        $scope.init = function() {
-	        	$scope.getAllCoupons($scope.search.getExpired);
+	        	$scope.search();
 	        }();
         }]);

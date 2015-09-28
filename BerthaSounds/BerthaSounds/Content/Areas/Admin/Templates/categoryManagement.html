@@ -2,7 +2,7 @@
 	<input type="text" placeholder="ex. Animals" ng-model="newCategory.name"/>
 	<input type="text" placeholder="ex. All wild animals." ng-model="newCategory.description"/>
 	<button ng-click="addCategory(newCategory)">+ Add a Category</button>
-	<label>Search Categories:</label><input type="search" ng-model="searchData.term" ng-model-options="{ debounce: 300 }" ng-change="search(searchData.term)"/>
+	<label>Search Categories:</label><input type="search" ng-model="searchData.term" ng-model-options="{ debounce: 300 }" ng-change="search()"/>
 	<table>
 		<thead>
 		<tr>

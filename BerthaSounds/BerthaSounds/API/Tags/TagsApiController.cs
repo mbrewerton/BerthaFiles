@@ -25,10 +25,12 @@ namespace BerthaSounds.API.Tags
 		}
 
 		[HttpGet]
-		[Route("GetTags")]
-		public HttpResponseMessage GetTags()
+		[Route("Search")]
+		public HttpResponseMessage Search(string term = null)
 		{
-			var tags = _tagService.GetAllTags();
+			var tags = term != null
+			   ? _searchService.Search(x => x.Name.ToLower().Contains(term.ToLower())) :
+			     _searchService.GetAll();
 			return Request.CreateResponse(HttpStatusCode.OK, tags);
 		}
 

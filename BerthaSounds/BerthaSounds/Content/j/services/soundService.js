@@ -4,8 +4,8 @@ angular.module("bertha")
 		"soundFactory",
 		function (soundFactory) {
 			var service = {
-				getSounds: function(callback) {
-					return soundFactory.getAllSounds().$promise.then(callback);
+				search: function(searchData, callback) {
+					return soundFactory.search({ term: searchData.term }).$promise.then(callback);
 				},
 				uploadSound: function(sound, callback) {
 					return soundFactory.uploadSound(sound).$promise.then(callback);

@@ -7,25 +7,24 @@ angular.module('bertha')
 
         	/* #region Init */
 
-	        var self = this;
-	        
-	        self.getSounds = function () {
-		        soundService.getSounds(
-			        function(data) {
-				        console.log(data);
-				        $scope.soundFiles = data;
-				        $scope.isLoadingSounds = false;
-			        });
-	        };
-
-	        $scope.getCategories = function() {
-	        	return categoryService.getCategories(function (categories) {
+	        $scope.getCategories = function(term) {
+	        	return categoryService.search(term, function (categories) {
 			        return categories;
 		        });
 	        };
 
-	        $scope.getTags = function() {
-		        return tagService.getTags(function(tags) {
+	        $scope.searchData = {
+		        term: ""
+	        };
+
+	        $scope.search = function () {
+	        	soundService.search($scope.searchData, function (sounds) {
+	        		$scope.sounds = sounds;
+	        	});
+	        };
+
+	        $scope.getTags = function(term) {
+		        return tagService.search(term, function(tags) {
 			        return tags;
 		        });
 	        };
@@ -114,7 +113,7 @@ angular.module('bertha')
             };
 
             $scope.init = function () {
-	            self.getSounds();
+	            $scope.search();
 		        $scope.$watch("files", function () {
 					if ($scope.files.length > 0)
 			        $scope.upload($scope.files);

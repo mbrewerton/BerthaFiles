@@ -17,10 +17,12 @@ namespace API.Services
         private readonly IRepository<Coupon> _couponRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMappingEngine _mapper;
+	    private IRepository<CouponType> _couponTypeRepository;
 
-        public CouponService(IRepository<Coupon> couponRepository, IUnitOfWork unitOfWork, IMappingEngine mapper)
+	    public CouponService(IRepository<Coupon> couponRepository, IUnitOfWork unitOfWork, IMappingEngine mapper, IRepository<CouponType> couponTypeRepository)
         {
-            _couponRepository = couponRepository;
+		    _couponTypeRepository = couponTypeRepository;
+		    _couponRepository = couponRepository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
@@ -63,6 +65,11 @@ namespace API.Services
 
 	        return Mapper.Map<Coupon, CouponDto>(coupon);
         }
+
+	    public List<CouponTypeDto> GetCouponTypes()
+	    {
+			return _mapper.Map<List<CouponType>, List<CouponTypeDto>>(_couponTypeRepository.GetAll().ToList());
+	    }
 
 		public void DeleteCoupon(string name)
 		{

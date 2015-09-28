@@ -26,7 +26,7 @@ namespace BerthaSounds.API.Categories
 
 		[HttpGet]
 		[Route("Search")]
-		public HttpResponseMessage Search(string term = "")
+		public HttpResponseMessage Search(string term = null)
 		{
 			var items = term != null
 				? _searchService.Search(x => x.Name.ToLower().Contains(term.ToLower()) || 
@@ -34,14 +34,6 @@ namespace BerthaSounds.API.Categories
 				: _searchService.GetAll();
 
 			return Request.CreateResponse(HttpStatusCode.OK, items);
-		}
-
-		[HttpGet]
-		[Route("GetCategories")]
-		public HttpResponseMessage GetCategories()
-		{
-			var categories = _categoryService.GetAllCategories();
-			return Request.CreateResponse(HttpStatusCode.OK, categories);
 		}
 
 		[HttpPost]

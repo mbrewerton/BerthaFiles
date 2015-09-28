@@ -23,7 +23,7 @@ namespace BerthaSounds.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("BerthaContext")
+            : base("name=BerthaContext")
         {
         }
 

@@ -4,9 +4,9 @@ angular.module('bertha')
     .factory('couponFactory', [
         '$resource', function ($resource) {
         	return $resource("api/Coupons", {}, {
-				getCoupons: {
+				Search: {
 					method: "GET",
-					url: "api/Coupons/GetCoupons",
+					url: "api/Coupons/Search",
 					params: { expired: "@expired" },
 					isArray: true
 				},

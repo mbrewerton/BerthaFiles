@@ -1,11 +1,15 @@
 ﻿'use strict';
 
 angular.module('bertha')
-    .controller('shopController', ['$scope', '$location', '_', 'soundFactory',
-        function ($scope, $location, _, soundFactory) {
+    .controller('shopController', ['$scope', '$location', '_', 'soundService',
+        function ($scope, $location, _, soundService) {
         	console.log(">> Shop Controller");
 
-	        soundFactory.getAllSounds().$promise.then(function(sounds) {
+	        $scope.searchData = {
+				term: ""
+	        };
+
+	        soundService.search($scope.searchData, function(sounds) {
 	        	$scope.sounds = sounds;
 	        });
         }]);

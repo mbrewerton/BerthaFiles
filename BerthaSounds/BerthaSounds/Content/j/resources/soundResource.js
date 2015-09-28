@@ -4,9 +4,9 @@ angular.module('bertha')
     .factory('soundFactory', [
         '$resource', function ($resource) {
         	return $resource("api/Sounds", {}, {
-        		getAllSounds: {
+        		search: {
         			method: "GET",
-        			url: "/api/Sounds/GetAllSounds",
+        			url: "/api/Sounds/Search",
         			isArray: true
         		},
                 uploadSound: {

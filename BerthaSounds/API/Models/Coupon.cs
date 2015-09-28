@@ -13,7 +13,7 @@ namespace API.Models
     public class Coupon
     {
         [Required]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -25,5 +25,7 @@ namespace API.Models
 
         [Required]
         public DateTime StartDate { get; set; }
+
+		public virtual CouponType CouponType { get; set; }
     }
 }

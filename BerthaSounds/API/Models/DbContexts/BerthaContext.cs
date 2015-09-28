@@ -9,15 +9,21 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace API.Models.DbContexts
 {
-    public class BerthaContext : IdentityDbContext
+    public class BerthaContext : IdentityDbContext<ApplicationUser>
     {
         public BerthaContext() : base("BerthaContext"){}
+
+		public static BerthaContext Create()
+		{
+			return new BerthaContext();
+		}
 
         public DbSet<Sound> Sound { get; set; }
         public DbSet<SoundPack> SoundPack { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Coupon> Coupon { get; set; }
         public DbSet<Tag> Tag { get; set; }
+		public DbSet<CouponType> CouponType { get; set; }
 
 	    protected override void OnModelCreating(DbModelBuilder modelBuilder)
 	    {

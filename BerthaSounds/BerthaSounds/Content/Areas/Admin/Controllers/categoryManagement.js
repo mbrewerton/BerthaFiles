@@ -11,14 +11,17 @@ angular.module('bertha')
 		        name: "",
 		        description: ""
 	        };
-			$scope.searchData = {
-				term: ""
-			}
+	        $scope.searchData = {
+	        	term: ""
+	        }
 
-	        $scope.search = function(term) {
-		        categoryService.search(term, function(categories) {
-			        $scope.categories = categories;
-		        });
+	        $scope.search = function (params) {
+	        	if (!params)
+	        		params = $scope.searchData;
+
+	        	categoryService.search(params.term, function (categories) {
+	        		$scope.categories = categories;
+	        	});
 	        };
 
 	        $scope.addCategory = function(newCategory) {

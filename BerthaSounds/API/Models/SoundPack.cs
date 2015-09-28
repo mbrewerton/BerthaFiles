@@ -13,7 +13,7 @@ namespace API.Models
         //private ICollection<Sound> _sounds;
             
         [Required]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [Required]
         public List<Sound> Sounds { get; set; } 

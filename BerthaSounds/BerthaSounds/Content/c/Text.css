@@ -38,4 +38,7 @@ h6 {
 h1.red, h2.red, h3.red, h4.red, h5.red, h6.red, p.red, td.red, th.red, span.red {
   color: #e31313; }
 
+a {
+  cursor: pointer; }
+
 /*# sourceMappingURL=Text.css.map */
