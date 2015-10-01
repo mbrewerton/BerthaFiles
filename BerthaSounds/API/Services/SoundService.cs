@@ -12,8 +12,6 @@ using API.Models.Dtos;
 using API.Repositories;
 using API.Services.Storage;
 using AutoMapper;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace API.Services
 {

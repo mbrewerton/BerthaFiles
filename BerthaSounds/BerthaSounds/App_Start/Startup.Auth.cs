@@ -1,4 +1,5 @@
 ﻿using System;
+using API.Models;
 using API.Models.DbContexts;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;

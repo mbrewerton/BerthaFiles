@@ -6,8 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using API.Models.DbContexts;
 using API.Repositories;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace API.Services
 {

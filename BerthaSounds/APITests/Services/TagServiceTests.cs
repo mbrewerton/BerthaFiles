@@ -2,12 +2,13 @@
 using API.Models;
 using API.Repositories;
 using API.Services;
+using APITests.Base_Classes;
 using Moq;
 using Xunit;
 
 namespace APITests.Services
 {
-	public class TagServiceTests
+	public class TagServiceTests : BaseServiceTests
 	{
 		private Mock<IRepository<Tag>> _fakeTagRepository;
 
@@ -16,9 +17,10 @@ namespace APITests.Services
 			_fakeTagRepository = new Mock<IRepository<Tag>>();
 		}
 
-		public Mock<ITagService> GetService()
+		[Fact]
+		public void Add_Tag_Test()
 		{
-			return new Mock<ITagService>();
+			var service = GetTagService();
 		}
 	}
 }

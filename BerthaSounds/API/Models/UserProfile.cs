@@ -22,12 +22,4 @@ namespace API.Models
         public string LastName { get; set; }
         public string DisplayName { get; set; }
     }
-
-    public class DbContext : IdentityDbContext<UserProfile>
-    {
-        public DbContext() :
-            base("BerthaContext")
-        {
-        }
-    }
 }

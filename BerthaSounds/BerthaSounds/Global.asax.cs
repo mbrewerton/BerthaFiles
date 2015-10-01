@@ -8,7 +8,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Configuration;
-using Migs = API.Migrations;
 using API.Mapping;
 using API.Models.DbContexts;
 using SquishIt.Framework;

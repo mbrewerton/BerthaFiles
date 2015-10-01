@@ -14,7 +14,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BerthaSounds.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
-using ApplicationUser = BerthaSounds.Models.ApplicationUser;
 
 namespace BerthaSounds.Controllers
 {
@@ -23,16 +22,11 @@ namespace BerthaSounds.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private readonly IUserProfileService _userProfileService;
-	    private readonly IUserService _userService;
 
-	    public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager,
-            IUserProfileService userProfileService, IUserService userService)
+	    public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _userProfileService = userProfileService;
-		    _userService = userService;
+            UserManager = userManager;
+            SignInManager = signInManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -163,7 +157,7 @@ namespace BerthaSounds.Controllers
 
                 if (result.Succeeded)
                 {
-                    _userProfileService.CreateNewUserProfile(user.Id);
+					//_userProfileService.CreateNewUserProfile(user.Id);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

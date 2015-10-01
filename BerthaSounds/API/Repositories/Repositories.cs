@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace API.Repositories
 {
-    public partial interface IUserRepository : IRepository<ApplicationUser> { }
-    public partial class UserRepository : GenericRepository<ApplicationUser>
-    {
-        public UserRepository(IObjectContext objectContext) : base(objectContext) { }
-    }
+	//public partial interface IUserRepository : IRepository<ApplicationUser> { }
+	//public partial class UserRepository : GenericRepository<ApplicationUser>
+	//{
+	//	public UserRepository(IObjectContext objectContext) : base(objectContext) { }
+	//}
 
     public partial interface ISoundRepository : IRepository<Sound> { }
     public partial class SoundRepository : GenericRepository<Sound>
@@ -25,11 +25,11 @@ namespace API.Repositories
         public CouponRepository(IObjectContext objectContext) : base(objectContext) { }
     }
     
-    public partial interface IUserProfileRepository : IRepository<UserProfile> { }
-    public partial class UserProfileRepository : GenericRepository<UserProfile>
-    {
-        public UserProfileRepository(IObjectContext objectContext) : base(objectContext) { }
-    }
+	//public partial interface IUserProfileRepository : IRepository<UserProfile> { }
+	//public partial class UserProfileRepository : GenericRepository<UserProfile>
+	//{
+	//	public UserProfileRepository(IObjectContext objectContext) : base(objectContext) { }
+	//}
     
     public partial interface ICategoryRepository : IRepository<Category> { }
     public partial class CategoryRepository : GenericRepository<Category>

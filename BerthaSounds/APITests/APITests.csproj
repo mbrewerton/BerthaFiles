@@ -85,6 +85,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Base\BaseServiceTests.cs" />
+    <Compile Include="Base\BaseTests.cs" />
     <Compile Include="Services\TagServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
