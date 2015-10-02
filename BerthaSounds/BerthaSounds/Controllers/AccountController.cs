@@ -20,12 +20,15 @@ namespace BerthaSounds.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
+	    private readonly IUserProfileService _userProfileService;
+	    private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-	    public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+	    public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager,
+			IUserProfileService userProfileService)
         {
-            UserManager = userManager;
+		    _userProfileService = userProfileService;
+		    UserManager = userManager;
             SignInManager = signInManager;
         }
 
@@ -153,6 +156,13 @@ namespace BerthaSounds.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+				user.UserProfile = new UserProfile
+				{
+					DisplayName = model.UserName,
+					FirstName = model.FirstName,
+					LastName= model.LastName
+				};
+
 				var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)

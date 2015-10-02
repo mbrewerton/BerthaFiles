@@ -16,30 +16,23 @@ namespace API.Services
     public class UserProfileService : IUserProfileService
     {
         private readonly IUnitOfWork _unitOfWork;
-        //private readonly IRepository<UserProfileInfo> _profileRepository;
-        //private readonly IRepository<ApplicationUser> _userRepository;
         public UserProfileService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            //_profileRepository = profileRepository;
-            //_userRepository = userRepository;
         }
 
         public void CreateNewUserProfile(string id)
         {
-            var userManager = new UserManager<UserProfile>(new UserStore<UserProfile>(new BerthaContext()));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new BerthaContext()));
             var currentUser = userManager.FindById(id);
-            currentUser.UserProfileInfo = new UserProfileInfo
+            currentUser.UserProfile = new UserProfile
             {
-                DisplayName = currentUser.UserName
+                DisplayName = currentUser.UserName,
+				FirstName = "First",
+				LastName = "Last"
             };
 
             _unitOfWork.Commit();
-        }
-
-        public UserProfileDto CreateUserProfile(string id)
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>

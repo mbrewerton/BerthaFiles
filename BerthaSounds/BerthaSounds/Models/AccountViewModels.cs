@@ -65,7 +65,13 @@ namespace BerthaSounds.Models
     {
         [Required]
         [Display(Name = "Username")]
-        public string UserName { get; set; }
+		public string UserName { get; set; }
+
+		[Display(Name="First Name")]
+		public string FirstName { get; set; }
+
+		[Display(Name="Last Name")]
+		public string LastName { get; set; }
 
         [Required]
         [EmailAddress]

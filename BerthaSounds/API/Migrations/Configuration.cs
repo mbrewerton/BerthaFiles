@@ -1,3 +1,6 @@
+using API.Models;
+using API.Models.DbContexts;
+
 namespace API.Migrations
 {
     using System;
@@ -9,7 +12,7 @@ namespace API.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+			AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(API.Models.DbContexts.BerthaContext context)

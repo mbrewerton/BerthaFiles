@@ -11,7 +11,9 @@ namespace API.Models.DbContexts
 {
     public class BerthaContext : IdentityDbContext<ApplicationUser>
     {
-        public BerthaContext() : base("BerthaContext"){}
+	    public BerthaContext() : base("BerthaContext")
+	    {
+	    }
 
 		public static BerthaContext Create()
 		{
