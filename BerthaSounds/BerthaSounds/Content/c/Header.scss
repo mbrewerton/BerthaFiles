@@ -19,6 +19,15 @@ nav {
 
     .navbar-right {
         float: right;
+
+		ul li ul {
+			display: none;
+		}
+
+		ul li:hover > ul {
+			display: block;
+			position: absolute;
+		}
     }
 
     ul {
@@ -28,19 +37,7 @@ nav {
 
             a {
                 display: block;
-                text-decoration: none;
-                font-size: $font-size-header-link;
-                padding: $padding-header $padding-header-s;
-                margin: 0;
-                color: $color-header-link;
-
-                &:hover {
-                    background: $color-light-blue;
-                }
-
-                &:visited, &:hover, &:active {
-                    color: $color-header-link;
-                }
+                @include navitem;
             }
         }
     }

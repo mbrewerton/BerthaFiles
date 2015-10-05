@@ -134,6 +134,7 @@
   <ItemGroup>
     <Compile Include="CustomServiceRegistrationModule.cs" />
     <Compile Include="Mapping\ModelToDto\CouponTypeToCouponTypeDtoProfile.cs" />
+    <Compile Include="Mapping\ModelToDto\UserProfileToUserProfileDtoProfile.cs" />
     <Compile Include="Migrations\201510011304234_init.cs" />
     <Compile Include="Migrations\201510011304234_init.Designer.cs">
       <DependentUpon>201510011304234_init.cs</DependentUpon>
@@ -172,6 +173,7 @@
     <Compile Include="Models\Dtos\CouponDto.cs" />
     <Compile Include="Models\Dtos\SoundDto.cs" />
     <Compile Include="Models\Dtos\SoundPackDto.cs" />
+    <Compile Include="Models\Dtos\UserDto.cs" />
     <Compile Include="Models\Dtos\UserProfileDto.cs" />
     <Compile Include="Models\IDbObject.cs" />
     <Compile Include="Models\Coupon.cs" />
@@ -189,6 +191,7 @@
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Services\ITagService.cs" />
     <Compile Include="Services\IUserProfileService.cs" />
+    <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\Search\EntitySearchServices.cs" />
     <Compile Include="Services\Search\SearchService.cs" />
     <Compile Include="Services\Storage\IAzureStorageService.cs" />
@@ -203,6 +206,7 @@
     <Compile Include="Services\Storage\AzureStorageService.cs" />
     <Compile Include="Services\Storage\StorageSettings.cs" />
     <Compile Include="Services\UserProfileService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -217,6 +221,9 @@
     <EmbeddedResource Include="Migrations\201510020721459_UserProfile.resx">
       <DependentUpon>201510020721459_UserProfile.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

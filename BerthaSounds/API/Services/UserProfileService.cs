@@ -7,6 +7,7 @@ using API.Models;
 using API.Models.DbContexts;
 using API.Models.Dtos;
 using API.Repositories;
+using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -16,60 +17,42 @@ namespace API.Services
     public class UserProfileService : IUserProfileService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public UserProfileService(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+	    private readonly IRepository<UserProfile> _profileRepository;
+	    private readonly IUserService _userService;
 
-        public void CreateNewUserProfile(string id)
-        {
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new BerthaContext()));
-            var currentUser = userManager.FindById(id);
-            currentUser.UserProfile = new UserProfile
-            {
-                DisplayName = currentUser.UserName,
-				FirstName = "First",
-				LastName = "Last"
-            };
+	    public UserProfileService(IUnitOfWork unitOfWork, IRepository<UserProfile> profileRepository, IUserService userService)
+	    {
+		    _unitOfWork = unitOfWork;
+		    _profileRepository = profileRepository;
+		    _userService = userService;
+	    }
 
-            _unitOfWork.Commit();
-        }
-
-        /// <summary>
+	    /// <summary>
         /// Gets the User Profile data for the current user.
         /// </summary>
-        /// <returns>UserProfile</returns>
+        /// <returns>UserProfileDto</returns>
         public UserProfileDto GetUserProfile()
+	    {
+		    var user = _userService.GetCurrentUser();
+		    return Mapper.Map<UserProfile, UserProfileDto>(user.UserProfile);
+	    }
+
+        /// <summary>
+        /// Gets the User Profile data for a user via their User Id.
+		/// </summary>
+		/// <param name="userId">The User Id of the User.</param>
+        /// <returns>UserProfileDto</returns>
+        public UserProfileDto GetUserProfile(string userId)
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Gets the User Profile data for a user by their id.
+        /// Gets the User Profile data for a user via the Profile Id.
         /// </summary>
-        /// <param name="id">The users' id.</param>
-        /// <returns></returns>
-        public UserProfileDto GetUserProfileById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Gets the User Profile data for a user by their UserName
-        /// </summary>
-        /// <param name="userName">The users' username.</param>
-        /// <returns></returns>
-        public UserProfileDto GetUserProfileByUsername(string userName)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Gets the User Profile data for a user by their Email Address
-        /// </summary>
-        /// <param name="email">The users' email address.</param>
-        /// <returns></returns>
-        public UserProfileDto GetUserProfileByEmail(string email)
+        /// <param name="id">The id of the User Profile.</param>
+        /// <returns>UserProfileDto</returns>
+        public UserProfileDto GetUserProfile(long id)
         {
             throw new NotImplementedException();
         }

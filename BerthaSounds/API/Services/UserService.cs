@@ -1,65 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using API.Models;
-using API.Models.DbContexts;
+using API.Models.Dtos;
+using API.Repositories;
+using AutoMapper;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin.Security;
 
 namespace API.Services
 {
-    public class UserService : IUserService
-    {
-        private readonly BerthaContext _context;
-        public UserService(BerthaContext context)
-        {
-            _context = context;
-        }
+	public class UserService : IUserService
+	{
+		private readonly IRepository<ApplicationUser> _userRepository;
 
-        public IdentityUser GetUserByUserName(string userName)
-        {
-            var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
-            return userManager.FindByName(userName);
-        }
+		public UserService(IRepository<ApplicationUser> userRepository)
+		{
+			_userRepository = userRepository;
+		}
 
-        public IdentityUser GetUserByEmail(string email)
-        {
-            var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
-            return userManager.FindByEmail(email);
-        }
+		public ApplicationUser GetCurrentUser()
+		{
+			var userName = HttpContext.Current.User.Identity.Name;
+			return _userRepository.GetSingleOrDefaultWhere(x => x.UserName == userName);
+		}
 
-        public IdentityUser GetUserById(string id)
-        {
-            var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
-            return userManager.FindById(id);
-        }
+		/// <summary>
+		/// Gets the current User by Username.
+		/// </summary>
+		/// <param name="userName">The username to search with.</param>
+		/// <returns></returns>
+		public UserDto GetUserByUserName(string userName)
+		{
+			var user = _userRepository.GetAllWhere(x => x.UserName.ToLower().Contains(userName.ToLower())).SingleOrDefault();
+			return Mapper.Map<ApplicationUser, UserDto>(user);
+		}
 
-        public IdentityUser GetUser(UserLoginInfo user)
-        {
-            var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
-            return userManager.Find(user);
-        }
+		/// <summary>
+		/// Gets the current User by Email.
+		/// </summary>
+		/// <param name="email">The Email to search with.</param>
+		/// <returns></returns>
+		public UserDto GetUserByEmail(string email)
+		{
+			throw new NotImplementedException();
+		}
 
-        public IEnumerable<IdentityUser> GetAllUsers()
-        {
-            var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
-            if (userManager.Users.Any())
-            {
-                return userManager.Users.ToList();
-            }
+		/// <summary>
+		/// Gets the current User by Id.
+		/// </summary>
+		/// <param name="id">The Id to search with.</param>
+		/// <returns></returns>
+		public UserDto GetUserById(string id)
+		{
+			throw new NotImplementedException();
+		}
 
-            throw new NullReferenceException("No users were found.");
-        }
-
-	    public IdentityResult CreateUser(ApplicationUser user, string password)
-	    {
-            var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_context));
-		    IdentityResult result = userManager.Create(user, password);
-
-		    return result;
-	    }
-    }
+		public IEnumerable<UserDto> GetAllUsers()
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

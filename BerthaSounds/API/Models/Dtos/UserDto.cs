@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace API.Models.Dtos
 {
-    public class UserProfileDto
+    public class UserDto
     {
-        public long Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string DisplayName { get; set; }
+		public string Id { get; set; }
+	    public string Email { get; set; }
+	    public UserProfileDto UserProfileDto { get; set; }
+	    public string UserName { get; set; }
     }
 }

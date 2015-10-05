@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using API.Models;
+using API.Models.Dtos;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -7,11 +8,10 @@ namespace API.Services
 {
     public interface IUserService
     {
-        IdentityUser GetUserByUserName(string userName);
-        IdentityUser GetUserByEmail(string email);
-        IdentityUser GetUserById(string id);
-        IdentityUser GetUser(UserLoginInfo user);
-        IEnumerable<IdentityUser> GetAllUsers();
-		IdentityResult CreateUser(ApplicationUser user, string password);
+		UserDto GetUserByUserName(string userName);
+        UserDto GetUserByEmail(string email);
+		UserDto GetUserById(string id);
+		IEnumerable<UserDto> GetAllUsers();
+	    ApplicationUser GetCurrentUser();
     }
 }

@@ -251,7 +251,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Areas\About\AboutApiController.cs" />
-    <Compile Include="API\Areas\Account\AccountApiController.cs" />
+    <Compile Include="API\Users\AccountApiController.cs" />
     <Compile Include="API\Areas\Admin\AdminApiController.cs" />
     <Compile Include="API\Areas\Profile\ProfileApiController.cs" />
     <Compile Include="API\Coupons\CouponsApiController.cs" />
@@ -259,6 +259,7 @@
     <Compile Include="API\Tags\TagsApiController.cs" />
     <Compile Include="API\Categories\CategoriesApiController.cs" />
     <Compile Include="API\Sounds\SoundsApiController.cs" />
+    <Compile Include="API\Users\UserProfileApiController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\CustomActivationStrategy.cs" />
@@ -270,6 +271,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -291,10 +293,14 @@
     <Content Include="Content\Areas\Admin\Spa\adminSpaController.js" />
     <Content Include="Content\Areas\Admin\Templates\tagManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\categoryManagement.html" />
+    <Content Include="Content\Areas\MyProfile\Controllers\myProfileController.js" />
+    <Content Include="Content\Areas\MyProfile\Templates\shopIndex.html" />
     <Content Include="Content\Areas\Shop\Controllers\shopController.js" />
     <Content Include="Content\Areas\Admin\Controllers\couponManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\soundManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\adminController.js" />
+    <Content Include="Content\Areas\Shop\Spa\myProfileSpa.html" />
+    <Content Include="Content\Areas\Shop\Spa\myProfileSpaController.js" />
     <Content Include="Content\c\Footer.css">
       <DependentUpon>Footer.scss</DependentUpon>
     </Content>
@@ -536,6 +542,7 @@
     <Content Include="Views\Shared\_NavPartial.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
     <None Include="Properties\PublishProfiles\bertha.pubxml" />
+    <Content Include="Views\MyProfile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -543,7 +550,7 @@
     <Folder Include="Content\Areas\About\Templates\" />
     <Folder Include="Content\Areas\Admin\Resources\" />
     <Folder Include="Content\Areas\Home\" />
-    <Folder Include="Content\Areas\Profile\" />
+    <Folder Include="Content\Areas\MyProfile\Resources\" />
     <Folder Include="Content\Areas\Shop\Resources\" />
     <Folder Include="Views\Assets\" />
   </ItemGroup>
