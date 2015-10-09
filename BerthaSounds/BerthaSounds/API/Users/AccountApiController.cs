@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using API.Services;
 
-namespace BerthaSounds.API.Areas.Account
+namespace BerthaSounds.API.Areas.Users
 {
     [Route("api/Account")]
     public class AccountApiController : ApiController

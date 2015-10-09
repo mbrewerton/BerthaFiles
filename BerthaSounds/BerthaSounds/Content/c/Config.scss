@@ -10,13 +10,19 @@ $color-light-grey: #e5e5e5;
 $color-grey: #A9A9A9;
 $color-body: #383838;
 $color-red: #e31313;
-$color-green: #14c327;
+$color-dark-red: #b41717;
+/*$color-green: #14c327;*/
+$color-green: #18AB28;
+$color-dark-green: #13811f;
 
 $opacity-button-hover: 0.85;
 /* #endregion */
 
 /* #region Misc */
 $border-radius: 5px;
+$border-color: $color-light-grey;
+
+$padding-tooltip: 10px;
 /* #endregion */
 
 /* #region Selectors */

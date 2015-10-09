@@ -1,0 +1,21 @@
+﻿@import 'Config.scss';
+
+.tooltip {
+	position: relative;
+
+	&:hover > span, &:focus > span {
+		display: inline;
+	}
+	
+	.tooltip-message {
+		display: none;
+		position: absolute;
+		left: 20px;
+		width: 500px;
+		border-radius: $border-radius;
+		padding: $padding-tooltip;
+		background: $color-dark-blue;
+		color: $color-white;
+
+	}
+}

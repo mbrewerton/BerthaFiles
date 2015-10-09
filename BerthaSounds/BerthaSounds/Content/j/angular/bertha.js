@@ -22,16 +22,16 @@ angular.module(appName)
 						// do something on error
 						var status = rejection.status;
 						if (status == 400) {
-							toastService.throwBadRequestToast(rejection);
+							toastService.throwBadRequestToast(rejection.data);
 						}
 						if (status == 403 || status == 401) {
-							toastService.throwInsufficientPermissionsToast(rejection);
+							toastService.throwInsufficientPermissionsToast(rejection.data);
 						}
 						if (status == 500) {
-							toastService.throwUnexpectedErrorToast(rejection);
+							toastService.throwUnexpectedErrorToast(rejection.data);
 						}
 						if (status == 409) {
-							toastService.throwUnexpectedConflictToast(rejection);
+							toastService.throwUnexpectedConflictToast(rejection.data);
 						}
 						console.log("Rejected: ", rejection);
 						return $q.reject(rejection);

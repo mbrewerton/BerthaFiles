@@ -5,11 +5,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using API.Exceptions;
+using API.Models.Dtos;
 using API.Services;
 
 namespace BerthaSounds.API.Users
 {
-	[Route("api/UserProfile")]
+	[RoutePrefix("api/UserProfile")]
 	public class UserProfileApiController : ApiController
 	{
 		private readonly IUserProfileService _profileService;
@@ -20,11 +22,27 @@ namespace BerthaSounds.API.Users
 		}
 
 		[HttpGet]
-		[Route("GetUserProfileForCurrentUser")]
-		public HttpResponseMessage GetUserProfileForCurrentUser()
+		[Route("GetCurrentUserProfile")]
+		public HttpResponseMessage GetCurrentUserProfile()
 		{
 			var profile = _profileService.GetUserProfile();
 			return Request.CreateResponse(HttpStatusCode.OK, profile);
+		}
+
+		[HttpPut]
+		[Route("UpdateUserProfile")]
+		public HttpResponseMessage UpdateUserProfile(UserProfileDto profile)
+		{
+			try
+			{
+				_profileService.UpdateUserProfile(profile);
+				return Request.CreateResponse(HttpStatusCode.OK);
+			}
+			catch (InvalidActionException exception)
+			{
+				return Request.CreateResponse(HttpStatusCode.BadRequest, exception);
+			}
+			
 		}
 	}
 }

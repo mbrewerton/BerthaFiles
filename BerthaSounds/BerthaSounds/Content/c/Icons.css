@@ -1,5 +1,6 @@
 ﻿/* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -26,7 +27,7 @@
   color: #e31313; }
 
 .fa-check {
-  color: #14c327; }
+  color: #18AB28; }
 
 .fa-plus, .fa-edit {
   color: #3ca1df; }

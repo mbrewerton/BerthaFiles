@@ -1,5 +1,6 @@
 ﻿/* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -40,5 +41,9 @@ button {
   cursor: pointer; }
   button:hover {
     opacity: 0.85; }
+  button.red {
+    background-color: #b41717; }
+  button.green {
+    background-color: #13811f; }
 
 /*# sourceMappingURL=Input.css.map */

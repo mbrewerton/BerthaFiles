@@ -23,5 +23,7 @@ namespace API.Services
 		/// <param name="id">The id of the User Profile.</param>
 		/// <returns>UserProfileDto</returns>
 		UserProfileDto GetUserProfile(long id);
+
+		UserProfileDto UpdateUserProfile(UserProfileDto profile);
 	}
 }

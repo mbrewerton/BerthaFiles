@@ -30,17 +30,6 @@ namespace BerthaSounds.API.Sounds
 		    _searchService = searchService;
 	    }
 
-		//[HttpGet]
-		//[Route("Search")]
-		//public HttpResponseMessage Search(string term = null)
-		//{
-		//	var sounds = term != null
-		//		? _searchService.Search(x => x.Description.ToLower().Contains(term.ToLower()) ||
-		//									 x.Name.ToLower().Contains(term.ToLower())) :
-		//		_searchService.GetAll();
-		//	return Request.CreateResponse(HttpStatusCode.OK, sounds);
-		//}
-
 	    [HttpGet]
 	    [Route("Search")]
 	    public HttpResponseMessage Search(string term)

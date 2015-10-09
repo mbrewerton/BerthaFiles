@@ -28,4 +28,12 @@ button {
 	&:hover {
 		opacity: $opacity-button-hover;
 	}
+
+	&.red {
+		background-color: $color-dark-red;
+	}
+
+	&.green {
+		background-color: $color-dark-green;
+	}
 }

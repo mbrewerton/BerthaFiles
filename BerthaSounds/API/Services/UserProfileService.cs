@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using API.Exceptions;
 using API.Models;
 using API.Models.DbContexts;
 using API.Models.Dtos;
@@ -56,5 +57,36 @@ namespace API.Services
         {
             throw new NotImplementedException();
         }
+
+	    public UserProfileDto UpdateUserProfile(UserProfileDto profile)
+	    {
+		    if (profile.FirstName == null || profile.DisplayName == null || profile.LastName == null)
+		    {
+			    throw new InvalidActionException("One of the profile fields are empty.");
+		    }
+
+		    var profiles = _profileRepository.GetAll();
+			if (profiles.SingleOrDefault(x => x.DisplayName.ToLower() == profile.DisplayName.ToLower() && x.Id != profile.Id) != null)
+				throw new InvalidActionException("A profile with that Display Name already exists.");
+
+		    var oldProfile = profiles.Single(x => x.Id == profile.Id);
+
+		    if (oldProfile.FirstName.ToLower() == profile.FirstName.ToLower() &&
+		        oldProfile.DisplayName.ToLower() == profile.DisplayName.ToLower() &&
+		        oldProfile.LastName.ToLower() == profile.LastName.ToLower())
+		    {
+			    return null;
+		    }
+
+			//oldProfile = Mapper.Map<UserProfileDto, UserProfile>(profile);
+		    oldProfile.FirstName = profile.FirstName;
+		    oldProfile.DisplayName = profile.DisplayName;
+		    oldProfile.LastName = profile.LastName;
+
+			_profileRepository.Update(oldProfile);
+			_unitOfWork.Commit();
+
+		    return Mapper.Map<UserProfile, UserProfileDto>(oldProfile);
+	    }
     }
 }

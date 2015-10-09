@@ -1,5 +1,6 @@
 ﻿/* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -32,7 +33,7 @@ div:after {
 
 /* #endregion */
 /* #region Main Containers */
-html, body {
+html, body, span {
   font-family: 'Open Sans'; }
 
 .body-content {

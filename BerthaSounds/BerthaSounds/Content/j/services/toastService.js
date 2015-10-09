@@ -12,7 +12,7 @@ angular.module("bertha")
 				},
 				error: function(message, title, callback) {
 					var msgTitle = title ? title : "Error";
-					console.log(message);
+					console.log("Error Message: ", message);
 					toastr.error(message, msgTitle, callback);
 				},
 				warning: function(message, title, callback) {
@@ -50,7 +50,7 @@ angular.module("bertha")
 				},
 				throwUnexpectedConflictToast: function (rejection) {
 					if (rejection.data !== "") {
-						service.error(rejection.data);
+						service.error(rejection.Message);
 					} else {
 						service.error("Sorry, an unexpected conflict has occured occurred.");
 					}
@@ -58,8 +58,9 @@ angular.module("bertha")
 				throwInsufficientPermissionsToast: function(rejection) {
 					service.error("Sorry, You do not have permission to carry out that action.");
 				},
-				throwBadRequestToast: function(rejection) {
-					service.error(rejection.data);
+				throwBadRequestToast: function (rejection) {
+					console.log("The reject: ", rejection);	
+					service.error(rejection.Message);
 				},
 				throwNotImplementedToast: function(item) {
 					var defaultMsg = "Not Yet Implemented.";

@@ -30,30 +30,9 @@ namespace API.Services.Search
 		public TagSearchService(IRepository<Tag> repository) : base(repository) { }
 	}
 
-	public interface ICouponSearchService : ISearchService<Coupon, CouponDto>
-	{
-		List<CouponDto> Search(Expression<Func<Coupon, bool>> filter, bool expired = false, bool paginate = false);
-		List<CouponDto> GetAll(bool expired = false);
-	}
+	public interface ICouponSearchService : ISearchService<Coupon, CouponDto> { }
 	public class CouponSearchService : SearchService<Coupon, CouponDto>, ICouponSearchService
 	{
 		public CouponSearchService(IRepository<Coupon> repository) : base(repository) { }
-
-		public List<CouponDto> Search(Expression<Func<Coupon, bool>> filter, bool expired = false, bool paginate = false)
-		{
-			var coupons = base.Search(filter, paginate);
-			if (!expired)
-				coupons = coupons.Where(x => x.Expired == false).ToList();
-
-			return coupons;
-		}
-
-		public List<CouponDto> GetAll(bool expired = false)
-		{
-			var coupons = base.GetAll();
-			if (!expired)
-				coupons = coupons.Where(x => x.Expired == false).ToList();
-			return coupons;
-		}
 	}
 }

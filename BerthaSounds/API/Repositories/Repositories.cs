@@ -25,6 +25,12 @@ namespace API.Repositories
         public CouponRepository(IObjectContext objectContext) : base(objectContext) { }
     }
 
+    public partial interface ICouponTypeRepository : IRepository<CouponType> { }
+    public partial class CouponTypeRepository : GenericRepository<CouponType>
+    {
+        public CouponTypeRepository(IObjectContext objectContext) : base(objectContext) { }
+    }
+
 	public partial interface IUserProfileRepository : IRepository<UserProfile> { }
 	public partial class UserProfileRepository : GenericRepository<UserProfile>
 	{

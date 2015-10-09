@@ -17,7 +17,7 @@ namespace API.Services
         private readonly IRepository<Coupon> _couponRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMappingEngine _mapper;
-	    private IRepository<CouponType> _couponTypeRepository;
+	    private readonly IRepository<CouponType> _couponTypeRepository;
 
 	    public CouponService(IRepository<Coupon> couponRepository, IUnitOfWork unitOfWork, IMappingEngine mapper, IRepository<CouponType> couponTypeRepository)
         {

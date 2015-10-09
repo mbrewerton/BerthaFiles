@@ -27,6 +27,7 @@ table {
 
 /* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -46,6 +47,7 @@ table {
 /* #endregion */
 /* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -102,6 +104,7 @@ nav {
 
 /* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -125,6 +128,7 @@ footer {
 
 /* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -157,7 +161,7 @@ div:after {
 
 /* #endregion */
 /* #region Main Containers */
-html, body {
+html, body, span {
   font-family: 'Open Sans'; }
 
 .body-content {
@@ -180,6 +184,7 @@ html, body {
 /* #endregion */
 /* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -223,6 +228,7 @@ a {
 
 /* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -249,13 +255,14 @@ a {
   color: #e31313; }
 
 .fa-check {
-  color: #14c327; }
+  color: #18AB28; }
 
 .fa-plus, .fa-edit {
   color: #3ca1df; }
 
 /* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -283,6 +290,7 @@ table td {
 
 /* Variables */
 /* #region Colours */
+/*$color-green: #14c327;*/
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -323,6 +331,44 @@ button {
   cursor: pointer; }
   button:hover {
     opacity: 0.85; }
+  button.red {
+    background-color: #b41717; }
+  button.green {
+    background-color: #13811f; }
+
+/* Variables */
+/* #region Colours */
+/*$color-green: #14c327;*/
+/* #endregion */
+/* #region Misc */
+/* #endregion */
+/* #region Selectors */
+/* #endregion */
+/* #region Buttons and Inputs */
+/* #endregion */
+/* #region Font Sizes */
+/* #endregion */
+/* #region Header & Navigation */
+/* #endregion */
+/* #region Main Body & Containers */
+/* #endregion */
+/* #region Sound Containers */
+/* #endregion */
+/* #region Tables */
+/* #endregion */
+.tooltip {
+  position: relative; }
+  .tooltip:hover > span, .tooltip:focus > span {
+    display: inline; }
+  .tooltip .tooltip-message {
+    display: none;
+    position: absolute;
+    left: 20px;
+    width: 500px;
+    border-radius: 5px;
+    padding: 10px;
+    background: #77AEAB;
+    color: white; }
 
 h1 {
   font-size: 2.2em; }

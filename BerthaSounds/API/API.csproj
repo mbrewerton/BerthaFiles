@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomServiceRegistrationModule.cs" />
+    <Compile Include="Mapping\DtoToModel\UserProfileDtoToUserProfileProfile.cs" />
     <Compile Include="Mapping\ModelToDto\CouponTypeToCouponTypeDtoProfile.cs" />
     <Compile Include="Mapping\ModelToDto\UserProfileToUserProfileDtoProfile.cs" />
     <Compile Include="Migrations\201510011304234_init.cs" />

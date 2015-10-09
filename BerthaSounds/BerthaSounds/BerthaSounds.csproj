@@ -294,13 +294,15 @@
     <Content Include="Content\Areas\Admin\Templates\tagManagement.html" />
     <Content Include="Content\Areas\Admin\Templates\categoryManagement.html" />
     <Content Include="Content\Areas\MyProfile\Controllers\myProfileController.js" />
-    <Content Include="Content\Areas\MyProfile\Templates\shopIndex.html" />
+    <Content Include="Content\Areas\MyProfile\Spa\myProfileSpa.html" />
+    <Content Include="Content\Areas\MyProfile\Spa\myProfileSpaController.js" />
+    <Content Include="Content\Areas\MyProfile\Templates\myProfile.html" />
     <Content Include="Content\Areas\Shop\Controllers\shopController.js" />
     <Content Include="Content\Areas\Admin\Controllers\couponManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\soundManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\adminController.js" />
-    <Content Include="Content\Areas\Shop\Spa\myProfileSpa.html" />
-    <Content Include="Content\Areas\Shop\Spa\myProfileSpaController.js" />
+    <Content Include="Content\Areas\Shop\Spa\shopSpa.html" />
+    <Content Include="Content\Areas\Shop\Spa\shopSpaController.js" />
     <Content Include="Content\c\Footer.css">
       <DependentUpon>Footer.scss</DependentUpon>
     </Content>
@@ -325,8 +327,16 @@
     <Content Include="Content\c\Tables.min.css">
       <DependentUpon>Tables.css</DependentUpon>
     </Content>
+    <Content Include="Content\c\Tooltip.css">
+      <DependentUpon>Tooltip.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Tooltip.min.css">
+      <DependentUpon>Tooltip.css</DependentUpon>
+    </Content>
     <Content Include="Content\j\common\moment.min.js" />
     <Content Include="Content\j\common\ui-bootstrap-tpls-0.12.1.min.js" />
+    <Content Include="Content\j\directives\controllers\bthTooltip.js" />
+    <Content Include="Content\j\directives\controllers\bthToggleButton.js" />
     <Content Include="Content\j\directives\controllers\bthEdit.js" />
     <Content Include="Content\j\directives\controllers\bthSortable.js" />
     <Content Include="Content\j\directives\controllers\bthTypeahead.js" />
@@ -334,6 +344,8 @@
     <Content Include="Content\j\directives\controllers\bthSearch.js" />
     <Content Include="Content\j\directives\controllers\bthDelete.js" />
     <Content Include="Content\j\directives\controllers\bthSounds.js" />
+    <Content Include="Content\j\directives\templates\bthTooltip.html" />
+    <Content Include="Content\j\directives\templates\bthToggleButton.html" />
     <Content Include="Content\j\directives\templates\bthEdit.html" />
     <Content Include="Content\j\directives\templates\bthSortable.html" />
     <Content Include="Content\j\directives\templates\bthTypeahead.html" />
@@ -342,6 +354,7 @@
     <Content Include="Content\j\directives\templates\bthDelete.html" />
     <Content Include="Content\j\directives\templates\bthSounds.html" />
     <Content Include="Content\j\filters\moment.js" />
+    <Content Include="Content\j\resources\userProfileResource.js" />
     <Content Include="Content\j\resources\lookupsFactory.js" />
     <Content Include="Content\j\resources\couponResource.js" />
     <Content Include="Content\j\resources\categoryResource.js" />
@@ -404,6 +417,7 @@
     <Content Include="Content\j\services\fileService.js" />
     <Content Include="Content\j\services\soundService.js" />
     <Content Include="Content\j\services\couponService.js" />
+    <Content Include="Content\j\services\userProfileService.js" />
     <Content Include="Content\j\services\tagService.js" />
     <Content Include="Content\j\services\toastService.js" />
     <Content Include="Content\j\services\categoryService.js" />
@@ -479,6 +493,10 @@
     <Content Include="Content\c\Input.scss" />
     <Content Include="Content\c\Input.css.map">
       <DependentUpon>Input.css</DependentUpon>
+    </Content>
+    <Content Include="Content\c\Tooltip.scss" />
+    <Content Include="Content\c\Tooltip.css.map">
+      <DependentUpon>Tooltip.css</DependentUpon>
     </Content>
     <None Include="Content\j\common\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\j\common\angular-animate.min.js" />

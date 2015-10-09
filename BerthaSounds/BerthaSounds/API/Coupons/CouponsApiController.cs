@@ -28,8 +28,8 @@ namespace BerthaSounds.API.Coupons
 		{
 			var coupons = term != null
 				? _searchService.Search(x => x.Code.ToLower().Contains(term.ToLower()) ||
-				                             x.Name.ToLower().Contains(term.ToLower()), expired)
-				: _searchService.GetAll(expired);
+											 x.Name.ToLower().Contains(term.ToLower()), expired)
+				: _searchService.GetAll();
 
 			return Request.CreateResponse(HttpStatusCode.OK, coupons);
 		}
