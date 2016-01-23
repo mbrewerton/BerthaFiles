@@ -24,11 +24,11 @@ namespace BerthaSounds.API.Coupons
 
 		[HttpGet]
 		[Route("Search")]
-		public HttpResponseMessage Search(string term = null, bool expired = false)
+		public HttpResponseMessage Search(string term = null, bool paginate = false)
 		{
 			var coupons = term != null
 				? _searchService.Search(x => x.Code.ToLower().Contains(term.ToLower()) ||
-											 x.Name.ToLower().Contains(term.ToLower()), expired)
+											 x.Name.ToLower().Contains(term.ToLower()), paginate)
 				: _searchService.GetAll();
 
 			return Request.CreateResponse(HttpStatusCode.OK, coupons);

@@ -2,6 +2,8 @@
 /* #region Colours */
 /*$color-green: #14c327;*/
 /* #endregion */
+/* #region Widths */
+/* #endregion */
 /* #region Misc */
 /* #endregion */
 /* #region Selectors */
@@ -33,8 +35,8 @@ div:after {
 
 /* #endregion */
 /* #region Main Containers */
-html, body, span {
-  font-family: 'Open Sans'; }
+html, body {
+  font-family: 'Open Sans, Arial'; }
 
 .body-content {
   margin: 44px auto 0;

@@ -17,17 +17,17 @@ namespace APITests.Base_Classes
 		protected Mock<IRepository<UserProfile>> _userProfileRepository = new Mock<IRepository<UserProfile>>();
 		protected Mock<IUnitOfWork> _uow = new Mock<IUnitOfWork>();
 
-		protected Mock<ITagService> GetTagService()
+		protected Mock<ITagService> GetTagServiceMock()
 		{
 			return new Mock<ITagService>();
 		}
 
-		protected Mock<ISoundService> GetSoundService()
+		protected Mock<ISoundService> GetSoundServiceMock()
 		{
 			return new Mock<ISoundService>();
 		}
 
-		protected Mock<ICategoryService> GetCategoryService()
+		protected Mock<ICategoryService> GetCategoryServiceMock()
 		{
 			return new Mock<ICategoryService>();
 		}

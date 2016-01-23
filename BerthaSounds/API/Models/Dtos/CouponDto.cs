@@ -23,5 +23,10 @@ namespace API.Models.Dtos
         public DateTime? EndDate { get; set; }
 
 		public bool Expired { get; set; }
+
+		public int Amount { get; set; }
+
+		public long CouponTypeId { get; set; }
+		public CouponType CouponType { get; set; }
     }
 }

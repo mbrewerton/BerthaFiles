@@ -1,0 +1,13 @@
+﻿.lozenge {
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    cursor: default;
+    width: auto;
+    background-color: #77aeab;
+    display:inline-block;
+}
+
+.lozenge:hover {
+    opacity: .85;
+}

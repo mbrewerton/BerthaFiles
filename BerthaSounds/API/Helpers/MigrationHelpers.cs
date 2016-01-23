@@ -13,14 +13,25 @@ namespace API.Helpers
         /// Runs an INSERT command against a specified table and column.
         /// </summary>
         /// <param name="table">Table to run the command against (without dbo.).</param>
-        /// <param name="column">The column to insert the data into.</param>
+        /// <param name="columns">The columns to insert the data into.</param>
         /// <param name="data">The data you wish to insert.</param>
         /// <returns></returns>
-        public static string InsertInto(string table, string column, string data)
+        public static string InsertInto(string table, string[] columns, string data)
         {
-            return string.Format(@"INSERT INTO dbo.{0}({1})
-                        VALUES('{2}')", table, column, data);
+            return string.Format(@"INSERT INTO dbo.[{0}]({1})
+                        VALUES('{2}')", table, columns, data);
         }
+
+		/// <summary>
+		/// Sets Identity_Insert On / Off on a specified table. Caution: Remember to turn it off at the end of the migration.
+		/// </summary>
+		/// <param name="table">The table you wish to modify.</param>
+		/// <param name="identityInsert">Whether you want to toggle Identity_Insert On or Off.</param>
+		/// <returns></returns>
+	    public static string SetIdentityInsert(string table, bool identityInsert)
+	    {
+		    return string.Format(@"SET IDENTITY_INSERT dbo.[{0}] {1}", table, identityInsert ? "ON" : "OFF");
+	    }
 
         /// <summary>
         /// Adds a new role to the database.

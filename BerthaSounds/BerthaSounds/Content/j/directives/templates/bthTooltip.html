@@ -1,1 +1,1 @@
-﻿<i ng-if="message" class="fa fa-info-circle tooltip"><span class="tooltip-message">{{message}}</span></i>
+﻿<i ng-if="message" class="fa fa-info-circle tooltip"><span class="tooltip-message">{{message}} <ng-transclude ng-if="!message"></ng-transclude></span></i>

@@ -18,8 +18,9 @@ angular.module("bertha")
 		scope: {
 			tglHeading: "@",
 			tglShowSection: "=",
-			tglOpen: "="
+			tglOpen: "=?"
 		},
+        transclude: true,
 		templateUrl: "Content/j/directives/templates/bthToggleHeader.html",
 		controller: controller
 	};

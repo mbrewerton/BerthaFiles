@@ -1,0 +1,16 @@
+﻿<div class="imitate-select-root">
+    <div class="imitate-select" ng-click="toggleSelect()">
+        <p class="imitate-select-title">{{selTitle}}</p>
+        <i class="fa" ng-class="{ 'fa-caret-up': open, 'fa-caret-down': !open }"></i>
+    </div>
+    <div class="imitate-select-items" ng-if="open && multiSelect">
+        <div ng-repeat="item in selItems" class="imitate-select-items-node">
+            <input type="checkbox" ng-model="item.dirSelect" ng-change="returnItems(item)" id="{{item.id}}"><label for="{{item.id}}" class="check-list">{{item.name}}</label>
+        </div>
+    </div>
+    <div class="imitate-select-items" ng-if="open && !multiSelect">
+        <div ng-repeat="item in selItems" class="imitate-select-items-node">
+            <label>{{item.name}}</label>
+        </div>
+    </div>
+</div>

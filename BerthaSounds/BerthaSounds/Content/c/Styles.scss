@@ -8,5 +8,10 @@
 @import 'Tables.scss';
 @import 'Input.scss';
 @import 'Tooltip.scss';
-@import 'BootstrapOverrides.scss';
+/*@import 'BootstrapOverrides.scss';*/
 @import 'toastr.min.css';
+
+// Directives
+@import 'Directives/Lozenge.scss';
+@import 'Directives/Sounds.scss';
+@import 'Directives/*.scss';

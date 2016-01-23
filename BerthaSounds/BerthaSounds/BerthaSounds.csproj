@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <ApplicationInsightsResourceId>/subscriptions/cbcabb7e-ec8c-4422-a851-e20f46a3a002/resourcegroups/Default-Web-WestEurope/providers/microsoft.insights/components/bertha</ApplicationInsightsResourceId>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -297,12 +298,15 @@
     <Content Include="Content\Areas\MyProfile\Spa\myProfileSpa.html" />
     <Content Include="Content\Areas\MyProfile\Spa\myProfileSpaController.js" />
     <Content Include="Content\Areas\MyProfile\Templates\myProfile.html" />
+    <Content Include="Content\Areas\Shop\Controllers\soundController.js" />
     <Content Include="Content\Areas\Shop\Controllers\shopController.js" />
     <Content Include="Content\Areas\Admin\Controllers\couponManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\soundManagementController.js" />
     <Content Include="Content\Areas\Admin\Controllers\adminController.js" />
     <Content Include="Content\Areas\Shop\Spa\shopSpa.html" />
     <Content Include="Content\Areas\Shop\Spa\shopSpaController.js" />
+    <None Include="Content\c\Directives\Lozenge.scss" />
+    <Content Include="Content\Areas\Shop\Templates\soundPage.html" />
     <Content Include="Content\c\Footer.css">
       <DependentUpon>Footer.scss</DependentUpon>
     </Content>
@@ -335,19 +339,30 @@
     </Content>
     <Content Include="Content\j\common\moment.min.js" />
     <Content Include="Content\j\common\ui-bootstrap-tpls-0.12.1.min.js" />
+    <Content Include="Content\j\directives\controllers\bthFilter.js" />
+    <Content Include="Content\j\directives\controllers\bthToggleSection.js" />
+    <Content Include="Content\j\directives\controllers\bthLozenge.js" />
     <Content Include="Content\j\directives\controllers\bthTooltip.js" />
     <Content Include="Content\j\directives\controllers\bthToggleButton.js" />
     <Content Include="Content\j\directives\controllers\bthEdit.js" />
     <Content Include="Content\j\directives\controllers\bthSortable.js" />
+    <Content Include="Content\j\directives\controllers\bthLoading.js" />
+    <Content Include="Content\j\directives\controllers\bthSelect.js" />
     <Content Include="Content\j\directives\controllers\bthTypeahead.js" />
     <Content Include="Content\j\directives\controllers\bthToggleHeader.js" />
     <Content Include="Content\j\directives\controllers\bthSearch.js" />
     <Content Include="Content\j\directives\controllers\bthDelete.js" />
     <Content Include="Content\j\directives\controllers\bthSounds.js" />
+    <Content Include="Content\j\directives\templates\basket.html" />
+    <Content Include="Content\j\directives\templates\bthFilter.html" />
+    <Content Include="Content\j\directives\templates\bthToggleSection.html" />
+    <Content Include="Content\j\directives\templates\bthLozenge.html" />
     <Content Include="Content\j\directives\templates\bthTooltip.html" />
     <Content Include="Content\j\directives\templates\bthToggleButton.html" />
     <Content Include="Content\j\directives\templates\bthEdit.html" />
     <Content Include="Content\j\directives\templates\bthSortable.html" />
+    <Content Include="Content\j\directives\templates\bthLoading.html" />
+    <Content Include="Content\j\directives\templates\bthSelect.html" />
     <Content Include="Content\j\directives\templates\bthTypeahead.html" />
     <Content Include="Content\j\directives\templates\bthToggleHeader.html" />
     <Content Include="Content\j\directives\templates\bthSearch.html" />
@@ -498,6 +513,8 @@
     <Content Include="Content\c\Tooltip.css.map">
       <DependentUpon>Tooltip.css</DependentUpon>
     </Content>
+    <Content Include="Content\c\Mixins.scss" />
+    <Content Include="Content\c\Directives\Sounds.scss" />
     <None Include="Content\j\common\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\j\common\angular-animate.min.js" />
     <Content Include="Content\j\common\angular-resource.min.js" />
@@ -561,6 +578,7 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <None Include="Properties\PublishProfiles\bertha.pubxml" />
     <Content Include="Views\MyProfile\Index.cshtml" />
+    <Content Include="Views\Shop\Sound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

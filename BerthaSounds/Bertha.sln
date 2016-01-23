@@ -1,13 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BerthaSounds", "BerthaSounds\BerthaSounds.csproj", "{274E4E64-1AFF-45EC-A83C-E577C4E4AEF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{9F048BCC-B6F0-42BB-9B7C-7080870922BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITests", "APITests\APITests.csproj", "{B3316965-E130-4CEB-9971-7AC9596C08E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8C14AC3D-4B30-482D-91BE-21C9270EAE41}"
+	ProjectSection(SolutionItems) = preProject
+		WebEssentials-Settings.json = WebEssentials-Settings.json
+		WebEssentials2015-Settings.json = WebEssentials2015-Settings.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CDN", "CDN\CDN.xproj", "{51473392-422A-430E-A3F3-E8C2DF2AEA68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +35,10 @@ Global
 		{B3316965-E130-4CEB-9971-7AC9596C08E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3316965-E130-4CEB-9971-7AC9596C08E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3316965-E130-4CEB-9971-7AC9596C08E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51473392-422A-430E-A3F3-E8C2DF2AEA68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51473392-422A-430E-A3F3-E8C2DF2AEA68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51473392-422A-430E-A3F3-E8C2DF2AEA68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51473392-422A-430E-A3F3-E8C2DF2AEA68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

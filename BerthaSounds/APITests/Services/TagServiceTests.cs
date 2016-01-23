@@ -11,16 +11,20 @@ namespace APITests.Services
 	public class TagServiceTests : BaseServiceTests
 	{
 		private Mock<IRepository<Tag>> _fakeTagRepository;
+	    private Mock<ITagService> _tagService;
 
 		public TagServiceTests()
 		{
-			_fakeTagRepository = new Mock<IRepository<Tag>>();
+            _fakeTagRepository = new Mock<IRepository<Tag>>();
+		    _tagService = GetTagServiceMock();
+		    _tagService.Setup(x => x.AddTag(It.IsAny<string>()));
 		}
 
 		[Fact]
 		public void Add_Tag_Test()
 		{
-			var service = GetTagService();
+		    var tag = _tagService.Object.AddTag("Test");
+            _uow.Verify();
 		}
 	}
 }

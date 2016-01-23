@@ -41,8 +41,8 @@ namespace API.Services
 
         public CouponDto AddCoupon(CouponDto couponDto)
         {
-            if (couponDto.EndDate != null)
-                couponDto.EndDate = (DateTime)couponDto.EndDate;
+			//if (couponDto.EndDate != null)
+			//	couponDto.EndDate = (DateTime)couponDto.EndDate;
 
             if (couponDto.Code.Length > 10)
             {
@@ -51,6 +51,9 @@ namespace API.Services
 
 			if (couponDto.StartDate == null)
 				throw new InvalidActionException("Please enter a start date.");
+
+			if (couponDto.Amount == null || couponDto.Amount <= 0)
+				throw new InvalidActionException(string.Format("Please enter a valid amount. {0} is not an invalid amount.", couponDto.Amount));
 
 	        var coupons = GetAllCoupons();
 	        if (coupons.Any(x => x.Name.ToUpper() == couponDto.Name.ToUpper()))

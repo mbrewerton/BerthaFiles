@@ -29,6 +29,8 @@ table {
 /* #region Colours */
 /*$color-green: #14c327;*/
 /* #endregion */
+/* #region Widths */
+/* #endregion */
 /* #region Misc */
 /* #endregion */
 /* #region Selectors */
@@ -48,6 +50,8 @@ table {
 /* Variables */
 /* #region Colours */
 /*$color-green: #14c327;*/
+/* #endregion */
+/* #region Widths */
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -106,6 +110,8 @@ nav {
 /* #region Colours */
 /*$color-green: #14c327;*/
 /* #endregion */
+/* #region Widths */
+/* #endregion */
 /* #region Misc */
 /* #endregion */
 /* #region Selectors */
@@ -129,6 +135,8 @@ footer {
 /* Variables */
 /* #region Colours */
 /*$color-green: #14c327;*/
+/* #endregion */
+/* #region Widths */
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -161,8 +169,8 @@ div:after {
 
 /* #endregion */
 /* #region Main Containers */
-html, body, span {
-  font-family: 'Open Sans'; }
+html, body {
+  font-family: 'Open Sans, Arial'; }
 
 .body-content {
   margin: 44px auto 0;
@@ -185,6 +193,8 @@ html, body, span {
 /* Variables */
 /* #region Colours */
 /*$color-green: #14c327;*/
+/* #endregion */
+/* #region Widths */
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -230,6 +240,8 @@ a {
 /* #region Colours */
 /*$color-green: #14c327;*/
 /* #endregion */
+/* #region Widths */
+/* #endregion */
 /* #region Misc */
 /* #endregion */
 /* #region Selectors */
@@ -257,12 +269,14 @@ a {
 .fa-check {
   color: #18AB28; }
 
-.fa-plus, .fa-edit {
+.fa-plus, .fa-edit, .fa-info, .fa-info-circle {
   color: #3ca1df; }
 
 /* Variables */
 /* #region Colours */
 /*$color-green: #14c327;*/
+/* #endregion */
+/* #region Widths */
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -292,6 +306,8 @@ table td {
 /* #region Colours */
 /*$color-green: #14c327;*/
 /* #endregion */
+/* #region Widths */
+/* #endregion */
 /* #region Misc */
 /* #endregion */
 /* #region Selectors */
@@ -308,12 +324,12 @@ table td {
 /* #endregion */
 /* #region Tables */
 /* #endregion */
-input[type=text], input[type=coupon], input[type=date], input[type=search], input[type=password], button {
+input[type=text], input[type=number], input[type=coupon], input[type=date], input[type=search], input[type=password], select, button {
   padding: 0 10px;
   height: 30px;
   box-sizing: border-box; }
 
-input[type=text], input[type=coupon], input[type=date], input[type=search], input[type=password] {
+input[type=text], input[type=number], input[type=coupon], input[type=date], input[type=search], input[type=password], select {
   border: 1px solid #A9A9A9;
   border-radius: 5px;
   /*box-sizing: border-box;*/
@@ -339,6 +355,8 @@ button {
 /* Variables */
 /* #region Colours */
 /*$color-green: #14c327;*/
+/* #endregion */
+/* #region Widths */
 /* #endregion */
 /* #region Misc */
 /* #endregion */
@@ -370,23 +388,6 @@ button {
     background: #77AEAB;
     color: white; }
 
-h1 {
-  font-size: 2.2em; }
-
-h2 {
-  font-size: 2em; }
-
-h3 {
-  font-size: 1.8em; }
-
-h4 {
-  font-size: 1.6em; }
-
-h5 {
-  font-size: 1.4em; }
-
-h6 {
-  font-size: 1.2em; }
-
+/*@import 'BootstrapOverrides.scss';*/
 
 /*# sourceMappingURL=Styles.css.map */

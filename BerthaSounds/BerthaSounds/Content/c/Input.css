@@ -2,6 +2,8 @@
 /* #region Colours */
 /*$color-green: #14c327;*/
 /* #endregion */
+/* #region Widths */
+/* #endregion */
 /* #region Misc */
 /* #endregion */
 /* #region Selectors */
@@ -18,12 +20,12 @@
 /* #endregion */
 /* #region Tables */
 /* #endregion */
-input[type=text], input[type=coupon], input[type=date], input[type=search], input[type=password], button {
+input[type=text], input[type=number], input[type=coupon], input[type=date], input[type=search], input[type=password], select, button {
   padding: 0 10px;
   height: 30px;
   box-sizing: border-box; }
 
-input[type=text], input[type=coupon], input[type=date], input[type=search], input[type=password] {
+input[type=text], input[type=number], input[type=coupon], input[type=date], input[type=search], input[type=password], select {
   border: 1px solid #A9A9A9;
   border-radius: 5px;
   /*box-sizing: border-box;*/

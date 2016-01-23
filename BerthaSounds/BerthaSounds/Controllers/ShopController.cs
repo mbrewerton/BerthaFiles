@@ -8,8 +8,14 @@ namespace BerthaSounds.Controllers
 {
     public class ShopController : Controller
     {
-        // GET: Home
+        // GET: Shop
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: Sound
+        public ActionResult Sound(long id)
         {
             return View();
         }

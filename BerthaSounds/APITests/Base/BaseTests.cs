@@ -14,6 +14,7 @@ namespace APITests.Base
 		public BaseTests()
 		{
 			_uow = new Mock<IUnitOfWork>();
+		    _uow.Setup(x => x.Commit()).Verifiable();
 		}
 	}
 }

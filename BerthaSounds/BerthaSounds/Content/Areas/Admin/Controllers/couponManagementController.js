@@ -8,8 +8,16 @@ angular.module('bertha')
             $scope.coupons = [];
             $scope.coupon = {
                 name: '',
-                code: ''
+                code: '',
+				amount: null,
+				couponType: {}
             };
+            $scope.couponTypes = [];
+
+            couponService.getCouponTypes(function (types) {
+            	$scope.couponTypes = types;
+	            $scope.coupon.newCouponType = types[0];
+            });
 
 	        $scope.searchData = {
 		        term: "",
@@ -44,15 +52,22 @@ angular.module('bertha')
 
 	        $scope.toggleEditCoupon = function (coupon) {
 				coupon.newName = coupon.name;
-	        	coupon.newCode = coupon.code;
+				coupon.newCode = coupon.code;
+				coupon.newCouponType = coupon.couponType;
+		        coupon.newAmount = coupon.amount;
 	        	coupon.newStartDate = coupon.startDate;
 	        	coupon.newEndDate = coupon.endDate;
 		        coupon.isEditing = !coupon.isEditing;
 	        };
 
+	        $scope.toggleExpired = function() {
+	        };
+
 	        $scope.saveCoupon = function (coupon) {
 	        	coupon.name = coupon.newName;
 	        	coupon.code = coupon.newCode.toUpperCase();
+	        	coupon.couponType = coupon.newCouponType;
+		        coupon.amount = coupon.newAmount;
 	        	coupon.startDate = coupon.newStartDate;
 	        	coupon.endDate = coupon.newEndDate;
 

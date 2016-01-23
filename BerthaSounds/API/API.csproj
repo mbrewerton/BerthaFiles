@@ -144,6 +144,30 @@
     <Compile Include="Migrations\201510020721459_UserProfile.Designer.cs">
       <DependentUpon>201510020721459_UserProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510130725388_AddDescriptionToCouponTypes.cs" />
+    <Compile Include="Migrations\201510130725388_AddDescriptionToCouponTypes.Designer.cs">
+      <DependentUpon>201510130725388_AddDescriptionToCouponTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510130726189_PopulateCouponTypes.cs" />
+    <Compile Include="Migrations\201510130726189_PopulateCouponTypes.Designer.cs">
+      <DependentUpon>201510130726189_PopulateCouponTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510130732068_ChangeCouponTypeIdOnCoupon.cs" />
+    <Compile Include="Migrations\201510130732068_ChangeCouponTypeIdOnCoupon.Designer.cs">
+      <DependentUpon>201510130732068_ChangeCouponTypeIdOnCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510140728272_AddAmountToCoupon.cs" />
+    <Compile Include="Migrations\201510140728272_AddAmountToCoupon.Designer.cs">
+      <DependentUpon>201510140728272_AddAmountToCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601041757391_AddAdminRole.cs" />
+    <Compile Include="Migrations\201601041757391_AddAdminRole.Designer.cs">
+      <DependentUpon>201601041757391_AddAdminRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601050819161_AddBrettToAdminRole.cs" />
+    <Compile Include="Migrations\201601050819161_AddBrettToAdminRole.Designer.cs">
+      <DependentUpon>201601050819161_AddBrettToAdminRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DbContexts\BerthaContext.cs">
       <SubType>Code</SubType>
@@ -221,6 +245,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510020721459_UserProfile.resx">
       <DependentUpon>201510020721459_UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510130725388_AddDescriptionToCouponTypes.resx">
+      <DependentUpon>201510130725388_AddDescriptionToCouponTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510130726189_PopulateCouponTypes.resx">
+      <DependentUpon>201510130726189_PopulateCouponTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510130732068_ChangeCouponTypeIdOnCoupon.resx">
+      <DependentUpon>201510130732068_ChangeCouponTypeIdOnCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510140728272_AddAmountToCoupon.resx">
+      <DependentUpon>201510140728272_AddAmountToCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601041757391_AddAdminRole.resx">
+      <DependentUpon>201601041757391_AddAdminRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601050819161_AddBrettToAdminRole.resx">
+      <DependentUpon>201601050819161_AddBrettToAdminRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

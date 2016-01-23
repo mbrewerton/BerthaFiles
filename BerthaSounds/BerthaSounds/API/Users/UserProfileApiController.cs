@@ -38,7 +38,7 @@ namespace BerthaSounds.API.Users
 				_profileService.UpdateUserProfile(profile);
 				return Request.CreateResponse(HttpStatusCode.OK);
 			}
-			catch (InvalidActionException exception)
+			catch (DuplicateItemException exception)
 			{
 				return Request.CreateResponse(HttpStatusCode.BadRequest, exception);
 			}

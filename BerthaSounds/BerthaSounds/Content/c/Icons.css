@@ -2,6 +2,8 @@
 /* #region Colours */
 /*$color-green: #14c327;*/
 /* #endregion */
+/* #region Widths */
+/* #endregion */
 /* #region Misc */
 /* #endregion */
 /* #region Selectors */
@@ -29,7 +31,7 @@
 .fa-check {
   color: #18AB28; }
 
-.fa-plus, .fa-edit {
+.fa-plus, .fa-edit, .fa-info, .fa-info-circle {
   color: #3ca1df; }
 
 /*# sourceMappingURL=Icons.css.map */

@@ -112,6 +112,16 @@ angular.module('bertha')
                 }
             };
 
+            $scope.myfunc = function (category, sound) {
+                var categoryToDelete = _.find(sound.categories, { id: category.id });
+                if (categoryToDelete) {
+                    soundService.removeCategoryFromSound(sound.id, category.id, function () {
+                        sound.categories.pop(categoryToDelete);
+                        toastService.throwDeleteSuccessToast(categoryToDelete.name);
+                    });
+                }
+            };
+
             $scope.init = function () {
 	            $scope.search();
 		        $scope.$watch("files", function () {

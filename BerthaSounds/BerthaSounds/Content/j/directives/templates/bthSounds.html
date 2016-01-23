@@ -1,8 +1,10 @@
-﻿<div ng-show="sounds" ng-repeat="sound in sounds">
-	<div class="sound-block">
-		<p>{{sound.name}} ({{sound.id}}) - <span ng-show="sound.price > 0">£{{sound.price}}</span><span ng-hide="sound.price > 0">FREE</span></p>
-		<p>{{sound.description}}</p>
-	</div>
+﻿<div bth-loading loading="!sounds">
+    <div ng-repeat="sound in sounds" class="sound-block">
+        <p>{{sound.name}} ({{sound.id}}) - <span ng-show="sound.price > 0">£{{sound.price}}</span><span ng-hide="sound.price > 0">FREE</span></p>
+        <p>{{sound.description}}</p>
+        <p>Categories: <span ng-repeat="category in sound.categories"><a>{{category.name}}</a></span><span ng-if="!sound.categories.length">None.</span></p>
+        <p>Tags: <span ng-repeat="tag in sound.tags"><a>{{tag.name}}</a></span><span ng-if="!sound.tags.length">None.</span></p>
+    </div>
 </div>
 
-<p ng-show="!sounds || sounds.length === 0">Sorry, there are currently no sounds to display.</p>
+<p ng-if="sounds.length === 0">Sorry, there are currently no sounds to display.</p>

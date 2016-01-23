@@ -67,7 +67,7 @@ namespace API.Services
 
 		    var profiles = _profileRepository.GetAll();
 			if (profiles.SingleOrDefault(x => x.DisplayName.ToLower() == profile.DisplayName.ToLower() && x.Id != profile.Id) != null)
-				throw new InvalidActionException("A profile with that Display Name already exists.");
+				throw new DuplicateItemException("A profile with that Display Name already exists.");
 
 		    var oldProfile = profiles.Single(x => x.Id == profile.Id);
 
@@ -78,7 +78,6 @@ namespace API.Services
 			    return null;
 		    }
 
-			//oldProfile = Mapper.Map<UserProfileDto, UserProfile>(profile);
 		    oldProfile.FirstName = profile.FirstName;
 		    oldProfile.DisplayName = profile.DisplayName;
 		    oldProfile.LastName = profile.LastName;

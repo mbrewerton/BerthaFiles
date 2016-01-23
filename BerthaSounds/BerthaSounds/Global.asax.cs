@@ -48,7 +48,7 @@ namespace BerthaSounds
                     .Add("~/Content/j/common/angular-route.min.js")
                     .Add("~/Content/j/common/angular-resource.min.js")
                     .Add("~/Content/j/common/angular-animate.min.js")
-                    .Add("~/Content/j/common/bootstrap.min.js")
+					//.Add("~/Content/j/common/bootstrap.min.js")
                     .Add("~/Content/j/common/jquery.validate.min.js")
 					.Add("~/Content/j/common/ui-bootstrap-tpls-0.12.1.min.js")
 					.AddDirectory("~/Content/Offline/j")

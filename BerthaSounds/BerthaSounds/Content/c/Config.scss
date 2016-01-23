@@ -18,6 +18,14 @@ $color-dark-green: #13811f;
 $opacity-button-hover: 0.85;
 /* #endregion */
 
+/* #region Widths */
+$width-mobile: '(min-width: 320px) and (max-width: 480px)';
+$width-mobile-l: '(min-width: 480px) and (max-width: 768px)';
+$width-tablet: '(min-width: 768px) and (max-width: 1024px)';
+$width-tablet-l: '(min-width: 1024px) and (max-width: 1280px)';
+$width-desktop: '(min-width: 1280px)';
+/* #endregion */
+
 /* #region Misc */
 $border-radius: 5px;
 $border-color: $color-light-grey;
@@ -26,7 +34,7 @@ $padding-tooltip: 10px;
 /* #endregion */
 
 /* #region Selectors */
-$sel-input-boxes: 'input[type=text], input[type=coupon], input[type=date], input[type=search], input[type=password]';
+$sel-input-boxes: 'input[type=text], input[type=number], input[type=coupon], input[type=date], input[type=search], input[type=password], select';
 /* #endregion */
 
 /* #region Buttons and Inputs */

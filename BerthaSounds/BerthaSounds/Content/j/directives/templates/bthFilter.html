@@ -1,0 +1,11 @@
+﻿<bth-toggle-section tgl-heading="Filter:">
+    <div>
+        Filter by Category: <span ng-hide="filterRoot.categories.length > 0">None</span><lozenge ng-show="filterRoot.categories.length > 0" ng-repeat="category in filterRoot.categories" func="deleteCategoryFromFilter(category)">{{category.name}}</lozenge> <i class="fa fa-plus" ng-click="toggleAddNewCategoryFilter()"></i> <input ng-show="filterRoot.addNewCategory" type="text" typeahead="category as category.name for category in getCategories($viewValue)" ng-model-options="{ debounce: 300 }" ng-model="filterRoot.categoryToAdd" typeahead-on-select="addCategoryToFilter(filterRoot.categoryToAdd)" />
+    </div>
+    <div>
+        Filter by Tag: <span ng-hide="filterRoot.tags.length > 0">None</span><lozenge ng-show="filterRoot.tags.length > 0" ng-repeat="tag in filterRoot.tags" func="deleteTagFromFilter(tag)">{{tag.name}}</lozenge> <i class="fa fa-plus" ng-click="toggleAddNewTagFilter()"></i> <input ng-show="filterRoot.addNewTag" type="text" typeahead="tag as tag.name for tag in getTags($viewValue)" ng-model-options="{ debounce: 300 }" ng-model="filterRoot.tagToAdd" typeahead-on-select="addTagToFilter(filterRoot.tagToAdd)" />
+    </div>
+
+    <button>Apply Filter</button>
+    <button class="red" ng-click="resetFilter()">Remove Filter</button>
+</bth-toggle-section>

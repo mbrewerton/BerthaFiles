@@ -1,27 +1,15 @@
 ﻿<h1>My Profile</h1>
-<div ng-if="!editingProfile">
+<div>
 	<div class="form-item">
-		<label>Display Name:</label> {{profile.displayName}} <tooltip message="Your display name will be the name you want to be seen as throughout the website."></tooltip>
+		<label>Display Name:</label> <span ng-if="!editingProfile">{{profile.displayName}}</span><input ng-if="editingProfile" type="text" ng-model="newProfile.displayName" /> <tooltip message="Your display name will be the name that's publically displayed throughout the website."></tooltip>
 	</div>
 	<div class="form-item">
-		<label>First Name:</label> {{profile.firstName}} 
-	</div>
-	<div class="form-item">
-		<label>Last Name:</label> {{profile.lastName}}
-	</div>
-	<button ng-click="toggleEditProfile()">Edit Profile</button>
+		<label>First Name:</label> <span ng-if="!editingProfile">{{profile.firstName}}</span><input ng-if="editingProfile" type="text" ng-model="newProfile.firstName" />
 </div>
-
-<div ng-if="editingProfile">
 	<div class="form-item">
-		<label>Display Name:</label> <input type="text" ng-model="newProfile.displayName" />
-	</div>
-	<div class="form-item">
-		<label>First Name:</label> <input type="text" ng-model="newProfile.firstName" />
-	</div>
-	<div class="form-item">
-		<label>Last Name:</label> <input type="text" ng-model="newProfile.lastName" />
-	</div>
-	<button class="green" ng-click="saveProfile()">Save Changes</button>
-	<button class="red" ng-click="cancelEditing()">Cancel</button>
+		<label>Last Name:</label> <span ng-if="!editingProfile">{{profile.lastName}}</span><input ng-if="editingProfile" type="text" ng-model="newProfile.lastName" />
+</div>
+	<button ng-if="!editingProfile" ng-click="toggleEditProfile()">Edit Profile</button>
+	<button ng-if="editingProfile" class="green" ng-click="saveProfile()">Save Changes</button>
+	<button ng-if="editingProfile" class="red" ng-click="cancelEditing()">Cancel</button>
 </div>

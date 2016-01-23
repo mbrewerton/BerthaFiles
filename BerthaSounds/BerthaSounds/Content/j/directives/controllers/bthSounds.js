@@ -2,9 +2,17 @@
 
 angular.module("bertha")
 	.directive("bthSounds", function() {
-	var controller = [
-		"$scope", function($scope) {
-		}
+		var controller = [
+			"$scope",
+			function($scope) {
+				$scope.init = function () {
+					$scope.loading = true;
+					$scope.$watch("sounds", function(sounds) {
+						if (sounds != undefined)
+							$scope.loading = false;
+					});
+				}();
+			}
 	];
 
 	return {

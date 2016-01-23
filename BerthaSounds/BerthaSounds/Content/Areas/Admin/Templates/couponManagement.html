@@ -1,15 +1,25 @@
 ﻿<div class="block-first">
-	<label>Friendly Coupon Name:</label><input type="text" placeholder="ex. 10pc Off" ng-model="coupon.newName" /><br />
-	<label>Coupon Code:</label><input type="coupon" style="text-transform: uppercase" placeholder="ex. COUPON10PC" maxlength="10" ng-model="coupon.newCode"/>
-	<label>Coupon Type:</label><select></select>
-	<button ng-click="generateCoupon()">Generate Random Code</button><br />
-	<label>Start Date:</label><input type="date" placeholder="ex. dd/mm/yyyy" ng-model="coupon.newStartDate" />
-	<label>End Date:</label><input type="date" placeholder="ex. dd/mm/yyyy" ng-model="coupon.newEndDate" />
-	<button ng-click="saveCoupon(coupon)">Add Coupon</button>
+	<div class="form-group">
+		<label>Friendly Coupon Name:</label><input type="text" placeholder="ex. 10pc Off" ng-model="coupon.newName" />
+	</div>
+	<div class="form-group">
+		<label>Coupon Code:</label><input type="coupon" style="text-transform: uppercase" placeholder="ex. COUPON10PC" maxlength="10" ng-model="coupon.newCode" />
+		<button ng-click="generateCoupon()">Generate Random Code</button>
+	</div>
+	<div class="form-group">
+		<label>Coupon Amount:</label><input type="number" placeholder="ex. 10" ng-model="coupon.newAmount" />
+	</div>
+	<div class="form-group">
+		<label>Start Date:</label><input type="date" placeholder="ex. dd/mm/yyyy" ng-model="coupon.newStartDate"/>
+		<label>End Date:</label><input type="date" placeholder="ex. dd/mm/yyyy" ng-model="coupon.newEndDate"/>
+	</div>
+	<div class="form-group">
+		<button ng-click="saveCoupon(coupon)">Add Coupon</button>
+	</div>
 	<h3>Active Coupons:</h3>
 	<label>Search Coupons:</label><input type="search" ng-model="searchData.term" ng-change="search()" ng-model-options="{ debounce: 300 }" />
-	<label for="toggleGetExpired">Show Expired?</label>
-	<input type="checkbox" ng-model="searchData.expired" ng-change="search()" id="toggleGetExpired" />
+	<!--<label for="toggleGetExpired">Show Expired?</label>
+	<input type="checkbox" ng-model="searchData.expired" ng-change="toggleExpired()" id="toggleGetExpired" />-->
 	<table>
 		<thead>
 			<tr>
@@ -24,10 +34,10 @@
 			<tr ng-if="coupons.length === 0"><td colspan="6">No coupons were found.</td></tr>
 			<tr ng-repeat="coupon in coupons | orderBy: sortField:sortReverse">
 				<!--<td ng-class="{ 'red': coupon.expired }">{{coupon.id}}</td>
-		<td ng-class="{ 'red': coupon.expired }"><span ng-show="!coupon.isEditing">{{coupon.name}}</span><input ng-show="coupon.isEditing" ng-model="coupon.newName" /></td>
-		<td ng-class="{ 'red': coupon.expired }"><span ng-show="!coupon.isEditing">{{coupon.code}}</span><input type="coupon" maxlength="10" ng-show="coupon.isEditing" ng-model="coupon.newCode" /></td>
-		<td ng-class="{ 'red': coupon.expired }"><span ng-show="!coupon.isEditing">{{coupon.startDate | moment: 'DD/MM/YYYY'}}</span><input ng-show="coupon.isEditing" ng-model="coupon.newStartDate" /></td>
-		<td ng-class="{ 'red': coupon.expired }"><span ng-show="!coupon.isEditing">{{coupon.endDate | moment: 'DD/MM/YYYY'}}</span><input ng-show="coupon.isEditing" ng-model="coupon.newEndDate" /></td>-->
+				<td ng-class="{ 'red': coupon.expired }"><span ng-show="!coupon.isEditing">{{coupon.name}}</span><input ng-show="coupon.isEditing" ng-model="coupon.newName"/></td>
+				<td ng-class="{ 'red': coupon.expired }"><span ng-show="!coupon.isEditing">{{coupon.code}}</span><input type="coupon" maxlength="10" ng-show="coupon.isEditing" ng-model="coupon.newCode"/></td>
+				<td ng-class="{ 'red': coupon.expired }"><span ng-show="!coupon.isEditing">{{coupon.startDate | moment: 'DD/MM/YYYY'}}</span><input ng-show="coupon.isEditing" ng-model="coupon.newStartDate"/></td>
+				<td ng-class="{ 'red': coupon.expired }"><span ng-show="!coupon.isEditing">{{coupon.endDate | moment: 'DD/MM/YYYY'}}</span><input ng-show="coupon.isEditing" ng-model="coupon.newEndDate"/></td>-->
 				<!--<td ng-class="{ 'red': coupon.expired }"><i ng-click="saveCoupon(coupon, true)" ng-show="coupon.isEditing" class="fa fa-check"></i><i ng-click="toggleEditCoupon(coupon)" class="fa" ng-class="{ 'fa-edit': !coupon.isEditing, 'fa-close': coupon.isEditing }"></i></td>-->
 				<td ng-class="{ 'red': coupon.expired }">{{coupon.id}}</td>
 				<td ng-class="{ 'red': coupon.expired }">{{coupon.name}}</td>
